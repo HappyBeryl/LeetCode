@@ -285,6 +285,28 @@ public class Main {
         System.out.println(a);
     }
 
+    /**
+     * 88.合并两个有序数组
+     从后往前比较，把较大的放在nums1的最后
+     当nums2没有比较完，直接加在最后（有序数组）
+     */
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m-1;
+        int j = n-1;
+        int last = nums1.length-1;
+        while(i >= 0 && j >=0) {
+            if(nums2[j] > nums1[i]) {
+                nums1[last--] = nums2[j--];
+            } else {
+                nums1[last--] = nums1[i--];
+            }
+        }
+
+        while(i < 0 && j >= 0) {
+            nums1[last--] = nums2[j--];
+        }
+    }
+
 
 
 
