@@ -279,7 +279,7 @@ public class Main {
         return count;
     }
 
-    public static void main(String[] args) {
+    public static void main58(String[] args) {
         String s = "a";
         int a = lengthOfLastWord1(s);
         System.out.println(a);
@@ -307,10 +307,108 @@ public class Main {
         }
     }
 
+    /**
+     * 回文数
+     */
+
+    public boolean isPalindrome(int x) {
+        String s = x + "";
+        int leftIndex = 0;
+        int rightIndex = s.length()-1;
+        while(leftIndex <= rightIndex) {
+            if(s.charAt(leftIndex++) != s.charAt(rightIndex--)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //法2：以上做法转化为字符串会消耗额外的空间，利用回文数的折叠相等，翻转后半部分
+    public boolean isPalindrome1(int x) {
+        //处理特殊情况
+        if(x < 0 || x%10 == 0 && x != 0) {
+            return false;
+        }
+        //翻转后半部分
+        int reverseNum = 0;
+        while(x > reverseNum) {
+            reverseNum = reverseNum*10 + x%10;
+            x = x/10;
+        }
+        //处理偶数位数字和奇数位数字
+        return reverseNum == x || reverseNum/10 == x;
+    }
+
+    /**
+     * 217.存在重复元素
+     */
+    public boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length-1; i++) {
+            if(nums[i] == nums[i+1]) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
+    public static boolean isLongPressedName1(String name, String typed) {
+        if(typed == null || typed.length() == 0) {
+            return false;
+        }
+        StringBuffer sb = new StringBuffer();
+        int i = 0;
+        while(i < typed.length()-1) {
+            if(typed.charAt(i) != typed.charAt(i+1)) {
+                sb.append(typed.charAt(i));
+                sb.append(typed.charAt(i+1));
+                i++;
+            } else {
+                while((typed.charAt(i)+"") == (typed.charAt(i+1)+"")) {
+                    i++;
+                }
+            }
+        }
+        if(typed.charAt(i) != typed.charAt(i-1)) {
+            sb.append(typed.charAt(i));
+        }
+        return sb.toString().equals(name);
+    }
 
+    public static boolean isLongPressedName(String name, String typed) {
+        int len_n = name.length();
+        int len_t = typed.length();
+        if(len_n>len_t){
+            return false;
+        }
+        int i=0;
+        int j=0;
+        while(i<len_n&&j<len_t){
+            if(name.charAt(i)==typed.charAt(j)){
+                i++;
+                j++;
+            }else if(j>0&&typed.charAt(j)==typed.charAt(j-1)){
+                j++;
+            }else{
+                return false;
+            }
+        }
+        return i ==len_n;
+    }
 
-
+    public static void main(String[] args) {
+        boolean bol = isLongPressedName("da","daad");
+        System.out.println(bol);
+    }
 
 }
+
+
+
+
+
+
+
+
+
