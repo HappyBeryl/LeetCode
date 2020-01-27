@@ -521,7 +521,118 @@ public class Main {
         System.out.println(s);
     }
 
+    /**
+     * 905.按奇偶排序数组
+     */
 
+    public static int[] sortArrayByParity(int[] A) {
+        int i = 0;
+        int j = A.length-1;
+        while(i < j) {
+            if(A[i]%2 != 0 && A[j]%2 == 0) {
+                int tmp = A[i];
+                A[i] = A[j];
+                A[j] = tmp;
+            }
+//            if(A[i]%2 == 0 && A[j]%2 != 0) {
+//                i++;
+//                j--;
+//            }
+//            if(A[i]%2 == 0 && A[j]%2 == 0) i++;
+//            if (A[i]%2 != 0 && A[j]%2 != 0) j--;
+            if(A[i]%2 == 0) i++;
+            if (A[i]%2 != 0) j--;
+        }
+        return  A;
+    }
+
+
+    public static void main905(String[] args) {
+        int[] array = new int[]{3,1,2,4};
+        int[] ret = sortArrayByParity(array);
+        System.out.println(Arrays.toString(ret));
+    }
+
+    /**
+     * 寻找数组的中心索引
+     */
+    //利用leftSum不断动态变换，并且两边相等可得leftSum = S - nums[i] - leftSum符合情况
+    public int pivotIndex(int[] nums) {
+        if(nums.length < 3) {
+            return -1;
+        }
+        int S = 0;
+        for(int i = 0; i < nums.length; i++) {
+            S += nums[i];
+        }
+        int leftSum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(S - nums[i] - leftSum == leftSum) {
+                return i;
+            }
+            leftSum += nums[i];
+        }
+        return -1;
+    }
+
+    /**
+     * 66.加1
+     */
+    //999为例
+    public int[] plusOne(int[] digits) {
+        for(int i = digits.length-1; i>= 0; i--) {
+            digits[i]++;
+            digits[i] %= 10;
+            if(digits[i]%10 !=0)
+                return digits;
+        }
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
+    /**
+     * 414.第三大的数
+     */
+
+
+    static int useSized = 0;
+    public static int[] keepOnly(int[] nums) {
+        int[] array = new int[nums.length];
+        Arrays.sort(nums);
+        int i = 0;
+        while (i < nums.length-1) {
+            if (nums[i] == nums[i+1]) {
+                while (nums[i] == nums[i+1]) {
+                    i++;
+                }
+                array[useSized++] = nums[i++];
+            } else {
+                    array[useSized++] = nums[i++];
+            }
+        }
+        if(nums[nums.length-1] != nums[nums.length-2]) {
+            array[useSized++] = nums[nums.length-1];
+        }
+        return array;
+    }
+
+    //先去掉重复元素，再进行排序
+    public static int thirdMax1(int[] nums) {
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        if (nums.length == 2) return nums[0] > nums[1] ?nums[0] : nums[1];
+        int[] array = keepOnly(nums);
+      //  Arrays.sort(array);
+        return array[useSized-3];
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{2,2,3,1,4};
+        int ret = thirdMax1(array);
+        System.out.println(ret);
+//        System.out.println(Arrays.toString(ret));
+    }
 
 
 
