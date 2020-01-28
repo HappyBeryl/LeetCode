@@ -627,12 +627,63 @@ public class Main {
         return array[useSized-3];
     }
 
-    public static void main(String[] args) {
+    public static void main414(String[] args) {
         int[] array = new int[]{2,2,3,1,4};
         int ret = thirdMax1(array);
         System.out.println(ret);
 //        System.out.println(Arrays.toString(ret));
     }
+
+    /**
+     * 两数之和
+     */
+    public int[] twoSum(int[] nums, int target) {
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = i+1; j < nums.length; j++) {
+                if(nums[i] + nums[j] == target) {
+                    return new int[]{i,j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+    /**
+     *67.二进制求和
+     */
+    public static String addBinary(String a, String b) {
+        //补齐0
+        while(a.length() < b.length()) {
+            a =  "0" + a;
+        }
+        while(b.length() < a.length()) {
+            b = "0" + b;
+        }
+
+        StringBuffer sb = new StringBuffer();
+        int count = 0; //进位
+        int i = a.length()-1;
+        int j = b.length()-1;
+        while(i >= 0 && j >= 0) {
+            int sum = count;
+            sum += (int)(a.charAt(i)) - 48;
+            sum += (int)(b.charAt(j)) - 48;
+            count = sum/2;
+            sum = sum%2; //和
+            sb.append(sum);
+            i--;
+            j--;
+        }
+        sb.append(count == 1 ? count : "");
+        return sb.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        String str = addBinary("11", "1");
+        System.out.println(str);
+    }
+
+
 
 
 
