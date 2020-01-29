@@ -678,10 +678,138 @@ public class Main {
         return sb.reverse().toString();
     }
 
-    public static void main(String[] args) {
+    public static void main67(String[] args) {
         String str = addBinary("11", "1");
         System.out.println(str);
     }
+
+
+    /**
+      8.字符串转换为整数
+      注意极限值的取值范围
+     "2147483646""2147483646"
+     */
+    public static int myAtoi(String str) {
+        //判断空格
+        if(str == null) {
+            return 0;
+        }
+        str = str.trim();
+        if(str.length() == 0) {
+            return 0;
+        }
+        //判断正负
+        int flg = 1;
+        int i = 0;
+        if(str.charAt(i) == '-') {
+            flg = -1;
+            i++;
+        }else if(str.charAt(i) == '+') {
+            i++;
+        }
+
+        //得到数字
+        int ret = 0;
+        for(; i < str.length(); i++) {
+            //处理其他非数字
+            if(str.charAt(i) < '0' || str.charAt(i) > '9') {
+                return ret*flg;
+            }
+            //处理极限值
+            if(flg == 1 && ret > Integer.MAX_VALUE/10 ||
+                    (flg == 1 && ret == Integer.MAX_VALUE/10 && str.charAt(i) > '7')) {
+                return Integer.MAX_VALUE;
+            }
+            if(flg == -1 && ret > Integer.MAX_VALUE/10 ||
+                    (flg == -1 && ret == Integer.MAX_VALUE/10 && str.charAt(i) > '7')) {
+                return Integer.MIN_VALUE;
+            } else {
+                ret = ret*10 + str.charAt(i) - '0';
+            }
+        }
+        return ret * flg;
+    }
+
+
+    public static void main8(String[] args) {
+        System.out.println(myAtoi("2147483648"));
+    }
+
+    /*
+    34.在排序数组查找元素的第一个和最后一个位置
+     */
+
+    public int[] searchRange(int[] nums, int target) {
+        int ret[] = new int[]{-1,-1};
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] == target) {
+                ret[0] = i;
+                break;
+            }
+        }
+
+        //没找到
+        if(ret[0] == -1) {
+            return ret;
+        }
+
+        for(int j = nums.length-1; j >= 0; j--) {
+            if(nums[j] == target) {
+                ret[1] = j;
+                break;
+            }
+        }
+        return ret;
+    }
+
+    /*
+    125.验证回文串
+     */
+    public boolean isPalindrome(String s) {
+        int i = 0;
+        int j = s.length() - 1;
+        while (i < j) {
+            while (i < j && !Character.isLetterOrDigit(s.charAt(i))) i++;
+            while (i < j && !Character.isLetterOrDigit(s.charAt(j))) j--;
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    /*
+    443.压缩字符串
+     */
+    public static String compress(char[] chars) {
+        StringBuffer sb = new StringBuffer();
+        char ch = chars[0];
+        int count = 1;
+        for(int i = 1; i < chars.length; i++) {
+            if(ch == chars[i]) {
+                count++;
+            } else {
+                if(count == 1) {
+                    sb.append(ch);
+                } else {
+                    sb.append(ch).append(count);
+                    ch = chars[i];
+                    count = 1;
+                }
+            }
+        }
+        sb.append(ch).append(count);
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        char[] charArray = new char[] {'a','a','b','b','c','c','c','d'};
+        String ret = compress(charArray);
+        System.out.println(ret);
+    }
+
 
 
 
