@@ -1,3 +1,5 @@
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -804,13 +806,67 @@ public class Main {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
+    public static void main443(String[] args) {
         char[] charArray = new char[] {'a','a','b','b','c','c','c','d'};
         String ret = compress(charArray);
         System.out.println(ret);
     }
 
+    /*
+    581.最短无序连续子数组 有趣儿
+     */
+    public static int findUnsortedSubarray(int[] nums) {
+        int[] array = Arrays.copyOf(nums,nums.length);
+        Arrays.sort(nums);
+        int p1 = 0;
+        int p2 = nums.length-1;
+        while(p1 < p2 && nums[p1] == array[p1]) p1++;
+        while(p1 < p2 && nums[p2] == array[p2]) p2--;
+        return p2-p1+1;
+    }
 
+    public static void main581(String[] args) {
+        int[] array = new int[]{2,6,4,8,10,9,15};
+        findUnsortedSubarray(array);
+    }
+
+    /*
+    150.逆波兰表达式求值
+    利用栈
+     */
+    public static int evalRPN(String[] tokens) {
+        Stack<Integer> stack = new Stack<>();
+        Integer num1 = 0;
+        Integer num2 = 0;
+        for(String s : tokens) {
+            switch (s) {
+                case "+" :
+                     num1 = stack.pop();
+                     num2 = stack.pop();
+                     stack.push(num2+num1);
+                     break;
+                case "-" :
+                    num1 = stack.pop();
+                    num2 = stack.pop();
+                    stack.push(num2-num1);
+                    break;
+                case "*" :
+                    num1 = stack.pop();
+                    num2 = stack.pop();
+                    stack.push(num2*num1);
+                    break;
+                case "/" :
+                    num1 = stack.pop();
+                    num2 = stack.pop();
+                    stack.push(num2/num1);
+                    break;
+                default:
+                    stack.push(Integer.valueOf(s));
+                    break;
+            }
+        }
+        return stack.pop();
+    }
 
 
 
