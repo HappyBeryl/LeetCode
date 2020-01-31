@@ -867,7 +867,34 @@ public class Main {
         }
         return stack.pop();
     }
-    
+
+    /*
+    78.子集 双层List嵌套
+     */
+        public static List<List<Integer>> subsets ( int[] nums){
+            if (nums == null || nums.length < 1) {
+                return null;
+            }
+            List<List<Integer>> ret = new ArrayList<>();
+            ret.add(new ArrayList());
+            for (int i = 0; i < nums.length; i++) {
+                int size = ret.size();
+                for (int j = 0; j < size; j++) {
+                    List<Integer> tmp = new ArrayList<>(ret.get(j));
+                    tmp.add(nums[i]);
+                    ret.add(tmp);
+                }
+            }
+            return ret;
+        }
+
+    public static void main78(String[] args) {
+        subsets(new int[]{1,2,3});
+    }
+
+    /*
+
+     */
 
 
 
