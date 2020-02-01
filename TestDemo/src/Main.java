@@ -893,8 +893,20 @@ public class Main {
     }
 
     /*
-
+        1304.和为0的N个唯一整数
      */
+
+    public int[] sumZero(int n) {
+        int[] array = new int[n];
+        int index = 0;
+        for(int i = 1; i <= n/2; i++) {
+            array[index++] = i;
+            array[index++] = -i;
+        }
+        return array;
+    }
+
+    
 
 
 
