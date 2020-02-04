@@ -906,8 +906,151 @@ public class Main {
         return array;
     }
 
-    
 
+    /*
+    杨辉三角
+     */
+
+    public static List<List<Integer>> generate1(int numRows) {
+        List<List<Integer>> tri = new ArrayList<>();
+        if (numRows == 0) {
+            return tri;
+        }
+        tri.add(new ArrayList<>());
+        tri.get(0).add(1); //第一行
+
+        for (int i = 1; i <numRows; i++) {
+            List<Integer> curRow = new ArrayList<>();
+            curRow.add(1);
+            List<Integer> prevRow = tri.get(i-1);
+            for(int j = 1; j < i; j++) {
+                int tmp = prevRow.get(j-1) + prevRow.get(j);
+                curRow.add(tmp);
+            }
+            curRow.add(1);
+            tri.add(curRow);
+        }
+        return tri;
+    }
+
+    /*
+    383.赎金信
+     */
+
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] buckets = new int[26];
+        for(int i = 0; i < magazine.length(); i++) {
+            buckets[magazine.charAt(i) - 'a']++;
+        }
+        for(int i = 0; i < ransomNote.length(); i++) {
+            if(--buckets[ransomNote.charAt(i) - 'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /*
+    844. 比较含退格的字符串
+     */
+    public boolean backspaceCompare(String S, String T) {
+        if(S == null || T == null) {
+            return false;
+        }
+        return backspaceCompareChild(S).equals(backspaceCompareChild(T));
+    }
+
+    public String backspaceCompareChild(String S){
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < S.length(); i++) {
+            char ch = S.charAt(i);
+            if(ch != '#') {
+                stack.push(ch);
+            } else if(!stack.isEmpty()) {
+                stack.pop();
+            }
+        }
+        return String.valueOf(stack);
+    }
+
+    /*
+    682. 棒球比赛
+     */
+    //用栈
+    public int calPoints(String[] ops) {
+        Stack<Integer> stack = new Stack<>();
+        for(String s : ops) {
+            if(s.equals("+")) {
+                int top1 = stack.pop();
+                int top = top1 + stack.peek();
+                stack.push(top1);
+                stack.push(top);
+            } else if(s.equals("C")){
+                stack.pop();
+            } else if(s.equals("D")) {
+                int top = stack.peek();
+                stack.push(top*2);
+            } else {
+                stack.push(Integer.valueOf(s));
+            }
+        }
+        int score = 0;
+        for(int num : stack) {
+            score += num;
+        }
+
+        return score;
+    }
+
+    /*
+    栈的压入弹出序列:辅助栈，把pushA的元素压入栈中，如果栈顶元素和popA
+     */
+    public static boolean IsPopOrder(int [] pushA,int [] popA) {
+      if (popA == null || pushA == null || popA.length == 0
+                || popA.length == 0 || pushA.length != popA.length)
+            return false;
+
+        Stack<Integer> stack = new Stack<>();
+        int index = 0;
+        for (int i = 0; i < pushA.length; i++) {
+            stack.push(pushA[i]);
+            while (!stack.empty() && stack.peek() == popA[index]) {
+                stack.pop();
+                index++;
+            }
+        }
+        return stack.empty();
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(IsPopOrder (new int[]{1,2,3,4,5},new int[]{4,5,3,2,1}));
+    }
+
+    /*
+    股票价格跨度
+    栈
+     */
+    class StockSpanner {
+        Stack<Integer> prices, num;
+
+    public StockSpanner() {
+            prices = new Stack();
+            num = new Stack();
+        }
+
+        public int next(int price) {
+            int n = 1;
+            while (!prices.isEmpty() && prices.peek() <= price) {
+                prices.pop();
+                n += num.pop();
+            }
+
+            prices.push(price);
+            num.push(n);
+            return n;
+        }
+    }
 
 
 
