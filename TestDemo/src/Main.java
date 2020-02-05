@@ -1052,6 +1052,28 @@ public class Main {
         }
     }
 
+    /*
+    933.最近的请求次数
+     */
+    class RecentCounter {
+        Queue<Integer> queue = new LinkedList<>();
+        public RecentCounter() {
+
+        }
+
+        public int ping(int t) {
+            while(!queue.isEmpty()) {
+                if(t-3000 > queue.peek()) {
+                    queue.poll();
+                } else {
+                    break;
+                }
+            }
+            queue.add(t);
+            return queue.size();
+        }
+    }
+
 
 
 
