@@ -1074,6 +1074,101 @@ public class Main {
         }
     }
 
+    /*
+    641.设计循环双端队列
+     */
+
+    class MyCircularDeque {
+        int[] elem;
+        int front;
+        int rear;
+        int UsedSize;
+        int cap;
+        //front指向队头
+        //rear指向队尾可以存放元素的位置
+        /** Initialize your data structure here. Set the size of the deque to be k. */
+        public MyCircularDeque(int k) {
+            cap = k+1;
+            elem = new int[cap];
+            front = 0;
+            rear = 0;
+            UsedSize = 0;
+        }
+
+        /** Adds an item at the front of Deque. Return true if the operation is successful. */
+        public boolean insertFront(int value) {
+            if(isFull()) {
+                return false;
+            }
+
+            front = (front - 1 + cap) % cap;
+            elem[front] = value;
+            UsedSize++;
+            return true;
+        }
+
+        /** Adds an item at the rear of Deque. Return true if the operation is successful. */
+        public boolean insertLast(int value) {
+            if(isFull()) {
+                return false;
+            }
+            elem[rear] = value;
+            rear = (rear + 1) % cap;
+            UsedSize++;
+            return true;
+        }
+
+        /** Deletes an item from the front of Deque. Return true if the operation is successful. */
+        public boolean deleteFront() {
+            if(isEmpty()) {
+                return false;
+            }
+            front = (front + 1) % cap;
+            UsedSize--;
+            return true;
+        }
+
+        /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
+        public boolean deleteLast() {
+            if(isEmpty()) {
+                return false;
+            }
+            rear = (rear - 1 + cap) % cap;
+            UsedSize--;
+            return true;
+        }
+
+        /** Get the front item from the deque. */
+        public int getFront() {
+            if(isEmpty()) {
+                return -1;
+            }
+
+            return elem[front];
+        }
+
+        /** Get the last item from the deque. */
+        public int getRear() {
+            if(isEmpty()) {
+                return -1;
+            }
+
+            return elem[(rear - 1 + cap) % cap];
+        }
+
+        /** Checks whether the circular deque is empty or not. */
+        public boolean isEmpty() {
+            return rear == front;
+        }
+
+        /** Checks whether the circular deque is full or not. */
+        public boolean isFull() {
+            return (rear+1)%cap == front;
+        }
+    }
+
+
+
 
 
 
