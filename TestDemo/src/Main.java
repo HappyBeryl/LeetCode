@@ -1162,10 +1162,11 @@ public class Main {
         }
 
         /** Checks whether the circular deque is full or not. */
-        public boolean isFull() {
+        public boolean isFull () {
             return (rear+1)%cap == front;
         }
     }
+
 
 
 
