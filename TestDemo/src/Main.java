@@ -1188,6 +1188,156 @@ public class Main {
         return sb.toString();
     }
 
+    /*
+    136.只出现一次的数字
+     */
+    public int singleNumber(int[] nums) {
+        int ret = 0;
+        for(int i = 0; i < nums.length; i++) {
+            ret ^= nums[i];
+        }
+        return ret;
+    }
+
+    public int singleNumber2(int[] nums) {
+        //选用set
+        Set<Integer> set = new HashSet<>();
+        //遍历数组，如果集合set中有该元素就删除
+        for(int i = 0; i < nums.length; i++) {
+            if(set.contains(nums[i])) {
+                set.remove(nums[i]);
+            } else {
+                set.add(nums[i]);
+            }
+        }
+        //遍历集合，集合中剩下的元素就是那个出现一次的元素
+        int ret = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(set.contains(nums[i])) {
+                ret = nums[i];
+                break;
+            }
+        }
+        return ret;
+    }
+
+    /*
+    复制带随机指针的链表
+     */
+
+    class Node {
+        int val;
+        Node next;
+        Node random;
+
+        public Node(int val) {
+            this.val = val;
+        }
+    }
+    Node head= null;
+    public Node copyRandomList(Node head) {
+        //new出cur节点
+        Map<Node, Node> map = new HashMap<>();
+        Node cur = head;
+        while(cur != null) {
+            Node node = new Node(cur.val);
+            map.put(cur, node);
+            cur = cur.next;
+        }
+
+        //创建对应关系
+        cur = head;
+        while(cur != null) {
+            map.get(cur).next = map.get(cur.next);
+            map.get(cur).random = map.get(cur.random);
+            cur = cur.next;
+        }
+        return map.get(head); //node 复制的头结点
+    }
+
+    /*
+    坏掉的键盘
+     */
+    public static void broken(String[] args) {
+        Scanner sn = new Scanner(System.in);
+        String str1 = sn.nextLine(); //理想的输入
+        String str2 = sn.nextLine(); //实际的输入
+        //实际输入的字符串
+        Set<Character> setAct = new HashSet<>();
+        for(Character ch : str2.toUpperCase().toCharArray()) {
+            setAct.add(ch);
+        }
+        //看实际输入是否包含理想输入，不包含就是换掉的键盘，只记录一次
+        Set<Character> setBroken = new HashSet<>();
+        for(Character ch1 : str1.toUpperCase().toCharArray()) {
+            if(!setAct.contains(ch1) && !setBroken.contains(ch1)) {
+                setBroken.add(ch1);
+                System.out.print(ch1);
+            }
+        }
+        System.out.println();
+    }
+
+    /*
+        692.前k个高频单词
+     */
+    public static List<String> topKFrequent(String[] words, int k) {
+        //1、遍历words数组，将单词和每个单词出现的次数进行一一对应
+        Map<String,Integer> map = new HashMap<>();
+
+        for (String s : words) {
+            //首先看当前字符串s,是否已经在map当中有对应关系
+            if(map.get(s) == null) {
+                map.put(s,1);
+            }else {
+                map.put(s,map.get(s)+1);
+            }
+        }
+
+        PriorityQueue<Map.Entry<String,Integer>> minHeap = new PriorityQueue<>
+                (k, new Comparator<Map.Entry<String, Integer>>() {
+                    @Override
+                    public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                        //在调整的时候，如果频率相同
+                        if(o1.getValue().equals(o2.getValue())) {
+                            //o2 > o1调整
+                            return o2.getKey().compareTo(o1.getKey());
+                        }
+                        return o1.getValue().compareTo(o2.getValue());//按照频率升序
+                    }
+                });
+
+        for (Map.Entry<String,Integer> entry : map.entrySet()) {
+            if(minHeap.size() < k) {
+                minHeap.add(entry);
+            }else {
+                Map.Entry<String,Integer> top = minHeap.peek();
+                //频率相同
+                if(top!=null && top.getValue().equals(entry.getValue())) {
+                    //字母小的入  bcdef         abcd
+                    if(top.getKey().compareTo(entry.getKey()) > 0) {
+                        minHeap.poll();
+                        minHeap.add(entry);
+                    }
+                }else {
+                    if(top != null && top.getValue() < entry.getValue()) {
+                        minHeap.poll();
+                        minHeap.add(entry);
+                    }
+                }
+            }
+        }
+
+        System.out.println(minHeap);
+        List<String> list = new ArrayList<>();
+        for(int i = 0;i < k;i++) {
+            String pop = minHeap.peek().getKey();
+            list.add(0,pop);
+            minHeap.poll();
+        }
+        return list;
+    }
+
 
 
 
