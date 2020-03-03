@@ -117,6 +117,20 @@ public class TestDemo {
     }
 
     /*
-    
+    数组中的逆序对
      */
+    public int count(int[] A, int n) {
+        int count = 0;
+        for (int i = 0; i < A.length; i++) {
+            for (int j = i; j < A.length-1-i; j++) {
+                if (A[j] > A[j+1]) {
+                    int tmp = A[j];
+                    A[j] = A[j+1];
+                    A[j+1] = tmp;
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }
