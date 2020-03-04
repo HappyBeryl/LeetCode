@@ -63,6 +63,31 @@ public class TestDemo {
         return findKthChild(a, 0, n-1, K);
     }
 
+    public static boolean isHuiwen(String s){
+        int i = 0; int j = s.length()-1;
+        while(i<j){
+            if(s.charAt(i)!=s.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }return true;
+    }
+    public static void main4(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        int count = 0;
+        for(int i = 0; i <= str1.length();i++){
+            StringBuilder sb = new StringBuilder(str1);
+            sb.insert(i, str2);
+            if(isHuiwen(sb.toString())){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
     /*
     汽水瓶子
      */
