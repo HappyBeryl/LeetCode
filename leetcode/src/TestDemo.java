@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.Stack;
+
+import static java.lang.Character.isDigit;
 
 public class TestDemo {
     /*
@@ -73,7 +76,7 @@ public class TestDemo {
             j--;
         }return true;
     }
-    public static void main4(String[] args) {
+    public static void main5(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str1 = sc.nextLine();
         String str2 = sc.nextLine();
@@ -133,7 +136,7 @@ public class TestDemo {
         return ret;
     }
 
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int n = sc.nextInt();
@@ -157,5 +160,67 @@ public class TestDemo {
             }
         }
         return count;
+    }
+
+    /*
+        字符串最长数字串
+     */
+    public static void main6(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        StringBuffer sb = new StringBuffer();
+        int count = 0;
+        int max = 0;
+        for(int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if(isDigit(ch)) {
+                if(max <= count) {
+                    sb.append(str.charAt(i));
+                    count++;
+                    max = count;
+                }
+            } else {
+                count = 0;
+            }
+        }
+        System.out.println(sb.toString());
+    }
+
+    /*
+    合法括号序列判断
+     */
+
+    public static boolean chkParenthesis(String A, int n) {
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < n; i++) {
+            char ch = A.charAt(i);
+            if(ch != '(' && ch != ')') {
+                return false;
+            }
+            if(ch == '(') {
+                stack.push(ch);
+            } else {
+                if(stack.empty()) {
+                    //右括号多
+                    return false;
+                }
+                char top = stack.peek();
+                if(top == '(') {
+                    stack.pop();
+                } else {
+                    //右括号匹配错误
+                    return false;
+                }
+            }
+        }
+        if(!stack.empty()){
+            //左括号多
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println( chkParenthesis("(()())",6));
     }
 }
