@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -220,7 +222,45 @@ public class TestDemo {
         return true;
     }
 
-    public static void main(String[] args) {
+    public static void main7(String[] args) {
         System.out.println( chkParenthesis("(()())",6));
     }
+
+    /*
+    删除公共字符
+     */
+
+    public static void main8(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2  = sc.nextLine();
+        List<Character> list = new ArrayList();
+        for(int i = 0; i < str1.length(); i++) {
+            if(!str2.contains(str1.charAt(i)+"")) {
+                list.add(str1.charAt(i));
+            }
+        }
+        System.out.println(list.toString());
+    }
+
+    /*
+    买苹果
+     */
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            if(n % 8 == 0) {
+                System.out.println(n/8);
+            } else if((n%8) % 2 == 0 && n != 10) {
+                //n % 8可以等于1 2 3 4 5 6 7 %2= 0 的有 2 4 6
+                //如果是奇数 肯定不行
+                //如果是偶数，可以通过增加6的袋数，减少8的袋数进行每次减2
+                System.out.println(n/8 + 1);
+            } else {
+                System.out.println(-1);
+            }
+        }
+
+
 }
