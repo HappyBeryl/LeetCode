@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 import static java.lang.Character.isDigit;
 
@@ -247,7 +244,7 @@ public class TestDemo {
     买苹果
      */
 
-        public static void main(String[] args) {
+        public static void main9(String[] args) {
             Scanner sc = new Scanner(System.in);
             int n = sc.nextInt();
             if(n % 8 == 0) {
@@ -262,5 +259,83 @@ public class TestDemo {
             }
         }
 
+    public static void main10(String[] args){
+        Scanner scan = new Scanner(System.in);
+        String str1 = scan.nextLine();
+        String str2 = scan.nextLine();
+        char[] retStr = new char[str1.length()];
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < str2.length(); i++) {
+            set.add(str2.charAt(i));
+        }
+        int k = 0;
+        for (int i = 0; i < str1.length(); i++) {
+            if (!set.contains(str1.charAt(i))){
+                retStr[k++] = str1.charAt(i);
+            }
+        }
+        System.out.println(retStr);
+    }
+
+    /*
+    两个栈实现队列
+     */
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+
+    public void push(int node) {
+        stack1.push(node);
+    }
+
+    public int pop() {
+        if(empty()) {
+            return -1;
+        }
+        if(stack2.empty()) {
+            while (!stack1.empty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+        if(!stack2.empty()) {
+            return stack2.pop();
+        }
+        return -1;
+
+    }
+
+    public boolean empty() {
+        return stack1.empty() && stack2.empty();
+    }
+
+    /*
+    神奇的口袋
+     */
+
+        public static void main(String[] args) {
+            //处理输入！
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            int[] array = new int[n+1];
+            for(int i = 1; i <= n; i++) {
+                array[i] = sc.nextInt();
+            }
+            System.out.println(count(array, n, 40));
+        }
+
+        public static int count(int[] A, int i, int s) {
+            if(s == 0) {
+                return 1;
+            } else if(i == 1) {
+                if(A[i] == s) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            } else if(A[i] > s){
+                return count(A, i - 1, s);
+            } else {
+                return count(A, i - 1, s - A[i]) + count(A, i - 1, s);
+            }
+        }
 
 }
