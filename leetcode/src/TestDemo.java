@@ -311,7 +311,7 @@ public class TestDemo {
     神奇的口袋
      */
 
-        public static void main(String[] args) {
+        public static void main11(String[] args) {
             //处理输入！
             Scanner sc = new Scanner(System.in);
             int n = sc.nextInt();
@@ -337,5 +337,42 @@ public class TestDemo {
                 return count(A, i - 1, s - A[i]) + count(A, i - 1, s);
             }
         }
+
+    public static void main12(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        int A = (a+c)/2;
+        int B = (b+d) / 2;
+        int C = d - (b+d)/2;
+        if((a == A-B) && (b == B-C) && (c == A+B) && (d == B+C)) {
+            System.out.println(A + " " + B + " " + C);
+        } else {
+            System.out.println("No");
+        }
+    }
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            Map<Integer,Integer> map = new TreeMap<>();
+            String[] strs = sc.nextLine().split(" ");
+            for(int i=0;i<strs.length;i++){
+                int s = Integer.valueOf(strs[i]);
+                if(map.containsKey(s)){
+                    map.put(s,map.get(s)+1);
+                }else{
+                    map.put(s,1);
+                }
+            }
+            for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+                if(entry.getValue() >= strs.length/2){
+                    System.out.println(entry.getKey());
+                }
+            }
+        }
+    }
 
 }
