@@ -354,7 +354,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args){
+    public static void main13(String[] args){
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()){
             Map<Integer,Integer> map = new TreeMap<>();
@@ -375,4 +375,44 @@ public class TestDemo {
         }
     }
 
+    /*
+    最小公倍数
+     */
+    public static void main14(String[] args) {
+      //  Scanner sc = new Scanner(System.in);
+      //  int A = sc.nextInt();
+     //   int B = sc.nextInt();
+        int A = 5;
+        int B = 7;
+        int tmp = 0;
+        while(A % B != 0) {
+            tmp  = A % B;
+            A = B;
+            B = tmp;
+        }
+        //tmp求出来的最大公约数，两数相乘除以最大公约数就是最小公倍数
+        System.out.println(A * B / tmp);
+    }
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int w = sc.nextInt();
+            int h = sc.nextInt();
+            int sum = 0;
+            if(w % 4 == 0 || h % 4 == 0) {
+                sum = w * h >> 1;
+            }else if(w % 2 == 0 && h % 2 == 0) {
+                sum = (w * h >> 1) + 2;
+            }else {
+                sum = (w * h >> 1) + 1;
+            }
+            System.out.println(sum);
+        }
+
+
+
+
+
+
 }
+
