@@ -394,7 +394,7 @@ public class TestDemo {
         System.out.println(A * B / tmp);
     }
 
-        public static void main(String[] args) {
+        public static void main17(String[] args) {
             Scanner sc = new Scanner(System.in);
             int w = sc.nextInt();
             int h = sc.nextInt();
@@ -409,8 +409,66 @@ public class TestDemo {
             System.out.println(sum);
         }
 
+    public static void main15(String[] args)  {
+       // Scanner sc = new Scanner(System.in);
+        Queue<Integer> queue = new LinkedList<>();
+        //放数据到队列
+        int[] array = new int[]{0,1,2,3,4,5,6,7};
+        for (int i = 0; i < array.length; i++) {
+            queue.add(array[i]);
+        }
+        while(queue.size() > 1) {
+            int count = 2;
+            while(count != 0) {
+                queue.add(queue.poll());
+                count--;
+            }
+            queue.poll();
+        }
+        System.out.println(queue.poll());
+    }
 
+    public static void main16(String[] args) {
+   //     Scanner sc = new Scanner(System.in);
+        int[] array = new int[]{3, 9, 6, 8, -10, 7, -11, 19, 30, 12, 23, 5};
+        int i = array.length-1;
+//        while(sc.hasNext()) {
+//            int num = sc.nextInt();
+//            array[i++] =  num;
+//        }
+        int[] arrayTmp = new int[i];
+        System.arraycopy(array, 0, arrayTmp, 0, i);
+        Arrays.sort(arrayTmp);
+        for(int j = 0; j < array[i]; i++) {
+            if(j == array[i] - 1) {
+                System.out.println(arrayTmp[j]);
+            } else {
+                System.out.println(arrayTmp[j] + " ");
+            }
+        }
+    }
 
+    public static void main18(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String[] s = str.split(" ");
+        int[] array = new int[str.length()-1];
+        for(int i = 0; i < str.length()-1; i++) {
+            array[i] = Integer.valueOf(s[i]);
+        }
+        Arrays.sort(array);
+        int k = Integer.valueOf(s[s.length-1]);
+        for (int i = 0; i < k; i++) {
+            System.out.println(array[i] + " ");
+        }
+    }
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int input = sc.nextInt();
+            StringBuffer sb = new StringBuffer(input+"");
+            System.out.println(sb.reverse().toString());
+        }
 
 
 
