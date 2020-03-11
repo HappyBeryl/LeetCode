@@ -463,13 +463,25 @@ public class TestDemo {
         }
     }
 
-        public static void main(String[] args) {
+        public static void main19(String[] args) {
             Scanner sc = new Scanner(System.in);
             int input = sc.nextInt();
             StringBuffer sb = new StringBuffer(input+"");
             System.out.println(sb.reverse().toString());
         }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int prev = (n/4)*2 + (n%4 < 2 ? n%4 : 2);
+        int last = (n-2)/4 * 2 +((n-2) % 4 < 2 ? (n-2) % 4 : 2);
+        int ret = m/4 * (prev+last)*2;
+        if (m % 4 == 1)  ret += prev;
+        if (m % 4 == 2)  ret += prev;
+        if (m % 4 == 3) ret += last;
+        System.out.println(ret);
+    }
 
 
 }
