@@ -472,6 +472,7 @@ public class TestDemo {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int m = sc.nextInt();
         int n = sc.nextInt();
         int prev = (n/4)*2 + (n%4 < 2 ? n%4 : 2);
@@ -485,4 +486,7 @@ public class TestDemo {
 
 
 }
+
+
+
 
