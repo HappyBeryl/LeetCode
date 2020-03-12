@@ -483,6 +483,41 @@ public class TestDemo {
         if (m % 4 == 3) ret += last;
         System.out.println(ret);
     }
+    /*
+ 两数之和
+  */
+    //方法一暴力解法 显然是不可取的 时间复杂度O(n^2),空间复杂度O(1)
+    public static int[] twoSum(int[] nums, int target) {
+        int[] array = new int[2];
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = i+1; j < nums.length; j++) {
+                if(nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+    //哈希映射--为了达到查找方便的意图，可以使用哈希表存放值和对应下标 进行比较
+    //map.get()返回key对应的value
+    public static int[] twoSum1(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int numTmp = target - nums[i];
+            if (map.containsKey(numTmp)) {
+                return new int[]{map.get(numTmp), i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+    public static void main20(String[] args) {
+        int[] a = new int[]{2,7,11,15};
+        int[] ret = twoSum1(a, 9);
+        System.out.println(Arrays.toString(ret));
+    }
 
 
 }
