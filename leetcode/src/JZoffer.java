@@ -1,10 +1,7 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Main {
-    /*
-    1. 数组中重复的数字
-     */
-    //用set做，因为set中不能添加重复元素
+public class JZoffer {
     public int findRepeatNumber(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for(int i = 0; i < nums.length; i++) {
