@@ -470,7 +470,7 @@ public class TestDemo {
             System.out.println(sb.reverse().toString());
         }
 
-    public static void main(String[] args) {
+    public static void main21(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int m = sc.nextInt();
@@ -518,6 +518,26 @@ public class TestDemo {
         int[] ret = twoSum1(a, 9);
         System.out.println(Arrays.toString(ret));
     }
+
+    /*
+    个位数统计
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int[] array = new int[10];
+        for(int i = 0; i < str.length(); i++) {
+            array[str.charAt(i) - '0']++;
+        }
+        for(int j = 0; j < array.length; j++) {
+            if(array[j] != 0) {
+                System.out.println(j + ":" + array[j]);
+            }
+        }
+
+    }
+
+
 
 
 }
