@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 import static java.lang.Character.isDigit;
@@ -522,7 +523,7 @@ public class TestDemo {
     /*
     个位数统计
      */
-    public static void main(String[] args) {
+    public static void main22(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         int[] array = new int[10];
@@ -536,6 +537,44 @@ public class TestDemo {
         }
 
     }
+
+    public static void main23(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int col = sc.nextInt();
+        String c = sc.next();
+        int row = (col % 2 == 0) ? col / 2 : col /2 + 1;
+        //打印第一行
+        for(int i = 0; i < col; i++) {
+            System.out.print(c);
+        }
+        System.out.println();
+        //打印中间
+        for (int i = 0; i < row - 2; i++) {
+            System.out.print(c);
+            for (int j = 0; j < col - 2; j++) {
+                System.out.print(" ");
+            }
+            System.out.print(c);
+            System.out.println();
+        }
+        //打印最后一行
+        for(int i = 0; i < col; i++) {
+            System.out.print(c);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String addend = sc.next();
+            String augend = sc.next();
+            BigInteger num1 = new BigInteger(addend);
+            BigInteger num2 = new BigInteger(augend);
+            System.out.println(num1.add(num2));
+        }
+    }
+
 
 
 
