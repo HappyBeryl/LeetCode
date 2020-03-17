@@ -564,7 +564,7 @@ public class TestDemo {
 
     }
 
-    public static void main(String[] args) {
+    public static void main24(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             String addend = sc.next();
@@ -573,6 +573,84 @@ public class TestDemo {
             BigInteger num2 = new BigInteger(augend);
             System.out.println(num1.add(num2));
         }
+
+    }
+
+    public static void main25(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] array = new int[]{2, 2, 0, 0, 0, 3 ,0, 0, 1, 0};
+        int size = 0;
+   /*     while(sc.hasNext()) {
+            for(int i = 0; i < array.length; i++) {
+                array[i] = sc.nextInt();
+                size++;
+            }
+        }*/
+
+        Arrays.sort(array);
+        StringBuffer sb = new StringBuffer();
+        int count = 0;
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] == 0) {
+                count++;
+            }
+            if(array[i] != 0) {
+                sb.append(array[i]+"");
+                while(count != 0) {
+                    sb.append("0" + "");
+                    count--;
+                }
+            }
+
+        }
+        System.out.println(sb.toString());
+    }
+
+    public static void main26(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> list = new LinkedList();
+        while(sc.hasNext()) {
+            list.add(sc.nextInt());
+        }
+        Collections.sort(list);
+        StringBuffer sb = new StringBuffer();
+        int count = 0;
+        for(int i = 0; i < list.size(); i++) {
+            if(list.get(i)== 0) {
+                count++;
+            }
+            if(list.get(i) != 0) {
+                sb.append(list.get(i) + "");
+                while(count != 0) {
+                    sb.append("0" + "");
+                    count--;
+                }
+            }
+
+        }
+        System.out.println(sb.toString());
+    }
+
+    //找规律
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        sc.nextLine();
+        GetSequeOddNum(m);
+    }
+
+    public static void GetSequeOddNum(int m) {
+        StringBuffer sb = new StringBuffer();
+        int tmp = m * (m-1) + 1;
+        for(int i = 0; i < m; i++) {
+            if(i == m-1) {
+                sb.append(tmp);
+            } else {
+                sb.append(tmp + "+");
+            }
+            tmp += 2;
+        }
+        System.out.println(sb);
     }
 
 
@@ -580,6 +658,9 @@ public class TestDemo {
 
 
 }
+
+
+
 
 
 
