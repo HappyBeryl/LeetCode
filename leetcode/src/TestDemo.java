@@ -13,12 +13,12 @@ public class TestDemo {
         String str1 = sc.nextLine();
         String str2 = sc.nextLine();
         int count = 0;
-        for(int i = 0; i <= str1.length(); i++) {
+        for (int i = 0; i <= str1.length(); i++) {
             StringBuilder sb = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
             String s1 = sb.append(str1).insert(i, str2).toString();
             String s2 = sb2.append(str1).insert(i, str2).reverse().toString();
-            if(s1.equals(s2)) {
+            if (s1.equals(s2)) {
                 count++;
             }
         }
@@ -56,35 +56,38 @@ public class TestDemo {
     public int findKthChild(int[] array, int low, int high, int k) {
         int pivot = partion(array, low, high);
 
-        if(k == pivot-low+1) return array[pivot];
-        else if(k > pivot-low+1) return findKthChild(array, pivot+1, high, k-(pivot-low+1));
-        else return findKthChild(array, low, pivot-1, k);
+        if (k == pivot - low + 1) return array[pivot];
+        else if (k > pivot - low + 1) return findKthChild(array, pivot + 1, high, k - (pivot - low + 1));
+        else return findKthChild(array, low, pivot - 1, k);
     }
 
     public int findKth(int[] a, int n, int K) {
         // write code here
-        return findKthChild(a, 0, n-1, K);
+        return findKthChild(a, 0, n - 1, K);
     }
 
-    public static boolean isHuiwen(String s){
-        int i = 0; int j = s.length()-1;
-        while(i<j){
-            if(s.charAt(i)!=s.charAt(j)){
+    public static boolean isHuiwen(String s) {
+        int i = 0;
+        int j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
                 return false;
             }
             i++;
             j--;
-        }return true;
+        }
+        return true;
     }
+
     public static void main5(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str1 = sc.nextLine();
         String str2 = sc.nextLine();
         int count = 0;
-        for(int i = 0; i <= str1.length();i++){
+        for (int i = 0; i <= str1.length(); i++) {
             StringBuilder sb = new StringBuilder(str1);
             sb.insert(i, str2);
-            if(isHuiwen(sb.toString())){
+            if (isHuiwen(sb.toString())) {
                 count++;
             }
         }
@@ -132,7 +135,7 @@ public class TestDemo {
         if (n == 2) {
             return 1;
         }
-        int ret = n/3 + func(n /3 + n % 3);
+        int ret = n / 3 + func(n / 3 + n % 3);
         return ret;
     }
 
@@ -140,7 +143,7 @@ public class TestDemo {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int n = sc.nextInt();
-            System.out.println(n/2);
+            System.out.println(n / 2);
         }
     }
 
@@ -150,11 +153,11 @@ public class TestDemo {
     public int count(int[] A, int n) {
         int count = 0;
         for (int i = 0; i < A.length; i++) {
-            for (int j = i; j < A.length-1-i; j++) {
-                if (A[j] > A[j+1]) {
+            for (int j = i; j < A.length - 1 - i; j++) {
+                if (A[j] > A[j + 1]) {
                     int tmp = A[j];
-                    A[j] = A[j+1];
-                    A[j+1] = tmp;
+                    A[j] = A[j + 1];
+                    A[j + 1] = tmp;
                     count++;
                 }
             }
@@ -171,10 +174,10 @@ public class TestDemo {
         StringBuffer sb = new StringBuffer();
         int count = 0;
         int max = 0;
-        for(int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-            if(isDigit(ch)) {
-                if(max <= count) {
+            if (isDigit(ch)) {
+                if (max <= count) {
                     sb.append(str.charAt(i));
                     count++;
                     max = count;
@@ -192,20 +195,20 @@ public class TestDemo {
 
     public static boolean chkParenthesis(String A, int n) {
         Stack<Character> stack = new Stack<>();
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             char ch = A.charAt(i);
-            if(ch != '(' && ch != ')') {
+            if (ch != '(' && ch != ')') {
                 return false;
             }
-            if(ch == '(') {
+            if (ch == '(') {
                 stack.push(ch);
             } else {
-                if(stack.empty()) {
+                if (stack.empty()) {
                     //右括号多
                     return false;
                 }
                 char top = stack.peek();
-                if(top == '(') {
+                if (top == '(') {
                     stack.pop();
                 } else {
                     //右括号匹配错误
@@ -213,7 +216,7 @@ public class TestDemo {
                 }
             }
         }
-        if(!stack.empty()){
+        if (!stack.empty()) {
             //左括号多
             return false;
         }
@@ -221,7 +224,7 @@ public class TestDemo {
     }
 
     public static void main7(String[] args) {
-        System.out.println( chkParenthesis("(()())",6));
+        System.out.println(chkParenthesis("(()())", 6));
     }
 
     /*
@@ -231,10 +234,10 @@ public class TestDemo {
     public static void main8(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str1 = sc.nextLine();
-        String str2  = sc.nextLine();
+        String str2 = sc.nextLine();
         List<Character> list = new ArrayList();
-        for(int i = 0; i < str1.length(); i++) {
-            if(!str2.contains(str1.charAt(i)+"")) {
+        for (int i = 0; i < str1.length(); i++) {
+            if (!str2.contains(str1.charAt(i) + "")) {
                 list.add(str1.charAt(i));
             }
         }
@@ -245,22 +248,22 @@ public class TestDemo {
     买苹果
      */
 
-        public static void main9(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            if(n % 8 == 0) {
-                System.out.println(n/8);
-            } else if((n%8) % 2 == 0 && n != 10) {
-                //n % 8可以等于1 2 3 4 5 6 7 %2= 0 的有 2 4 6
-                //如果是奇数 肯定不行
-                //如果是偶数，可以通过增加6的袋数，减少8的袋数进行每次减2
-                System.out.println(n/8 + 1);
-            } else {
-                System.out.println(-1);
-            }
+    public static void main9(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n % 8 == 0) {
+            System.out.println(n / 8);
+        } else if ((n % 8) % 2 == 0 && n != 10) {
+            //n % 8可以等于1 2 3 4 5 6 7 %2= 0 的有 2 4 6
+            //如果是奇数 肯定不行
+            //如果是偶数，可以通过增加6的袋数，减少8的袋数进行每次减2
+            System.out.println(n / 8 + 1);
+        } else {
+            System.out.println(-1);
         }
+    }
 
-    public static void main10(String[] args){
+    public static void main10(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str1 = scan.nextLine();
         String str2 = scan.nextLine();
@@ -271,7 +274,7 @@ public class TestDemo {
         }
         int k = 0;
         for (int i = 0; i < str1.length(); i++) {
-            if (!set.contains(str1.charAt(i))){
+            if (!set.contains(str1.charAt(i))) {
                 retStr[k++] = str1.charAt(i);
             }
         }
@@ -289,15 +292,15 @@ public class TestDemo {
     }
 
     public int pop() {
-        if(empty()) {
+        if (empty()) {
             return -1;
         }
-        if(stack2.empty()) {
+        if (stack2.empty()) {
             while (!stack1.empty()) {
                 stack2.push(stack1.pop());
             }
         }
-        if(!stack2.empty()) {
+        if (!stack2.empty()) {
             return stack2.pop();
         }
         return -1;
@@ -312,32 +315,32 @@ public class TestDemo {
     神奇的口袋
      */
 
-        public static void main11(String[] args) {
-            //处理输入！
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            int[] array = new int[n+1];
-            for(int i = 1; i <= n; i++) {
-                array[i] = sc.nextInt();
-            }
-            System.out.println(count(array, n, 40));
+    public static void main11(String[] args) {
+        //处理输入！
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] array = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            array[i] = sc.nextInt();
         }
+        System.out.println(count(array, n, 40));
+    }
 
-        public static int count(int[] A, int i, int s) {
-            if(s == 0) {
+    public static int count(int[] A, int i, int s) {
+        if (s == 0) {
+            return 1;
+        } else if (i == 1) {
+            if (A[i] == s) {
                 return 1;
-            } else if(i == 1) {
-                if(A[i] == s) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            } else if(A[i] > s){
-                return count(A, i - 1, s);
             } else {
-                return count(A, i - 1, s - A[i]) + count(A, i - 1, s);
+                return 0;
             }
+        } else if (A[i] > s) {
+            return count(A, i - 1, s);
+        } else {
+            return count(A, i - 1, s - A[i]) + count(A, i - 1, s);
         }
+    }
 
     public static void main12(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -345,31 +348,31 @@ public class TestDemo {
         int b = sc.nextInt();
         int c = sc.nextInt();
         int d = sc.nextInt();
-        int A = (a+c)/2;
-        int B = (b+d) / 2;
-        int C = d - (b+d)/2;
-        if((a == A-B) && (b == B-C) && (c == A+B) && (d == B+C)) {
+        int A = (a + c) / 2;
+        int B = (b + d) / 2;
+        int C = d - (b + d) / 2;
+        if ((a == A - B) && (b == B - C) && (c == A + B) && (d == B + C)) {
             System.out.println(A + " " + B + " " + C);
         } else {
             System.out.println("No");
         }
     }
 
-    public static void main13(String[] args){
+    public static void main13(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()){
-            Map<Integer,Integer> map = new TreeMap<>();
+        while (sc.hasNext()) {
+            Map<Integer, Integer> map = new TreeMap<>();
             String[] strs = sc.nextLine().split(" ");
-            for(int i=0;i<strs.length;i++){
+            for (int i = 0; i < strs.length; i++) {
                 int s = Integer.valueOf(strs[i]);
-                if(map.containsKey(s)){
-                    map.put(s,map.get(s)+1);
-                }else{
-                    map.put(s,1);
+                if (map.containsKey(s)) {
+                    map.put(s, map.get(s) + 1);
+                } else {
+                    map.put(s, 1);
                 }
             }
-            for(Map.Entry<Integer,Integer> entry : map.entrySet()){
-                if(entry.getValue() >= strs.length/2){
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                if (entry.getValue() >= strs.length / 2) {
                     System.out.println(entry.getKey());
                 }
             }
@@ -380,14 +383,14 @@ public class TestDemo {
     最小公倍数
      */
     public static void main14(String[] args) {
-      //  Scanner sc = new Scanner(System.in);
-      //  int A = sc.nextInt();
-     //   int B = sc.nextInt();
+        //  Scanner sc = new Scanner(System.in);
+        //  int A = sc.nextInt();
+        //   int B = sc.nextInt();
         int A = 5;
         int B = 7;
         int tmp = 0;
-        while(A % B != 0) {
-            tmp  = A % B;
+        while (A % B != 0) {
+            tmp = A % B;
             A = B;
             B = tmp;
         }
@@ -395,32 +398,32 @@ public class TestDemo {
         System.out.println(A * B / tmp);
     }
 
-        public static void main17(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int w = sc.nextInt();
-            int h = sc.nextInt();
-            int sum = 0;
-            if(w % 4 == 0 || h % 4 == 0) {
-                sum = w * h >> 1;
-            }else if(w % 2 == 0 && h % 2 == 0) {
-                sum = (w * h >> 1) + 2;
-            }else {
-                sum = (w * h >> 1) + 1;
-            }
-            System.out.println(sum);
+    public static void main17(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int w = sc.nextInt();
+        int h = sc.nextInt();
+        int sum = 0;
+        if (w % 4 == 0 || h % 4 == 0) {
+            sum = w * h >> 1;
+        } else if (w % 2 == 0 && h % 2 == 0) {
+            sum = (w * h >> 1) + 2;
+        } else {
+            sum = (w * h >> 1) + 1;
         }
+        System.out.println(sum);
+    }
 
-    public static void main15(String[] args)  {
-       // Scanner sc = new Scanner(System.in);
+    public static void main15(String[] args) {
+        // Scanner sc = new Scanner(System.in);
         Queue<Integer> queue = new LinkedList<>();
         //放数据到队列
-        int[] array = new int[]{0,1,2,3,4,5,6,7};
+        int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
         for (int i = 0; i < array.length; i++) {
             queue.add(array[i]);
         }
-        while(queue.size() > 1) {
+        while (queue.size() > 1) {
             int count = 2;
-            while(count != 0) {
+            while (count != 0) {
                 queue.add(queue.poll());
                 count--;
             }
@@ -430,9 +433,9 @@ public class TestDemo {
     }
 
     public static void main16(String[] args) {
-   //     Scanner sc = new Scanner(System.in);
+        //     Scanner sc = new Scanner(System.in);
         int[] array = new int[]{3, 9, 6, 8, -10, 7, -11, 19, 30, 12, 23, 5};
-        int i = array.length-1;
+        int i = array.length - 1;
 //        while(sc.hasNext()) {
 //            int num = sc.nextInt();
 //            array[i++] =  num;
@@ -440,8 +443,8 @@ public class TestDemo {
         int[] arrayTmp = new int[i];
         System.arraycopy(array, 0, arrayTmp, 0, i);
         Arrays.sort(arrayTmp);
-        for(int j = 0; j < array[i]; i++) {
-            if(j == array[i] - 1) {
+        for (int j = 0; j < array[i]; i++) {
+            if (j == array[i] - 1) {
                 System.out.println(arrayTmp[j]);
             } else {
                 System.out.println(arrayTmp[j] + " ");
@@ -453,46 +456,47 @@ public class TestDemo {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         String[] s = str.split(" ");
-        int[] array = new int[str.length()-1];
-        for(int i = 0; i < str.length()-1; i++) {
+        int[] array = new int[str.length() - 1];
+        for (int i = 0; i < str.length() - 1; i++) {
             array[i] = Integer.valueOf(s[i]);
         }
         Arrays.sort(array);
-        int k = Integer.valueOf(s[s.length-1]);
+        int k = Integer.valueOf(s[s.length - 1]);
         for (int i = 0; i < k; i++) {
             System.out.println(array[i] + " ");
         }
     }
 
-        public static void main19(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int input = sc.nextInt();
-            StringBuffer sb = new StringBuffer(input+"");
-            System.out.println(sb.reverse().toString());
-        }
+    public static void main19(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+        StringBuffer sb = new StringBuffer(input + "");
+        System.out.println(sb.reverse().toString());
+    }
 
     public static void main21(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int m = sc.nextInt();
         int n = sc.nextInt();
-        int prev = (n/4)*2 + (n%4 < 2 ? n%4 : 2);
-        int last = (n-2)/4 * 2 +((n-2) % 4 < 2 ? (n-2) % 4 : 2);
-        int ret = m/4 * (prev+last)*2;
-        if (m % 4 == 1)  ret += prev;
-        if (m % 4 == 2)  ret += prev;
+        int prev = (n / 4) * 2 + (n % 4 < 2 ? n % 4 : 2);
+        int last = (n - 2) / 4 * 2 + ((n - 2) % 4 < 2 ? (n - 2) % 4 : 2);
+        int ret = m / 4 * (prev + last) * 2;
+        if (m % 4 == 1) ret += prev;
+        if (m % 4 == 2) ret += prev;
         if (m % 4 == 3) ret += last;
         System.out.println(ret);
     }
+
     /*
  两数之和
   */
     //方法一暴力解法 显然是不可取的 时间复杂度O(n^2),空间复杂度O(1)
     public static int[] twoSum(int[] nums, int target) {
         int[] array = new int[2];
-        for(int i = 0; i < nums.length; i++) {
-            for(int j = i+1; j < nums.length; j++) {
-                if(nums[i] + nums[j] == target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
                     return new int[]{i, j};
                 }
             }
@@ -515,7 +519,7 @@ public class TestDemo {
     }
 
     public static void main20(String[] args) {
-        int[] a = new int[]{2,7,11,15};
+        int[] a = new int[]{2, 7, 11, 15};
         int[] ret = twoSum1(a, 9);
         System.out.println(Arrays.toString(ret));
     }
@@ -527,11 +531,11 @@ public class TestDemo {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         int[] array = new int[10];
-        for(int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             array[str.charAt(i) - '0']++;
         }
-        for(int j = 0; j < array.length; j++) {
-            if(array[j] != 0) {
+        for (int j = 0; j < array.length; j++) {
+            if (array[j] != 0) {
                 System.out.println(j + ":" + array[j]);
             }
         }
@@ -542,9 +546,9 @@ public class TestDemo {
         Scanner sc = new Scanner(System.in);
         int col = sc.nextInt();
         String c = sc.next();
-        int row = (col % 2 == 0) ? col / 2 : col /2 + 1;
+        int row = (col % 2 == 0) ? col / 2 : col / 2 + 1;
         //打印第一行
-        for(int i = 0; i < col; i++) {
+        for (int i = 0; i < col; i++) {
             System.out.print(c);
         }
         System.out.println();
@@ -558,7 +562,7 @@ public class TestDemo {
             System.out.println();
         }
         //打印最后一行
-        for(int i = 0; i < col; i++) {
+        for (int i = 0; i < col; i++) {
             System.out.print(c);
         }
 
@@ -578,7 +582,7 @@ public class TestDemo {
 
     public static void main25(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] array = new int[]{2, 2, 0, 0, 0, 3 ,0, 0, 1, 0};
+        int[] array = new int[]{2, 2, 0, 0, 0, 3, 0, 0, 1, 0};
         int size = 0;
    /*     while(sc.hasNext()) {
             for(int i = 0; i < array.length; i++) {
@@ -590,13 +594,13 @@ public class TestDemo {
         Arrays.sort(array);
         StringBuffer sb = new StringBuffer();
         int count = 0;
-        for(int i = 0; i < array.length; i++) {
-            if(array[i] == 0) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 0) {
                 count++;
             }
-            if(array[i] != 0) {
-                sb.append(array[i]+"");
-                while(count != 0) {
+            if (array[i] != 0) {
+                sb.append(array[i] + "");
+                while (count != 0) {
                     sb.append("0" + "");
                     count--;
                 }
@@ -609,19 +613,19 @@ public class TestDemo {
     public static void main26(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Integer> list = new LinkedList();
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             list.add(sc.nextInt());
         }
         Collections.sort(list);
         StringBuffer sb = new StringBuffer();
         int count = 0;
-        for(int i = 0; i < list.size(); i++) {
-            if(list.get(i)== 0) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == 0) {
                 count++;
             }
-            if(list.get(i) != 0) {
+            if (list.get(i) != 0) {
                 sb.append(list.get(i) + "");
-                while(count != 0) {
+                while (count != 0) {
                     sb.append("0" + "");
                     count--;
                 }
@@ -641,9 +645,9 @@ public class TestDemo {
 
     public static void GetSequeOddNum(int m) {
         StringBuffer sb = new StringBuffer();
-        int tmp = m * (m-1) + 1;
-        for(int i = 0; i < m; i++) {
-            if(i == m-1) {
+        int tmp = m * (m - 1) + 1;
+        for (int i = 0; i < m; i++) {
+            if (i == m - 1) {
                 sb.append(tmp);
             } else {
                 sb.append(tmp + "+");
@@ -654,13 +658,7 @@ public class TestDemo {
     }
 
 
-
-
-
 }
-
-
-
 
 
 
