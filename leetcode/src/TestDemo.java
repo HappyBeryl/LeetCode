@@ -636,7 +636,7 @@ public class TestDemo {
     }
 
     //找规律
-    public static void main(String[] args) {
+    public static void main27(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
         sc.nextLine();
@@ -655,6 +655,32 @@ public class TestDemo {
             tmp += 2;
         }
         System.out.println(sb);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long x0 = sc.nextInt();
+        long x1 = 4 * x0 + 3;
+        long x2 = 4 * x1 + 3;
+        int count = 0;
+        if(func(x0, ++count) || func(x1, ++count) || func(x2, ++count)) {}
+        else System.out.println("-1");
+    }
+
+    public static boolean func(long x, int count) {
+        boolean result = false;
+        while(count < 100000) {
+            long tmp=8*x+7;
+            if(tmp % 1000000007==0){
+                result=true;
+                System.out.println(count);
+                break;
+            }else {
+                x=tmp % 1000000007;
+                count++;
+            }
+        }
+        return result;
     }
 
 
