@@ -657,7 +657,7 @@ public class TestDemo {
         System.out.println(sb);
     }
 
-    public static void main(String[] args) {
+    public static void main28(String[] args) {
         Scanner sc = new Scanner(System.in);
         long x0 = sc.nextInt();
         long x1 = 4 * x0 + 3;
@@ -682,6 +682,60 @@ public class TestDemo {
         }
         return result;
     }
+
+    public static void main29(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] array = new int[1000];
+        while(sc.hasNext()) {
+            int N = sc.nextInt();
+            for(int i = 0; i < N; i++) {
+                array[i] = sc.nextInt();
+            }
+            int score = sc.nextInt();
+            int count = 0;
+            for(int i = 0; i < N; i++) {
+                if(array[i] == score) {
+                    count++;
+                }
+            }
+            System.out.println(count);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int m = sc.nextInt();
+            while(m != 0) {
+                int n = sc.nextInt(); //一半数据的个数
+                int k = sc.nextInt(); //洗多少次牌
+                int[] array = new int[2*n];
+                //计算下标
+                for(int i = 0; i < 2 * n; i++) {
+                    int tmp = i;
+                    for(int j = 0; j < k; j++) {
+                        if(tmp < n) {
+                            tmp = 2 * tmp;
+                        } else {
+                            tmp = 2 * (tmp - n) + 1;
+                        }
+                    }
+                    array[tmp] = sc.nextInt();
+                }
+
+                //输出
+                for(int i = 0;i < 2*n;i++){
+                    if(i == 2*n-1){
+                        System.out.print(array[i]);
+                    }else {
+                        System.out.print(array[i]+" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+
 
 
 }
