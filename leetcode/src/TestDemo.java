@@ -757,6 +757,15 @@ public class TestDemo {
         System.out.println(str.substring(start, start + n));
     }
 
+    public boolean[] chkSubStr(String[] p, int n, String s) {
+        boolean[] ret = new boolean[p.length];
+        for(int i = 0; i < p.length; i++) {
+            if(s.contains(p[i])) {
+                ret[i] = true;
+            }
+        }
+        return ret;
+    }
 
 
 
