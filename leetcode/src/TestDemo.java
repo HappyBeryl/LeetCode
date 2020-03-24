@@ -767,6 +767,28 @@ public class TestDemo {
         return ret;
     }
 
+    public static int getValue(int[] gifts, int n) {
+        if(gifts.length <n) return 0;
+        if(gifts.length == 0) return 0;
+        int num = 0;
+        int count = 0;
+        for(int gift: gifts) {
+            if(count == 0) {
+                num = gift;
+            }
+            count += (num == gift) ? 1 : -1;
+        }
+        if(count > 0) {
+            return num;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{1,2,3,2,1};
+        System.out.println(getValue(array, 5));
+    }
+
 
 
 }
