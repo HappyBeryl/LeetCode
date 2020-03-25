@@ -784,11 +784,62 @@ public class TestDemo {
         return 0;
     }
 
-    public static void main(String[] args) {
+    public static void main32(String[] args) {
         int[] array = new int[]{1,2,3,2,1};
         System.out.println(getValue(array, 5));
     }
 
+    public static void main33(String[] args) {
+ //       Scanner sc = new Scanner(System.in);
+ //       int mon = sc.nextInt();
+        System.out.println(getTotalCount(9));
+    }
+
+    public static int getTotalCount(int mon) {
+        if(mon < 3) {
+            return 1;
+        }
+        return getTotalCount(mon-1) + getTotalCount(mon-2);
+    }
+
+        public static void main34(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()) {
+                int mon = sc.nextInt();
+                System.out.println(getTotalCount(mon));
+            }
+        }
+
+        public static int getTotalCount1(int mon) {
+            if(mon == 1 || mon == 2) {
+                return 1;
+            }
+            int a = 0; //一个月的兔子
+            int b = 1; //二个月的兔子
+            int c = 0; //三个月的兔子
+            for(int i = 2; i < mon; i++) { //从第三个月开始算
+                c += b; //成熟的可以生兔子的兔子
+                b = a; //一个月大的兔子变成了两个月大的兔子
+                a = c; //成熟的兔子生下的小兔子
+            }
+            return a + b + c;  //返回所有的兔子
+        }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            String str = sc.nextLine();
+            StringBuffer sb = new StringBuffer();
+            for(int i = 0; i <str.length(); i++) {
+                if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
+                    sb.append((char)((str.charAt(i) - 'A' + 21) % 26 + 'A'));
+                } else {
+                    sb.append(" ");
+                }
+            }
+            System.out.println(sb.toString());
+        }
+    }
 
 
 }
