@@ -825,7 +825,7 @@ public class TestDemo {
             return a + b + c;  //返回所有的兔子
         }
 
-    public static void main(String[] args) {
+    public static void main35(String[] args) {
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()) {
             String str = sc.nextLine();
@@ -838,6 +838,34 @@ public class TestDemo {
                 }
             }
             System.out.println(sb.toString());
+        }
+    }
+
+    public static void main36(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        List<Character> list = new ArrayList<>();
+        //用list保存 str1
+        for(int i = 0; i < str1.length(); i++) {
+            list.add(str1.charAt(i));
+        }
+
+        int count = 0;
+        for(int i = 0; i < str2.length(); i++) {
+            char ch = str2.charAt(i);
+            for(int j = 0; j < list.size(); j++) {
+                if(ch == list.get(j)) {
+                    list.remove(j);
+                    count++;
+                    break;
+                }
+            }
+        }
+        if(count == str2.length()) {
+            System.out.println("Yes" + " " + (count - str2.length()));
+        } else {
+            System.out.println("No" + " " + (str2.length() - count));
         }
     }
 
