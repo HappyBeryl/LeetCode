@@ -869,6 +869,73 @@ public class TestDemo {
         }
     }
 
+    public static void main37(String[] args) {
+        int sign1 = 0;
+        int sign2 = 0;
+        int A1 = 0;
+        int A2 = 0;
+        int A3 = 0;
+        float A4 = 0.0f;
+        int A5 = 0;
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        while(sc.hasNext()) {
+            int num = sc.nextInt();
+            switch(num % 5) {
+                case 0:
+                    A1 += (num % 2 == 0 ? num : 0);
+                    break;
+                case 1:
+                    A2 += (num * Math.pow(-1,sign1));
+                    sign1++;
+                    break;
+                case 2:
+                    A3++;
+                    break;
+                case 3:
+                    A4 += num;
+                    sign2++;
+                    break;
+                case 4:
+                    A5 = (A5 > num ? A5 : num);
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(A1 == 0) {
+            System.out.print("N" + " ");
+        } else {
+            System.out.print(A1 + " ");
+        }
+
+        if(A2 == 0) {
+            System.out.print("N" + " ");
+        } else {
+            System.out.print(A2 + " ");
+        }
+
+        if(A3 == 0) {
+            System.out.print("N" + " ");
+        } else {
+            System.out.print(A3 + " ");
+        }
+
+        if(A4 == 0) {
+            System.out.print("N" + " ");
+        } else {
+            System.out.printf("%.1f",A4/sign2);
+            System.out.print(" ");
+        }
+
+        if(A5 == 0) {
+            System.out.print("N");
+        } else {
+            System.out.print(A5);
+        }
+
+    }
+
 
 }
 
