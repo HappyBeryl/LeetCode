@@ -663,20 +663,20 @@ public class TestDemo {
         long x1 = 4 * x0 + 3;
         long x2 = 4 * x1 + 3;
         int count = 0;
-        if(func(x0, ++count) || func(x1, ++count) || func(x2, ++count)) {}
-        else System.out.println("-1");
+        if (func(x0, ++count) || func(x1, ++count) || func(x2, ++count)) {
+        } else System.out.println("-1");
     }
 
     public static boolean func(long x, int count) {
         boolean result = false;
-        while(count < 100000) {
-            long tmp=8*x+7;
-            if(tmp % 1000000007==0){
-                result=true;
+        while (count < 100000) {
+            long tmp = 8 * x + 7;
+            if (tmp % 1000000007 == 0) {
+                result = true;
                 System.out.println(count);
                 break;
-            }else {
-                x=tmp % 1000000007;
+            } else {
+                x = tmp % 1000000007;
                 count++;
             }
         }
@@ -686,15 +686,15 @@ public class TestDemo {
     public static void main29(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] array = new int[1000];
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int N = sc.nextInt();
-            for(int i = 0; i < N; i++) {
+            for (int i = 0; i < N; i++) {
                 array[i] = sc.nextInt();
             }
             int score = sc.nextInt();
             int count = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] == score) {
+            for (int i = 0; i < N; i++) {
+                if (array[i] == score) {
                     count++;
                 }
             }
@@ -704,17 +704,17 @@ public class TestDemo {
 
     public static void main30(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int m = sc.nextInt();
-            while(m != 0) {
+            while (m != 0) {
                 int n = sc.nextInt(); //一半数据的个数
                 int k = sc.nextInt(); //洗多少次牌
-                int[] array = new int[2*n];
+                int[] array = new int[2 * n];
                 //计算下标
-                for(int i = 0; i < 2 * n; i++) {
+                for (int i = 0; i < 2 * n; i++) {
                     int tmp = i;
-                    for(int j = 0; j < k; j++) {
-                        if(tmp < n) {
+                    for (int j = 0; j < k; j++) {
+                        if (tmp < n) {
                             tmp = 2 * tmp;
                         } else {
                             tmp = 2 * (tmp - n) + 1;
@@ -724,11 +724,11 @@ public class TestDemo {
                 }
 
                 //输出
-                for(int i = 0;i < 2*n;i++){
-                    if(i == 2*n-1){
+                for (int i = 0; i < 2 * n; i++) {
+                    if (i == 2 * n - 1) {
                         System.out.print(array[i]);
-                    }else {
-                        System.out.print(array[i]+" ");
+                    } else {
+                        System.out.print(array[i] + " ");
                     }
                 }
                 System.out.println();
@@ -742,14 +742,14 @@ public class TestDemo {
         int n = sc.nextInt();
         int max = 0;
         int start = 0;
-        for(int i = 0; i < str.length() - n; i++) {
+        for (int i = 0; i < str.length() - n; i++) {
             int count = 0;
-            for(int j = i; j < i + n; j++) {
-                if(str.charAt(j) == 'C' || str.charAt(j) == 'G') {
+            for (int j = i; j < i + n; j++) {
+                if (str.charAt(j) == 'C' || str.charAt(j) == 'G') {
                     count++;
                 }
             }
-            if(count > max) {
+            if (count > max) {
                 max = count;
                 start = i;
             }
@@ -759,8 +759,8 @@ public class TestDemo {
 
     public boolean[] chkSubStr(String[] p, int n, String s) {
         boolean[] ret = new boolean[p.length];
-        for(int i = 0; i < p.length; i++) {
-            if(s.contains(p[i])) {
+        for (int i = 0; i < p.length; i++) {
+            if (s.contains(p[i])) {
                 ret[i] = true;
             }
         }
@@ -768,71 +768,71 @@ public class TestDemo {
     }
 
     public static int getValue(int[] gifts, int n) {
-        if(gifts.length <n) return 0;
-        if(gifts.length == 0) return 0;
+        if (gifts.length < n) return 0;
+        if (gifts.length == 0) return 0;
         int num = 0;
         int count = 0;
-        for(int gift: gifts) {
-            if(count == 0) {
+        for (int gift : gifts) {
+            if (count == 0) {
                 num = gift;
             }
             count += (num == gift) ? 1 : -1;
         }
-        if(count > 0) {
+        if (count > 0) {
             return num;
         }
         return 0;
     }
 
     public static void main32(String[] args) {
-        int[] array = new int[]{1,2,3,2,1};
+        int[] array = new int[]{1, 2, 3, 2, 1};
         System.out.println(getValue(array, 5));
     }
 
     public static void main33(String[] args) {
- //       Scanner sc = new Scanner(System.in);
- //       int mon = sc.nextInt();
+        //       Scanner sc = new Scanner(System.in);
+        //       int mon = sc.nextInt();
         System.out.println(getTotalCount(9));
     }
 
     public static int getTotalCount(int mon) {
-        if(mon < 3) {
+        if (mon < 3) {
             return 1;
         }
-        return getTotalCount(mon-1) + getTotalCount(mon-2);
+        return getTotalCount(mon - 1) + getTotalCount(mon - 2);
     }
 
-        public static void main34(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            while(sc.hasNext()) {
-                int mon = sc.nextInt();
-                System.out.println(getTotalCount(mon));
-            }
+    public static void main34(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int mon = sc.nextInt();
+            System.out.println(getTotalCount(mon));
         }
+    }
 
-        public static int getTotalCount1(int mon) {
-            if(mon == 1 || mon == 2) {
-                return 1;
-            }
-            int a = 0; //一个月的兔子
-            int b = 1; //二个月的兔子
-            int c = 0; //三个月的兔子
-            for(int i = 2; i < mon; i++) { //从第三个月开始算
-                c += b; //成熟的可以生兔子的兔子
-                b = a; //一个月大的兔子变成了两个月大的兔子
-                a = c; //成熟的兔子生下的小兔子
-            }
-            return a + b + c;  //返回所有的兔子
+    public static int getTotalCount1(int mon) {
+        if (mon == 1 || mon == 2) {
+            return 1;
         }
+        int a = 0; //一个月的兔子
+        int b = 1; //二个月的兔子
+        int c = 0; //三个月的兔子
+        for (int i = 2; i < mon; i++) { //从第三个月开始算
+            c += b; //成熟的可以生兔子的兔子
+            b = a; //一个月大的兔子变成了两个月大的兔子
+            a = c; //成熟的兔子生下的小兔子
+        }
+        return a + b + c;  //返回所有的兔子
+    }
 
     public static void main35(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             String str = sc.nextLine();
             StringBuffer sb = new StringBuffer();
-            for(int i = 0; i <str.length(); i++) {
-                if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
-                    sb.append((char)((str.charAt(i) - 'A' + 21) % 26 + 'A'));
+            for (int i = 0; i < str.length(); i++) {
+                if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
+                    sb.append((char) ((str.charAt(i) - 'A' + 21) % 26 + 'A'));
                 } else {
                     sb.append(" ");
                 }
@@ -847,22 +847,22 @@ public class TestDemo {
         String str2 = sc.nextLine();
         List<Character> list = new ArrayList<>();
         //用list保存 str1
-        for(int i = 0; i < str1.length(); i++) {
+        for (int i = 0; i < str1.length(); i++) {
             list.add(str1.charAt(i));
         }
 
         int count = 0;
-        for(int i = 0; i < str2.length(); i++) {
+        for (int i = 0; i < str2.length(); i++) {
             char ch = str2.charAt(i);
-            for(int j = 0; j < list.size(); j++) {
-                if(ch == list.get(j)) {
+            for (int j = 0; j < list.size(); j++) {
+                if (ch == list.get(j)) {
                     list.remove(j);
                     count++;
                     break;
                 }
             }
         }
-        if(count == str2.length()) {
+        if (count == str2.length()) {
             System.out.println("Yes" + " " + (count - str2.length()));
         } else {
             System.out.println("No" + " " + (str2.length() - count));
@@ -879,14 +879,14 @@ public class TestDemo {
         int A5 = 0;
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int num = sc.nextInt();
-            switch(num % 5) {
+            switch (num % 5) {
                 case 0:
                     A1 += (num % 2 == 0 ? num : 0);
                     break;
                 case 1:
-                    A2 += (num * Math.pow(-1,sign1));
+                    A2 += (num * Math.pow(-1, sign1));
                     sign1++;
                     break;
                 case 2:
@@ -903,32 +903,32 @@ public class TestDemo {
                     break;
             }
         }
-        if(A1 == 0) {
+        if (A1 == 0) {
             System.out.print("N" + " ");
         } else {
             System.out.print(A1 + " ");
         }
 
-        if(A2 == 0) {
+        if (A2 == 0) {
             System.out.print("N" + " ");
         } else {
             System.out.print(A2 + " ");
         }
 
-        if(A3 == 0) {
+        if (A3 == 0) {
             System.out.print("N" + " ");
         } else {
             System.out.print(A3 + " ");
         }
 
-        if(A4 == 0) {
+        if (A4 == 0) {
             System.out.print("N" + " ");
         } else {
-            System.out.printf("%.1f",A4/sign2);
+            System.out.printf("%.1f", A4 / sign2);
             System.out.print(" ");
         }
 
-        if(A5 == 0) {
+        if (A5 == 0) {
             System.out.print("N");
         } else {
             System.out.print(A5);
@@ -936,6 +936,69 @@ public class TestDemo {
 
     }
 
+
+    public static void main38(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int N = sc.nextInt(); //学生的数量
+            int M = sc.nextInt(); //操作的数目
+            int[] array = new int[N];
+            for (int i = 0; i < N; i++) { //学生的成绩
+                array[i] = sc.nextInt();
+            }
+            for (int i = 0; i < M; i++) {
+                String ch = sc.next();
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                if (ch.equals("Q")) {
+                    //确保a比b小
+                    if (a > b) {
+                        int tmp = a;
+                        a = b;
+                        b = tmp;
+                    }
+                    //id从1开始的，而数组下标是从0开始的
+                    //而且还要包括a和b，所以下标范围是[a-1, b)
+                    int max = array[a - 1];
+                    for (int j = a; j < b; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                        }
+                    }
+                    System.out.println(max);
+                }
+                if (ch.equals("U")) {
+                    array[a - 1] = b;
+                }
+            }
+        }
+    }
+
+    public static void main39(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();
+            int a = sc.nextInt();
+            for(int i = 0; i < n; i++) {
+                int keep = sc.nextInt();
+                if(a >= keep) {
+                    a += keep;
+                } else {
+                    a += func(a, keep);
+                }
+            }
+            System.out.println(a);
+        }
+    }
+
+    public static int func(int a, int k) {
+        while(a % k != 0) {
+            int tmp = a % k;
+            a = k;
+            k = tmp;
+        }
+        return k;
+    }
 
 }
 
