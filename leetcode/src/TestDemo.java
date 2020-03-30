@@ -1000,7 +1000,44 @@ public class TestDemo {
         return k;
     }
 
-}
+    public static void main(String[] args) {
+     //   Scanner sc = new Scanner(System.in);
+    //    while(sc.hasNext()){
+            int count = 0;
+            float GPA = 0.0F;
+     //       int n = sc.nextInt();
+            int n = 5;
+            List<Integer> list = new ArrayList<>();
+            List<Integer> list1 = new ArrayList<>();
+//            for(int i = 0; i < n; i++) {
+//                list.add(4);
+//            }
+            list.add(4);
+            list.add(3);
+            list.add(4);
+            list.add(2);
+            list.add(3);
+            list1.add(91);
+            list1.add(88);
+            list1.add(72);
+            list1.add(69);
+            list1.add(56);
+//            for(int i = 0; i < n; i++) {
+//                int tmp = sc.nextInt();
+//                list1.add(tmp);
+//                count += tmp;
+//            }
+            count = 91 + 88 + 72 + 69 + 56;
+            for(int i = 0; i < n; i++) {
+                GPA += list.get(i)*list1.get(i);
+            }
+            System.out.printf("%.2f", GPA/count);
+        }
+
+
+
+    }
+
 
 
 
