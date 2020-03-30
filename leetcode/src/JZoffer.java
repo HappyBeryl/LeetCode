@@ -38,5 +38,27 @@ public class JZoffer {
         return false;
     }
 
+    /*
+    替换空格
+     */
+    public String replaceSpace(String s) {
+        //!!!别忘记判断特殊情况
+        if(s == null || s.length() < 0) {
+            return null;
+        }
+        char[] array = s.toCharArray();
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] == ' ') {
+                sb.append("%20");
+            } else {
+                sb.append(array[i] + "");
+            }
+        }
+        return sb.toString();
+    }
+
+
+
 
 }
