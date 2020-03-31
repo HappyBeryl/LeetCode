@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 public class JZoffer {
     /*
@@ -59,6 +60,28 @@ public class JZoffer {
     }
 
 
+    /*
+    从尾到头打印链表
+     */
+    static class ListNode {
+        ListNode next;
+        int val;
+
+    }
+    public int[] reversePrint(ListNode head) {
+        Stack<Integer> stack = new Stack<>();
+        ListNode cur = head;
+        while(cur != null) {
+            stack.push(cur.val);
+            cur = cur.next;
+        }
+        int len = stack.size();
+        int[] array = new int[len];
+        for(int i = 0; i < len; i++) {
+            array[i] = stack.pop();
+        }
+        return array;
+    }
 
 
 }
