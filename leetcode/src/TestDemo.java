@@ -1000,7 +1000,7 @@ public class TestDemo {
         return k;
     }
 
-    public static void main(String[] args) {
+    public static void main45(String[] args) {
      //   Scanner sc = new Scanner(System.in);
     //    while(sc.hasNext()){
             int count = 0;
@@ -1033,6 +1033,52 @@ public class TestDemo {
             }
             System.out.printf("%.2f", GPA/count);
         }
+
+    public static void main46(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();
+            int m = (int)Math.pow(n, 2);
+            int a = 0;
+            int b = 0;
+            while(n != 0) {
+                a += n % 10;
+                n /= 10;
+            }
+            while(m != 0) {
+                b += m % 10;
+                m /= 10;
+            }
+            System.out.println(a + " " + b);
+        }
+    }
+
+    public static void main47(String[] arags) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();
+            Map<String, Integer> map = new LinkedHashMap<>();
+            for(int i = 0; i < n; i++) {
+                map.put(sc.next(), 0);
+            }
+            int vote = sc.nextInt();
+            int invalid = 0;
+            for(int i = 0; i < vote; i++) {
+                String tmp = sc.next();
+                if(map.get(tmp) != null) {
+                    map.put(tmp, map.get(tmp) + 1);
+                } else {
+                    invalid++;
+                }
+            }
+
+            for(Map.Entry entry : map.entrySet()) {
+                System.out.println(entry.getKey()+" : "+entry.getValue());
+            }
+            System.out.println("Invalid : "+invalid);
+        }
+    }
+
 
 
 
