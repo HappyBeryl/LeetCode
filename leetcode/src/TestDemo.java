@@ -1079,10 +1079,93 @@ public class TestDemo {
         }
     }
 
+        public static void main48(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            int[] array = new int[200];
+            for(int i = 0; i < n; i++) {
+                array[i] = sc.nextInt();
+            }
+            int obj = sc.nextInt();
+            for(int i = 0; i < n; i++) {
+                if(array[i] == obj) {
+                    System.out.println(i);
+                    return;
+                }
+            }
+            System.out.println(-1);
+        }
 
-
-
+    public static void main49(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = (int)Math.pow(n, 2);
+        String tmp = m+"";
+        tmp = tmp.substring(1,tmp.length());
+        int k = Integer.parseInt(tmp);
+        if (n == k) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
     }
+
+    public static void main50(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            String str = sc.nextLine();
+            if(JudgeLength(str) && JudgeRepeat(str) && JudgeKinds(str)){
+                System.out.println("OK");
+            }
+            else{
+                System.out.println("NG");
+            }
+        }
+    }
+
+    private static boolean JudgeLength(String s) {
+        if(s.length() > 8) {
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean JudgeRepeat(String s) {
+        for(int i = 0; i < s.length()-2; i++) {
+            if(s.substring(i+1).contains(s.substring(i,i+3))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean JudgeKinds(String s) {
+        char[] array = s.toCharArray();
+        int a = 0, b = 0, c = 0, d = 0;
+        for(Character x : array) {
+            if(x >= 'a' && x <= 'z') {
+                a = 1;
+            } else if(x>='A' && x<='Z'){
+                b=1;
+            } else if(x>='0' && x<='9'){
+                c=1;
+            } else{
+                d=1;
+            }
+            if((a+b+c+d)>=3){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+
+}
 
 
 
