@@ -1224,6 +1224,38 @@ public class TestDemo {
             System.out.println(bag(arr,n,sum));
         }
 
+    public static void main53(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        BigInteger[] array = new BigInteger[n];
+        for(int i = 0; i < n; i++) {
+            array[i] = sc.nextBigInteger();
+        }
+        Arrays.sort(array);
+        for(int i = 0; i < n; i++) {
+            System.out.print(array[i]);
+        }
+    }
+
+    public static void main54(String[] args) {
+        Scanner  sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        char[] array = s.toCharArray();
+        for(char ch : array) {
+            String s1 = Integer.toBinaryString(ch); //转为二进制数
+            String s2 = String.format("%07d", Integer.parseInt(s1)); //把s1（十进制）设置格式为7位二进制数
+            int count = 0;
+            for(int i = 0; i < 7; i++) {
+                if(s2.charAt(i) == '1') {
+                    count++;
+                }
+            }
+            System.out.println(count % 2 == 0 ? "1" + s2 : "0" + s2); //1的个数为偶数个加0，为奇数个加1
+        }
+    }
+
+
+
 
 
 
