@@ -1254,7 +1254,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main55(String[] args) {
        // Scanner sc = new Scanner(System.in);
          //   String str = sc.nextLine();
          //   String[] array = str.split(" ");
@@ -1272,15 +1272,63 @@ public class TestDemo {
             }
     }
 
-
-
-
-
+    public static void main(String[] args) {
+        String fileName;
+        String key;
+        String str;
+        Map<String, Integer> map = new LinkedHashMap<>();
+        Scanner sc = new Scanner(System.in);
+        //放入数据
+            str = sc.next();
+            int id = str.lastIndexOf("\\");
+            fileName = id < 0 ? str : str.substring(id + 1);
+            int lineNum = sc.nextInt();
+            key = fileName + " " + lineNum;
+            if (map.containsKey(key)) {
+                map.put(key, map.get(key) + 1);
+            } else {
+                map.put(key, 1);
+        }
+        sc.close();
+        //进行排序
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(map.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return (o2.getValue() - o1.getValue()) == 0 ?
+                        (o1.getValue() - o2.getValue()) : (o2.getValue() - o1.getValue());
+            }
+        });
+        //只输出前八条16个字符
+        int m = 0;
+        for (Map.Entry<String, Integer> maps : list) {
+            m++;
+            if (m < 8) {
+                String[] arr = maps.getKey().split(" ");
+                String k = arr[0].length() > 16 ? arr[0].substring(arr[0].length() - 16) : arr[0];
+                String n = arr[1];
+                System.out.println(k + " " + n + " " + maps.getValue());
+            }
+        }
+    }
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
