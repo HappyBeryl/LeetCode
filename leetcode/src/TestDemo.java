@@ -1337,22 +1337,129 @@ public class TestDemo {
     }
 
     private static final int[] W = {17*29,29,1};
-    public static void main(String[] args) {
+    public static void main57(String[] args) {
         Scanner in = new Scanner(System.in);
         String[] p = in.next().split("\\.");
         String[] a = in.next().split("\\.");
-        int[] P = {Integer.parseInt(p[0]),Integer.parseInt(p[1]),Integer.parseInt(p[2])};
-        int[] A = {Integer.parseInt(a[0]),Integer.parseInt(a[1]),Integer.parseInt(a[2])};
-        int ta = A[0]*W[0]+A[1]*W[1]+A[2]*W[2];
-        int tp = P[0]*W[0]+P[1]*W[1]+P[2]*W[2];
-        int t = ta-tp;
-        if(ta<tp){
+        int[] P = {Integer.parseInt(p[0]), Integer.parseInt(p[1]), Integer.parseInt(p[2])};
+        int[] A = {Integer.parseInt(a[0]), Integer.parseInt(a[1]), Integer.parseInt(a[2])};
+        int ta = A[0] * W[0] + A[1] * W[1] + A[2] * W[2];
+        int tp = P[0] * W[0] + P[1] * W[1] + P[2] * W[2];
+        int t = ta - tp;
+        if (ta < tp) {
             System.out.print("-");
             t = -t;
         }
-        System.out.println(t/W[0]+"."+t%W[0]/W[1]+"."+t%W[0]%W[1]/W[2]);
-        
+        System.out.println(t / W[0] + "." + t % W[0] / W[1] + "." + t % W[0] % W[1] / W[2]);
+
     }
+
+    /*
+     一个台阶有1种跳法，两个台阶有2种跳法，三个台阶有3种跳法，四个台阶有5种跳法
+     */
+    public int countWays(int n) {
+        int[] array = new int[100000];
+        array[0] = 1;
+        array[1] = 2;
+        array[2] = 4;
+        for(int i = 3; i < n; i++) {
+            array[i] = ((array[i-1] + array[i-2]) % 1000000007 + array[i-3] ) % 1000000007;
+        }
+        return array[n-1];
+    }
+
+    public static void main58(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+
+        Model mA = new Model();
+        Model mB = new Model();
+
+        for (int i = 0; i < N; i++) {
+            String a = sc.next();
+            String b = sc.next();
+            judge(a, b, mA, mB);
+        }
+
+        System.out.println(mA.win + " " + mA.tie + " " + mA.lose);
+        System.out.println(mB.win + " " + mB.tie + " " + mB.lose);
+        System.out.println(getMostGen(mA.map) + " " + getMostGen(mB.map));
+    }
+
+    public static void judge(String a, String b, Model mA,
+                             Model mB) {
+        if (a.equals("C")) {
+            if (b.equals("C")) {
+                mA.tie++;
+                mB.tie++;
+            } else if (b.equals("J")) {
+                mA.win++;
+                mB.lose++;
+                mA.map.put("C", mA.map.get("C") + 1);
+            } else {
+                mA.lose++;
+                mB.win++;
+                mB.map.put("B", mA.map.get("B") + 1);
+            }
+        } else if (a.equals("J")) {
+            if (b.equals("C")) {
+                mA.lose++;
+                mB.win++;
+                mB.map.put("C", mA.map.get("C") + 1);
+            } else if (b.equals("J")) {
+                mA.tie++;
+                mB.tie++;
+            } else {
+                mA.win++;
+                mB.lose++;
+                mA.map.put("J", mA.map.get("J") + 1);
+            }
+        } else {
+            if (b.equals("C")) {
+                mA.win++;
+                mB.lose++;
+                mA.map.put("B", mA.map.get("B") + 1);
+            } else if (b.equals("J")) {
+                mA.lose++;
+                mB.win++;
+                mB.map.put("J", mA.map.get("J") + 1);
+            } else {
+                mA.tie++;
+                mB.tie++;
+            }
+        }
+    }
+
+    public static String getMostGen(Map<String, Integer> map) {
+        if (map.get("C") >= map.get("J")) {
+            if (map.get("C") > map.get("B")) {
+                return "C";
+            } else {
+                return "B";
+            }
+        } else {
+            if (map.get("J") > map.get("B")) {
+                return "J";
+            } else {
+                return "B";
+            }
+        }
+    }
+
+    static class Model {
+        int win;
+        int tie;
+        int lose;
+        Map<String, Integer> map;
+
+        Model() {
+            map = new HashMap<>();
+            map.put("B", 0);
+            map.put("C", 0);
+            map.put("J", 0);
+        }
+    }
+
 
 
 
