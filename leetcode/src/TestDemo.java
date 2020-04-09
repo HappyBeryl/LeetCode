@@ -1,6 +1,7 @@
 import java.math.BigInteger;
 import java.util.*;
 
+import static java.lang.Character.digit;
 import static java.lang.Character.isDigit;
 
 public class TestDemo {
@@ -1460,13 +1461,47 @@ public class TestDemo {
         }
     }
 
+    public static void main59(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine().toUpperCase();
+        String str2 = sc.nextLine().toUpperCase();
+        Set<Character> set = new HashSet<>();
+        for(int i = 0; i < str1.length(); i++) {
+            char ch = str1.charAt(i);
+            if(!(str2.contains(ch + ""))) {
+                set.add(ch);
+            }
+        }
+        System.out.println(set);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        float x0 = sc.nextFloat();
+        double y0 = sc.nextFloat();
+        double z0 = sc.nextFloat();
+        double x1 = sc.nextFloat();
+        double y1 = sc.nextFloat();
+        double z1 = sc.nextFloat();
+        System.out.printf("%.3f",getRadius(x0,y0,z0,x1,y1,z1));
+        System.out.print(" ");
+        System.out.printf("%.3f",getVolume(x0,y0,z0,x1,y1,z1));
+        System.out.println();
+    }
+
+    public static double getRadius(double x0, double y0, double z0, double x1, double y1, double z1) {
+        return Math.sqrt((x1-x0)*(x1-x0)+(y1-y0)*(y1-y0)+(z1-z0)*(z1-z0));
+    }
+    public static double getVolume(double x0, double y0, double z0, double x1, double y1, double z1) {
+        double ret =  4*Math.acos(-1)*Math.pow(getRadius(x0,y0,z0,x1,y1,z1), 3)/3;
+        return ret;
+    }
 
 
 
 
 
 
-    
 }
 
 
