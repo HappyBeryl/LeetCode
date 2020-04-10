@@ -1475,7 +1475,7 @@ public class TestDemo {
         System.out.println(set);
     }
 
-    public static void main(String[] args) {
+    public static void main60(String[] args) {
         Scanner sc = new Scanner(System.in);
         float x0 = sc.nextFloat();
         double y0 = sc.nextFloat();
@@ -1495,6 +1495,27 @@ public class TestDemo {
     public static double getVolume(double x0, double y0, double z0, double x1, double y1, double z1) {
         double ret =  4*Math.acos(-1)*Math.pow(getRadius(x0,y0,z0,x1,y1,z1), 3)/3;
         return ret;
+    }
+
+    public static void main61(String[] args) {
+        int a = 10 * 30;
+        int b = 0;
+        for(int i = 0; i < 30; i++) {
+            b += Math.pow(2, i);
+        }
+        System.out.println(a + " " + b);
+    }
+    public int calculateMax(int[] prices) {
+        int firstBuy = Integer.MIN_VALUE, firstSell = 0;
+        int secondBuy = Integer.MIN_VALUE, secondSell = 0;
+
+        for (int curPrice : prices) {
+            firstBuy = Math.max(firstBuy, -curPrice);
+            firstSell = Math.max(firstSell, firstBuy + curPrice);
+            secondBuy = Math.max(secondBuy,firstSell - curPrice);
+            secondSell = Math.max(secondSell, secondBuy + curPrice);
+        }
+        return secondSell;
     }
 
 
