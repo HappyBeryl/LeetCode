@@ -1518,6 +1518,48 @@ public class TestDemo {
         return secondSell;
     }
 
+    public static void main62(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        Map<Character, Integer> map = new TreeMap<>();
+        for(char i = 'A'; i <= 'Z'; i++) {
+            map.put(i, 0);
+        }
+        for(int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if(Character.isUpperCase(ch)) {
+                if(map.containsKey(ch)) {
+                    map.put(ch, map.get(ch) + 1);
+                } else {
+                    map.put(ch, 1);
+                }
+            }
+        }
+        for(Map.Entry<Character, Integer> entry:map.entrySet()){
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+    }
+
+    public static void main63(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            StringBuffer sb = new StringBuffer();
+            sb.append(sc.next());
+            String str = sb.reverse().substring(0,sb.length()-2);
+            char[] ch = str.toCharArray();
+            int sum = 0;
+            for(int i = 0; i < ch.length; i++) {
+                if(ch[i]>='A'&&ch[i]<='F'){
+                    sum+=(Integer.valueOf(ch[i])-55)*Math.pow(16,i);
+                }else {
+                    sum+=(Integer.valueOf(ch[i])-48)*Math.pow(16,i);
+                }
+            }
+            System.out.println(sum);
+        }
+    }
+
+
 
 
 
