@@ -1559,6 +1559,44 @@ public class TestDemo {
         }
     }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        List<Long> list  = new ArrayList<>();
+        for(int i = 0; i < n; i++) {
+            int type = sc.nextInt();
+            Long num = sc.nextLong();
+            if(type == 1) {
+                list.add(num);
+            } else {
+                list.remove(num);
+            }
+            if(func(list)) {
+                System.out.println("Yes");
+            } else {
+                System.out.println("No");
+            }
+        }
+    }
+
+    public static boolean func(List<Long> list) {
+        int size = list.size();
+        //判断是否任意len-1条边之和大于剩余一条边
+        for(int i = 0; i < size; i++) {
+            Long num = list.remove(i);
+            int sum = 0;
+            for(int j = 0; j < size - 1; j++) {
+                sum += list.get(j);
+            }
+            if(sum <= num) {
+                list.add(i, num); //注意在i位置再把num加进去
+                return false;
+            }
+            list.add(i, num);
+        }
+        return true;
+    }
+
 
 
 
