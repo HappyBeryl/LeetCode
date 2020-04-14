@@ -1597,6 +1597,31 @@ public class TestDemo {
         return true;
     }
 
+    public int getLCA(int a, int b) {
+        while(a != b) {
+            if(a > b) {
+                a /= 2;
+            } else {
+                b /= 2;
+            }
+        }
+        return a;
+    }
+
+    public String replaceSpace(String iniString, int length) {
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0; i < length; i++) {
+            char ch = iniString.charAt(i);
+            if(ch == ' ') {
+                sb.append("%20");
+            } else {
+                sb.append(ch + "");
+            }
+        }
+        return sb.toString();
+    }
+
+
 
 
 
