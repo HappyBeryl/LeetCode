@@ -1559,7 +1559,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main64(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         List<Long> list  = new ArrayList<>();
@@ -1619,6 +1619,59 @@ public class TestDemo {
             }
         }
         return sb.toString();
+    }
+
+    public int[] arrayPrint(int[][] arr, int n) {
+        //打印上半部分
+        int[] array = new int[n*n];
+        int index = 0;
+        for(int i = n-1; i >= 0; i--) {
+            int k = i;
+            for(int j = 0; j < n - i; j++) {
+                array[index++] = arr[j][k++];
+            }
+        }
+
+        //打印下半部分
+        for(int i = 1; i < n; i++) {
+            int k = i;
+            for(int j = 0; j < n - i; j++) {
+                array[index++] = arr[k++][j];
+            }
+        }
+        return array;
+    }
+
+    public static void main65(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            String str = sc.nextLine();
+            char[] a = str.toCharArray();
+            int i = 0;
+            int j = str.length()-1;
+            boolean flg  = true;
+            boolean move = true;
+            while(i < a.length / 2 && j >= a.length / 2) {
+                if(a[i] == a[j]) {
+                    i++;
+                    j--;
+                } else if(j -1 >= 0 && a[i] == a[j-1] && move == true){
+                    j--;
+                    move = false;
+                } else if(i + 1 >= 0 && a[i+1] == a[j] && move == true) {
+                    i++;
+                    move = false;
+                } else {
+                    flg = false;
+                    break;
+                }
+            }
+            if(flg == false) {
+                System.out.println("NO");
+            } else {
+                System.out.println("YES");
+            }
+        }
     }
 
 
