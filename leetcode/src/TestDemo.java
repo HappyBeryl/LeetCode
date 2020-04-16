@@ -1674,6 +1674,40 @@ public class TestDemo {
         }
     }
 
+    public static void main66(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            String str = sc.nextLine();
+            String[] array = str.split(" ");
+            Stack<String> stack = new Stack();
+            for(int i = 0; i < array.length; i++) {
+                stack.push(array[i]);
+            }
+            while(!stack.empty()) {
+                System.out.print(stack.pop());
+                if(!stack.empty() && stack.peek() != null) {
+                    System.out.print(" ");
+                }
+            }
+        }
+    }
+
+    public static void main67(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1= sc.nextLine();
+        String str2 = sc.nextLine();
+        List<Character> list = new ArrayList<>();
+        for(int i = 0; i < str1.length(); i++) {
+            char ch = str1.charAt(i);
+            if(!str2.contains(ch + "")) {
+                list.add(ch);
+            }
+        }
+        for(int k = 0; k < list.size(); k++) {
+            System.out.print(list.get(k));
+        }
+    }
+
 
 
 
