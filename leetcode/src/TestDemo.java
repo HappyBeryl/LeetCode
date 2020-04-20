@@ -1805,7 +1805,7 @@ public class TestDemo {
         return sum;
     }
 
-    public static void main(String[] args) {
+    public static void main71(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str1 = sc.nextLine();
         String str2 = sc.nextLine();
@@ -1858,6 +1858,30 @@ public class TestDemo {
         System.out.println(sb);
     }
 
+    public static void main(String[] args) {
+      //  Scanner sc = new Scanner(System.in);
+      //  int n = sc.nextInt();
+      //  int m = sc.nextInt();
+        int m = 5;
+        int[] array = new int[5];
+        for(int i = 0; i < 5; i++) {
+            array[i] = i + 1;
+        }
+        int i = 0;
+        int j = array.length-1;
+        while(i <= j) {
+            if(array[i] + array[j] == m) {
+                System.out.println(array[i] + " " + array[j]);
+                i++;
+                j--;
+            } else if(array[i] + array[j] < m) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+
+    }
 
 
 
