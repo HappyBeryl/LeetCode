@@ -1909,6 +1909,97 @@ public class TestDemo {
         }
     }
 
+    public static void main74(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            String str = sc.nextLine();
+            // 第一步统一分隔符把只要不是字母的都换成空格
+            for(int i = 0; i < str.length();i++){
+                char ch = str.charAt(i);
+                if(!isAlphaBelta(ch)) {
+                   ch = ' ';
+                }
+            }
+            String[] array = str.split(" ");
+            Stack<String> stack = new Stack();
+            for(int i = 0; i < array.length; i++) {
+                stack.push(array[i]);
+            }
+            StringBuilder sb = new StringBuilder();
+            while(!stack.empty()) {
+                sb.append(stack.pop() + " ");
+            }
+            System.out.println(sb.toString().trim());
+        }
+    }
+
+    public static boolean isAlphaBelta(char c){
+
+        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+            return true;
+        }
+        return false;
+    }
+
+    public static void main75(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String[] sp = sc.nextLine().split("[^a-zA-Z]+");
+        StringBuilder sb = new StringBuilder();
+        for (int i = sp.length - 1; i >= 0; i--)
+            sb.append(sp[i] + " ");
+        System.out.println(sb.toString().trim());
+        sc.close();
+    }
+
+    public static void main76(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        while(scanner.hasNext()){
+            String str = scanner.nextLine();
+            String[] words = str.split("_");
+            String result = words[0];
+            for(int i = 1; i < words.length; i++){
+                result += (char)(words[i].charAt(0)-'a'+'A');
+                for(int j = 1; j < words[i].length(); j++){
+                    result += words[i].charAt(j);
+                }
+            }
+            System.out.println(result);
+        }
+    }
+    
+    public static void main77(String[] args) {
+        Scanner read = new Scanner(System.in);
+        while(read.hasNextLine()) {
+            String r = read.nextLine();
+            String[] boxs = r.split(" ");
+            ArrayList<Character> A = new ArrayList<Character>();
+            ArrayList<Character> B = new ArrayList<Character>();
+            for(int i = 0; i < boxs[0].length(); i++) {
+                A.add(boxs[0].charAt(i));
+            }
+            for(int i = 0; i < boxs[1].length(); i++) {
+                B.add(boxs[1].charAt(i));
+            }
+            for(int i = 0; i < B.size(); i++) {
+                if(A.contains(B.get(i))) {
+                    A.remove(A.get(A.indexOf(B.get(i))));
+                    B.remove(i);
+                    i--;
+                }
+            }
+            if(B.size() == 0) {
+                System.out.println("Yes");
+            } else {
+                System.out.println("No");
+            }
+            A = null;
+            B = null;
+        }
+    }
+
+
+
 
 
 
