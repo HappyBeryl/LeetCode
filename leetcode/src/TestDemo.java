@@ -2030,7 +2030,31 @@ public class TestDemo {
             }
         }
     }
-}
+
+    public int MoreThanHalfNum_Solution78(int [] array) {
+        int tmp = array[0];
+        int count = 0;
+        for(int i = 1; i < array.length; i++) {
+            if(tmp == array[i]) {
+                count++;
+            } else if(count > 0) {
+                count--;
+            } else {
+                tmp = array[i];
+            }
+        }
+        int num = 0;
+        for(int i = 0; i < array.length; i++) {
+            if(tmp == array[i]) {
+                num++;
+            }
+        }
+        if(num > array.length/2) {
+            return tmp;
+        } else {
+            return 0;
+        }
+    }
 
 
 
