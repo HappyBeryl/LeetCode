@@ -1967,7 +1967,7 @@ public class TestDemo {
             System.out.println(result);
         }
     }
-    
+
     public static void main77(String[] args) {
         Scanner read = new Scanner(System.in);
         while(read.hasNextLine()) {
@@ -1997,6 +1997,40 @@ public class TestDemo {
             B = null;
         }
     }
+
+    public static void main78(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Map<String, Integer> map = new LinkedHashMap<>();
+        while (scanner.hasNext()) {
+            String str = scanner.nextLine();
+            int index = str.lastIndexOf("\\"); //看是否存在\
+            if (index != -1) { //如果存在，表明不是净文件名，需要从\后边的字符开始提取
+                str = str.substring(index + 1);  //净文件名+" "+行号
+            }
+            if (!map.containsKey(str)) {
+                map.put(str, 1);
+            } else {
+                map.put(str, map.get(str) + 1);
+            }
+        }
+        Set<String> set = map.keySet();
+        int count = 0;
+        for (String tmp : set) {
+            count++;
+            if (count > (set.size() - 8)) {   //输出的是后8条记录
+                String[] s = tmp.split(" ");  //按空格分割key
+                String name = s[0];  //取得净文件名
+                int len = name.length();
+                if (len > 16) {  //如果净文件名长度大于16，只取后16位
+                    name = name.substring(len - 16);
+                }
+                int line = Integer.parseInt(s[1]);   //取得行号
+                int number = map.get(tmp);  //取得此错误记录的条数
+                System.out.println(name + " " + line + " " + number);
+            }
+        }
+    }
+}
 
 
 
