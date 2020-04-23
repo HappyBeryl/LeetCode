@@ -2033,6 +2033,7 @@ public class TestDemo {
 
     public int MoreThanHalfNum_Solution78(int [] array) {
         int tmp = array[0];
+        
         int count = 0;
         for(int i = 1; i < array.length; i++) {
             if(tmp == array[i]) {
