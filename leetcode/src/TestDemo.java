@@ -2097,7 +2097,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main80(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         while (scan.hasNext()) {
@@ -2134,10 +2134,49 @@ public class TestDemo {
         }
     }
 
+    static int index = 0;
+    public static int[] clockwisePrint(int[][] mat, int n, int m) {
+        int[] arr = new int[n*m];
+        if(m == 0 || n == 0) {
+            return arr;
+        }
+        int top = 0;
+        int down = n-1;
+        int left = 0;
+        int right = m-1;
+        while(top <= down && left <= right) {
+            for(int i = left; i <= right; i++) {
+                arr[index++] = mat[top][i];
+            }
+            for(int i = top+1; i <= down; i++) {
+                arr[index++] = mat[i][right];
+            }
+            if(top != down) {
+                for(int i = right-1; i >= left; i--) {
+                    arr[index++] = mat[down][i];
+                }
+            }
+            if(left != right) {
+                for(int i = down-1; i > top; i--) {
+                    arr[index++] = mat[i][left];
+                }
+            }
+                left++;
+                top++;
+                right--;
+                down--;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int[][] array = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
+        int[] ret = clockwisePrint(array, 3, 3);
+        System.out.println(Arrays.toString(ret));
+    }
 
 
 
-    
 
 
 
