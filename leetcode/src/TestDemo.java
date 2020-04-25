@@ -2169,10 +2169,27 @@ public class TestDemo {
         return arr;
     }
 
-    public static void main(String[] args) {
+    public static void main81(String[] args) {
         int[][] array = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
         int[] ret = clockwisePrint(array, 3, 3);
         System.out.println(Arrays.toString(ret));
+    }
+
+    public int findMaxGap(int[] A, int n) {
+        // write code here
+        int max = 0;
+        for(int i = 0;i<n;i++){
+            if(max<A[i]){
+                max = A[i];
+            }
+        }
+        int ans1 = max - A[0];
+        int ans2 = max - A[n - 1];
+        if(ans1 > ans2){
+            return ans1;
+        }else{
+            return ans2;
+        }
     }
 
 
