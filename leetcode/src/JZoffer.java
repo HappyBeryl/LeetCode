@@ -69,6 +69,8 @@ public class JZoffer {
 
     }
     public int[] reversePrint(ListNode head) {
+        int s = 0;
+        Math.pow(0,3);
         Stack<Integer> stack = new Stack<>();
         ListNode cur = head;
         while(cur != null) {
@@ -81,6 +83,47 @@ public class JZoffer {
             array[i] = stack.pop();
         }
         return array;
+    }
+
+    /*
+    根据前序遍历和中序遍历构建二叉树
+     */
+    class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode(int x) { val = x; }
+  }
+    int preIndex= 0;
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if(preorder == null || inorder == null || preorder.length == 0 || inorder.length == 0) {
+            return null;
+        }
+        return buildTreeChild(preorder, inorder, 0, inorder.length-1);
+    }
+
+    public TreeNode buildTreeChild(  int[] preorder,int[] inorder,int inbegin, int inend) {
+        //终止条件 判断是否有左树或者右树
+        if (inbegin > inend) {
+            return null;
+        }
+        //在前序遍历中new 根节点
+        TreeNode root = new TreeNode(preorder[preIndex]);
+        //在中序遍历找到pi所在下标元素
+        int rootIndex = findIndexOfInorder(inorder, inbegin, inend, preorder[preIndex]);
+        preIndex++;
+        root.left = buildTreeChild(preorder, inorder, inbegin, rootIndex-1);
+        root.right = buildTreeChild(preorder, inorder, rootIndex+1, inend);
+        return root;
+    }
+
+    private int findIndexOfInorder(int[] inorder, int inbegin, int inend, int val) {
+        for (int i = inbegin; i <= inend; i++) {
+            if (inorder[i] == val) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 
