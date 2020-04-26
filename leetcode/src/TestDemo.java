@@ -2192,7 +2192,17 @@ public class TestDemo {
         }
     }
 
-
+    public String Typing (String s) {
+        StringBuilder str = new StringBuilder();
+        for (int i=0;i<s.length();i++){
+            char tmp = s.charAt(i);
+            if(tmp!='<'){str.append(tmp);}
+            else{
+                if(str.length()>=1){str.deleteCharAt(str.length()-1);}
+            }
+        }
+        return str.toString();
+    }
 
 
 
