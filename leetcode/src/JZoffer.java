@@ -126,5 +126,45 @@ public class JZoffer {
         return -1;
     }
 
+    public int postIndex = 0;
+    public TreeNode buildTreeChild1(int[] inorder, int[] postorder,int inbegin, int inend) {
+
+        //终止条件 判断是否有左树或者右树
+        if (inbegin > inend) {
+            return null;
+        }
+
+        //new 根节点
+        TreeNode root = new TreeNode(postorder[postIndex]);
+
+        //在中序遍历找到pi所在下标元素
+        int rootIndex = findIndexOfInorder(inorder, inbegin, inend, postorder[postIndex]);
+        postIndex--;
+        root.right = buildTreeChild(inorder,postorder, rootIndex+1,inend);
+        root.left = buildTreeChild(inorder, postorder, inbegin,rootIndex-1);
+        return root;
+    }
+
+    private int findIndexOfInorder1(int[] inorder, int inbegin, int inend, int val) {
+        for (int i = inbegin; i <= inend; i++) {
+            if (inorder[i] == val) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public TreeNode buildTree1(int[] inorder, int[] postorder) {
+        if (postorder == null || inorder == null) {
+            return null;
+        }
+        if (postorder.length == 0 || inorder.length == 0) {
+            return null;
+        }
+
+        postIndex = postorder.length-1;
+        return buildTreeChild1(inorder, postorder, 0, inorder.length-1);
+    }
+
 
 }
