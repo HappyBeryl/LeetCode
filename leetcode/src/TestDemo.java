@@ -2231,6 +2231,60 @@ public class TestDemo {
         return leftHight > rightHight ? leftHight+1 : rightHight+1;
     }
 
+    public static void main82(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            String str1 = sc.nextLine();
+            String str2 = sc.nextLine();
+            encrypty(str1);
+            unEncrypty(str2);
+        }
+    }
+
+    public static void encrypty(String s){
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0;i < s.length();i++){
+            char ch = s.charAt(i);
+            if(97 <= ch && ch <= 122){ //小写字母
+                sb.append((char)((ch - 97 + 1) % 26 + 65));
+            }else if(65 <= ch  && ch <= 90){ //大写字母
+                sb.append((char)((ch - 65 + 1) % 26 + 97));
+            } else if(48 <= ch && ch <= 57){
+                sb.append((char)((ch - 48 + 1) % 10 + 48));
+            } else {
+                sb.append(ch);
+            }
+        }
+        System.out.println(sb);
+    }
+    public static void unEncrypty(String s){
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0;i < s.length();i++){
+            char ch = s.charAt(i);
+            if(97 <= ch && ch <= 122){
+                if(ch == 'a'){
+                    sb.append('Z');
+                }else{
+                    sb.append((char)((ch - 97 - 1) % 26 + 65));
+                }
+            } else if(65 <= ch && ch <= 90){
+                if(ch == 'A'){
+                    sb.append('z');
+                }else{
+                    sb.append((char)((ch - 65 - 1) % 26 + 97));
+                }
+            } else if(48 <= ch && ch <= 57){
+                if(ch == '0'){
+                    sb.append('9');
+                }else{
+                    sb.append((char)((ch - 48 - 1) % 10 + 48));
+                }
+            } else {
+                sb.append(ch);
+            }
+        }
+        System.out.println(sb);
+    }
 
 
 
