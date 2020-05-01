@@ -228,7 +228,21 @@ public class JZoffer {
         return f1;
     }
 
-    
+    public int numWays(int n) {
+        //台阶-跳法，1-1,2-2,3-3,4-5
+        if(n == 1 || n == 2) {
+            return n;
+        }
+        int f1 = 1;
+        int f2 = 2;
+        int f3 = 1;
+        for(int i = 3; i <= n; i++) {
+            f3 = (f1 + f2) % 1000000007;
+            f1 = f2;
+            f2 = f3;
+        }
+        return f3;
+    }
 
 
 }
