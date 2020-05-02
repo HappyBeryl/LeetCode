@@ -244,5 +244,23 @@ public class JZoffer {
         return f3;
     }
 
+    public int minArray(int[] numbers) {
+        //1 3 3
+        int i = 0;
+        int j = numbers.length-1;
+        while(i < j) {
+            int mid = i + (j - i)/2; //防止溢出 超出范围
+            //  int mid = (i+j) / 2;
+            if(numbers[mid] < numbers[j]) {
+                j = mid;
+            } else if(numbers[mid] > numbers[j]) {
+                i = mid + 1;
+            } else {
+                j--;
+            }
+        }
+        return numbers[i];
+    }
+
 
 }
