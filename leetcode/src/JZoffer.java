@@ -312,5 +312,26 @@ public class JZoffer {
 
     }
 
+    public ListNode deleteNode(ListNode head, int val) {
+        if(head == null) {
+            return null;
+        }
+        ListNode cur = head;
+        ListNode prev = head;
+        while(cur != null) {
+            if(cur.val == val) {
+                prev.next = cur.next;
+            } else {
+                prev = cur;
+            }
+            cur = cur.next;
+        }
+        //处理头节点
+        if(head.val == val) {
+            head = head.next;
+        }
+        return head;
+    }
+
 
 }
