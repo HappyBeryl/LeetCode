@@ -333,5 +333,29 @@ public class JZoffer {
         return head;
     }
 
+    public int movingCount(int m, int n, int k) {
+        boolean[][] arr = new boolean[m][n];
+        return movingCountChild(0, 0, m, n, k, arr);
+    }
+    public int bit(int n) {
+        int sum = 0;
+        while(n > 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+    public int movingCountChild(int i, int j, int m, int n, int k, boolean[][] arr) {
+        if(i < 0 || j < 0 || i >= m || j >= n || bit(i) + bit(j) > k ||
+                arr[i][j] == true) {
+            return 0;
+        }
+        arr[i][j] = true;
+        return 1 + movingCountChild(i+1, j, m, n, k, arr) +
+                movingCountChild(i-1, j, m, n, k, arr) +
+                movingCountChild(i, j+1, m, n, k, arr) +
+                movingCountChild(i, j-1, m, n, k, arr);
+    }
+
 
 }
