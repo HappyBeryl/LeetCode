@@ -357,5 +357,18 @@ public class JZoffer {
                 movingCountChild(i, j-1, m, n, k, arr);
     }
 
+    public int[] printNumbers(int n) {
+        int num = 1;
+        int i = 0;
+        while(i++ < n) {
+            num *= 10;
+        }
+        int[] arr = new int[num];
+        for(i = 0; i < num-1; i++) {
+            arr[i] = i + 1;
+        }
+        return arr;
+    }
+
 
 }
