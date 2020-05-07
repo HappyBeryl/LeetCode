@@ -2286,6 +2286,71 @@ public class TestDemo {
         System.out.println(sb);
     }
 
+    public static void main1(String[] args) {
+        int len = 0; //每次的长度
+        int max = 0; //最大回文长度
+        String ret = null;
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        if (str.length() == 0 || str == null) {
+            return;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i; j < str.length(); j++) {
+                len = j - i;
+                if (func(str.substring(i, j+1))) {
+                    if (max < len) {
+                        max = len;
+                        ret = str.substring(i, j + 1);
+                    } else if (max == len) {
+                        System.out.println(ret);
+                    }
+                }
+            }
+        }
+        System.out.println(ret);
+
+    }
+
+    private static boolean func(String str) {
+        int i = 0;
+        int j = str.length()-1;
+        while (i < j) {
+            if (str.charAt(i) == str.charAt(j)) {
+                i++;
+                j--;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int index = 0;
+        int step = 1;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n == 0) {
+            return;
+        }
+        if (n == 1) {
+            System.out.println(1);
+            return;
+        }
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            list.add(i);
+        }
+        while (list.size() > 1) {
+            index = (index + step) % list.size();
+            list.remove(index);
+            // index++;
+            step++;
+        }
+        System.out.println(list.get(0));
+    }
+
 
 
 
