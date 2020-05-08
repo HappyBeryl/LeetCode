@@ -2286,7 +2286,7 @@ public class TestDemo {
         System.out.println(sb);
     }
 
-    public static void main1(String[] args) {
+    public static void main84(String[] args) {
         int len = 0; //每次的长度
         int max = 0; //最大回文长度
         String ret = null;
@@ -2326,7 +2326,7 @@ public class TestDemo {
         return true;
     }
 
-    public static void main(String[] args) {
+    public static void main83(String[] args) {
         int index = 0;
         int step = 1;
         Scanner sc = new Scanner(System.in);
