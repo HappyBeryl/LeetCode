@@ -390,5 +390,70 @@ public class JZoffer {
         return slow;
     }
 
+    //increment函数，若发生进位则一直进行for循环，直到不产生进位则break。
+    // 如果i为0（即到了最高位）还发生了进位，则设置isOverflow为true，并返回至主函数的while判断。
+    public static void printNumber(int n) {
+        StringBuilder str = new StringBuilder();
+        // 将str初始化为n个'0'字符组成的字符串
+        for (int i = 0; i < n; i++) {
+            str.append('0');
+        }
+        while(!increment(str)){
+            // 去掉左侧的0
+            int index = 0;
+            while (index < str.length() && str.charAt(index) == '0'){
+                index++;
+            }
+            System.out.println(str.toString().substring(index));
+        }
+    }
+
+    public static boolean increment(StringBuilder str) {
+        boolean isOverflow = false;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            char s = (char)(str.charAt(i) + 1);
+            // 如果s大于'9'则发生进位
+            if (s > '9') {
+                str.replace(i, i + 1, "0");
+                if (i == 0) {
+                    isOverflow = true;
+                }
+            }
+            // 没发生进位则跳出for循环
+            else {
+                str.replace(i, i + 1, String.valueOf(s));
+                break;
+            }
+        }
+        return isOverflow;
+    }
+
+    public double myPow(double x, int n) {
+        if(x == 0) return 0;
+        long b = n;
+        double res = 1.0;
+        if(b < 0) {
+            x = 1 / x;
+            b = -b;
+        }
+        while(b > 0) {
+            if((b & 1) == 1) res *= x;
+            x *= x;
+            b >>= 1;
+        }
+        return res;
+    }
+
+    public double myPow1(double x, int n) {
+        if(n == 0) return 1;
+        if(n == 1) return x;
+        if(n == -1) return 1 / x;
+        double half = myPow(x, n / 2);
+        double mod = myPow(x, n % 2);
+        return half * half * mod;
+    }
+
+
+
 
 }
