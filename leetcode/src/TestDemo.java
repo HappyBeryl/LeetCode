@@ -2411,6 +2411,55 @@ public class TestDemo {
         System.out.println(count);
     }
 
+    public static void main1(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            while (sc.hasNext()) {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                int x = sc.nextInt();
+                if (a > x && b > x) {
+                    // 10 12 2
+                    int max = a > b ? a : b;
+                    System.out.println(max - x);
+                }
+                if (a < x && b < x) {
+                    // 2 4 10
+                    int min = a < b ? a : b;
+                    System.out.println(x - min);
+                }
+                if (a > x && b < x) {
+                    // 10 1 3
+                    int s1 = a - x; //7
+                    int s2 = x - b; //2
+                    System.out.println(s1 > s2 ? s1 : s2);
+                }
+                if (a < x && b > x) {
+                    // 4 6 8
+                    int s1 = x - a;
+                    int s2 = b - x;
+                    System.out.println(s1 > s2 ? s1 : s2);
+                }
+                if (a == x && b > x) {
+                    System.out.println(b - x);
+                }
+                if (a == x && b < x) {
+                    System.out.println(x - b);
+                }
+                if (a > x && b == x) {
+                    System.out.println(a - x);
+                }
+                if (a < x && b == x) {
+                    System.out.println(x - a);
+                }
+                if (a == x && b == x) {
+                    System.out.println(0);
+                }
+            }
+        }
+    }
+
 
 
 
