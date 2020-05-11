@@ -2351,7 +2351,7 @@ public class TestDemo {
         System.out.println(list.get(0));
     }
 
-    public static void main(String[] args) {
+    public static void main86(String[] args) {
         Scanner cin = new Scanner(System.in);
         while (cin.hasNextInt()) {
             int n = cin.nextInt();          // n 个学生
@@ -2381,6 +2381,37 @@ public class TestDemo {
             System.out.println(res);
         }
     }
+
+    public static void main85(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        //1 <= N、M <= 100000，0 <= L <= R <= 1000000000
+        if (n < 1 || m > 100000 || l < 0 || l > 1000000000 || r < 0 || r > 1000000000 || r < l) {
+            return;
+        }
+        int[] a = new int[n];
+        int[] b = new int[m];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        for (int i = 0; i < m; i++) {
+            b[i] = sc.nextInt();
+        }
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] + b[j] >= l && a[i] + b[j] <= r) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+
+
 
 
 
