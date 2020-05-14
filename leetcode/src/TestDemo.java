@@ -2493,6 +2493,26 @@ public class TestDemo {
         }
     }
 
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            Map<Integer,Integer> map = new TreeMap<>();
+            String[] strs = sc.nextLine().split(" ");
+            for(int i=0;i<strs.length;i++){
+                int s = Integer.valueOf(strs[i]);
+                if(map.containsKey(s)){
+                    map.put(s,map.get(s)+1);
+                }else{
+                    map.put(s,1);
+                }
+            }
+            for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+                if(entry.getValue() >= strs.length/2){
+                    System.out.println(entry.getKey());
+                }
+            }
+        }
+    }
 
 
 
