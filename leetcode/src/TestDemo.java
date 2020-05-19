@@ -2514,7 +2514,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main90(String[] args) {
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()) {
             int n = sc.nextInt();
@@ -2533,11 +2533,30 @@ public class TestDemo {
         return (n-1) * (func1(n-2) + func1(n-1));
     }
 
-    public static float func2(int n) { 
+    public static float func2(int n) {
         if(n == 0) {
             return 1;
         }
         return n * func2(n-1);
+    }
+
+    public static void main91(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] array = new int[1000];
+        while(sc.hasNext()) {
+            int N = sc.nextInt();
+            for(int i = 0; i < N; i++) {
+                array[i] = sc.nextInt();
+            }
+            int score = sc.nextInt();
+            int count = 0;
+            for(int i = 0; i < N; i++) {
+                if(array[i] == score) {
+                    count++;
+                }
+            }
+            System.out.println(count);
+        }
     }
 
 
