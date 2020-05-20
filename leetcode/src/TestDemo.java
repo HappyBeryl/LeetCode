@@ -2559,7 +2559,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main92(String[] args) {
         Scanner  sc = new Scanner(System.in);
         String s = sc.nextLine();
         char[] array = s.toCharArray();
@@ -2578,6 +2578,25 @@ public class TestDemo {
         }
     }
 
+    public static void main93(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();
+            int m = (int)Math.pow(n, 2);
+            String s1 = m+"";
+            String s2 = s1.substring(1);
+            if(s2.length() > 0) { //防止n是个位数，不能截断
+                int k = Integer.parseInt(s2);
+                if (n == k) {
+                    System.out.println("Yes!");
+                } else {
+                    System.out.println("No!");
+                }
+            } else {
+                System.out.println("No!");
+            }
+        }
+    }
 
 
 
