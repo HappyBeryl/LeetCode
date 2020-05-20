@@ -2559,6 +2559,24 @@ public class TestDemo {
         }
     }
 
+    public static void main(String[] args) {
+        Scanner  sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        char[] array = s.toCharArray();
+        for(char ch : array) {
+            String s1 = Integer.toBinaryString(ch); //转为二进制数
+            //把s1（十进制）设置格式为7位二进制数
+            String s2 = String.format("%07d", Integer.parseInt(s1));
+            int count = 0;
+            for(int i = 0; i < 7; i++) {
+                if(s2.charAt(i) == '1') {
+                    count++;
+                }
+            }
+            //1的个数为偶数个加0，为奇数个加1
+            System.out.println(count % 2 == 0 ? "1" + s2 : "0" + s2);
+        }
+    }
 
 
 
