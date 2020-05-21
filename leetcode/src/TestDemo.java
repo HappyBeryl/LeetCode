@@ -2597,7 +2597,25 @@ public class TestDemo {
             }
         }
     }
-
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int bool = sc.nextInt();
+            int n = 0;
+            int cool = 0;
+            int newCool = 0;
+            while (bool > 2) {
+                newCool = bool / 3;
+                cool += newCool;
+                n = bool % 3;
+                bool = n + newCool;
+            }
+            if (bool == 2) {
+                cool++;
+            }
+            System.out.println(cool);
+        }
+    }
 
 
 }
