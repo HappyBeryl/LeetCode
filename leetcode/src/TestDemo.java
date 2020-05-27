@@ -2597,7 +2597,7 @@ public class TestDemo {
             }
         }
     }
-    public static void main(String[] args) {
+    public static void main94(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int bool = sc.nextInt();
@@ -2680,6 +2680,27 @@ public class TestDemo {
             }
         }
         return true;
+    }
+
+    public static int[] exchange(int[] nums) {
+        int len = nums.length;
+        int[] tmp = new int[len];
+        int k = len-1;
+        int j = 0;
+        for(int i = 0; i < len; i++) {
+            if(i % 2 == 1) {
+                tmp[j++] = nums[i];
+            } else {
+                tmp[k--] = nums[i];
+            }
+        }
+        return tmp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1,2,3,4};
+        int[] a = exchange(arr);
+        System.out.println(Arrays.toString(a));
     }
 
 
