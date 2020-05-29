@@ -2682,20 +2682,7 @@ public class TestDemo {
         return true;
     }
 
-    public static int[] exchange(int[] nums) {
-        int len = nums.length;
-        int[] tmp = new int[len];
-        int k = len-1;
-        int j = 0;
-        for(int i = 0; i < len; i++) {
-            if(i % 2 == 1) {
-                tmp[j++] = nums[i];
-            } else {
-                tmp[k--] = nums[i];
-            }
-        }
-        return tmp;
-    }
+
 
     public static void main(String[] args) {
         int[] arr = new int[]{1,2,3,4};
