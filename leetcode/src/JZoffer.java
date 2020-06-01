@@ -484,7 +484,33 @@ public class JZoffer {
         }
         return tmp;
     }
-    
+
+    /*
+    合并两个有序链表
+     */
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode newHead = new ListNode(-1);
+        ListNode tmp = newHead;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                tmp.next = l1;
+                l1 = l1.next;
+                tmp = tmp.next;
+            } else {
+                tmp.next = l2;
+                l2 = l2.next;
+                tmp = tmp.next;
+            }
+        }
+        //如果a为空
+        if (l1 == null) {
+            tmp.next = l2;
+        } else {
+            tmp.next = l1;
+        }
+        return newHead.next;
+    }
+
 
 
 
