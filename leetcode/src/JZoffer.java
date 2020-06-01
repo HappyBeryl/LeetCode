@@ -595,6 +595,35 @@ public class JZoffer {
         return newHead.next;
     }
 
+    /*
+    树的子结构
+     */
+    public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if(A == null || B == null) return false;
+        if(isSameTree(A, B)) return true;
+        if(isSubStructure(A.left, B)) return true;
+        if(isSubStructure(A.right, B)) return true;
+        return false;
+    }
+
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q != null || p != null && q == null) {
+            return false;
+        }
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p.val != q.val) {
+            return false;
+        }
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+    }
+
+    
+
+
+
+
 
 
 
