@@ -471,6 +471,41 @@ public class JZoffer {
     }
 
     /*
+    表示数值的字符串
+     */
+
+    public boolean isNumber(String s) {
+        char[] arr = s.trim().toCharArray();
+        boolean markNum = false; //标记是否是数字
+        boolean markDon = false; //标记是否为点
+        boolean markE = false; //标记是否为指数
+        for(int i = 0; i < arr.length; i++) {
+            char ch = arr[i];
+            if(ch >= '0' && ch <= '9') { //如果是数字
+                markNum = true;
+            } else if(ch == '.') { //如果是点，前面有点/有e 返回flase
+                if(markDon || markE) {
+                    return false;
+                }
+                markDon = true;
+            } else if(ch == 'e' || ch == 'E') { //如果是e，前面不是数字返回false
+                if(markE || !markNum) {
+                    return false;
+                }
+                markE = true;
+                markNum = false; //防止干扰判断e后面是否有数字
+            } else if(ch == '+' || ch == '-') { //如果是正负号，不在第一位，前面必须是e
+                if(i != 0 && arr[i-1] != 'e' && arr[i-1] != 'E') {
+                    return false;
+                }
+            } else{ //其他情况返回false
+                return false;
+            }
+        }
+        return markNum;
+    }
+
+    /*
    奇数在前偶数在后
     */
     public static int[] exchange(int[] nums) {
