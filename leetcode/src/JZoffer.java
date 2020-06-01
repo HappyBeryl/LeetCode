@@ -489,6 +489,29 @@ public class JZoffer {
     }
 
     /*
+    链表倒数第k个节点
+     */
+
+    public ListNode getKthFromEnd1(ListNode head, int k) {
+        if (k <= 0 || head == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        for (int i = 0; i < k-1; i++) {
+            if (fast.next == null) {
+                return null;
+            }
+            fast = fast.next;
+        }
+        while(fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    /*
  翻转链表
   */
     public ListNode reverseList(ListNode head) {
