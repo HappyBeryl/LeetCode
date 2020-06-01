@@ -67,6 +67,9 @@ public class JZoffer {
         ListNode next;
         int val;
 
+        public ListNode(int val) {
+            this.val = val;
+        }
     }
     public int[] reversePrint(ListNode head) {
         int s = 0;
@@ -486,6 +489,29 @@ public class JZoffer {
     }
 
     /*
+ 翻转链表
+  */
+    public ListNode reverseList(ListNode head) {
+        if(head == null) {
+            return null;
+        }
+        ListNode cur = head;
+        ListNode prev = null;
+        ListNode newHead = null;
+        ListNode curNext = null;
+        while(cur != null) {
+            if(cur.next == null) {
+                newHead = cur;
+            }
+            curNext = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = curNext;
+        }
+        return newHead;
+    }
+
+    /*
     合并两个有序链表
      */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -510,6 +536,8 @@ public class JZoffer {
         }
         return newHead.next;
     }
+
+
 
 
 
