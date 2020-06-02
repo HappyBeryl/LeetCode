@@ -2682,13 +2682,55 @@ public class TestDemo {
         return true;
     }
 
-
-
-    public static void main(String[] args) {
-        int[] arr = new int[]{1,2,3,4};
-        int[] a = exchange(arr);
-        System.out.println(Arrays.toString(a));
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> list = new ArrayList<>();
+        int n = candies.length;
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            max = Math.max(max, candies[i]);
+        }
+        for (int i = 0; i < n; i++) {
+            list.add(candies[i] + extraCandies > max);
+        }
+        return list;
     }
+
+    static int index1 = 0;
+    public int[] spiralOrder(int[][] matrix) {
+        int size = matrix.length*matrix[0].length;
+        int[] arr = new int[size];
+        if(matrix == null) {
+            return null;
+        }
+        int left = 0;
+        int right = matrix[0].length-1;
+        int top = 0;
+        int down = matrix.length-1;
+        while(left <= right && top <= down) {
+            for(int i = left; i <= right; i++) {
+                arr[index1++] = matrix[top][i];
+            }
+            for(int i = top+1; i <= down; i++) {
+                arr[index1++] = matrix[i][right];
+            }
+            if(top != down) {
+                for(int i = right-1; i >= left; i--) {
+                    arr[index1++] = matrix[down][i];
+                }
+            }
+            if(left != right) {
+                for(int i = down-1; i > top; i--) {
+                    arr[index1++] = matrix[i][left];
+                }
+            }
+            left++;
+            top++;
+            right--;
+            down--;
+        }
+        return arr;
+    }
+    
 
 
 }
