@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 public class JZoffer {
     /*
@@ -650,6 +648,100 @@ public class JZoffer {
         }
         return stack.isEmpty();
     }
+
+    /*
+    从上到下打印二叉树
+     */
+    public int[] levelOrder1(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
+        if(root == null) {
+            return new int[0];
+        } else {
+            queue.offer(root);
+        }
+        while(!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            list.add(cur.val);
+            if(cur.left != null) {
+                queue.offer(cur.left);
+            }
+            if(cur.right != null) {
+                queue.offer(cur.right);
+            }
+        }
+        int[] ret = new int[list.size()];
+        for(int i = 0; i < ret.length; i++) {
+            ret[i] = list.get(i);
+        }
+        return ret;
+    }
+
+    public List<List<Integer>> levelOrder2(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> ret = new ArrayList<>();
+        if(root != null) {
+            queue.offer(root);
+        }
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> list = new ArrayList<>();
+            while(size > 0) {
+                TreeNode cur = queue.poll();
+                list.add(cur.val);
+                size--;
+                if(cur.left != null) {
+                    queue.offer(cur.left);
+                }
+                if(cur.right != null) {
+                    queue.offer(cur.right);
+                }
+            }
+            ret.add(list);
+        }
+        return ret;
+    }
+
+    public List<List<Integer>> levelOrder3(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> ret = new ArrayList<>();
+        boolean flag = true;
+        if(root != null) {
+            queue.offer(root);
+        }
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> list = new ArrayList<>();
+            while(size > 0) {
+                TreeNode cur = queue.poll();
+                list.add(cur.val);
+                size--;
+                if(cur.left != null) {
+                    queue.offer(cur.left);
+                }
+                if(cur.right != null) {
+                    queue.offer(cur.right);
+                }
+            }
+            // 判断是否转置（true不转置，false转置）
+            if(!flag)
+                list = reverse(list);
+            // 每遍历一层将flag取反，实现一层转置，下一层不转置；
+            flag = !flag;
+            ret.add(list);
+        }
+        return ret;
+    }
+
+    public List reverse(List<Integer> list) {
+        List<Integer> ret = new ArrayList<>();
+        for(int i= list.size()-1;i >= 0; i--) {
+            ret.add(list.get(i));
+        }
+        return ret;
+    }
+
+
 
 
 
