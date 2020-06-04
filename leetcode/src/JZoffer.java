@@ -760,7 +760,7 @@ public class JZoffer {
         return p == j && verifyPostorderChild(postorder,i, m-1) &&
                 verifyPostorderChild(postorder,m, j-1);
     }
-    
+
 
 
 
