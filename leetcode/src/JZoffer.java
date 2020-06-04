@@ -741,6 +741,26 @@ public class JZoffer {
         return ret;
     }
 
+    /*
+    二叉树的后序遍历
+     */
+    public boolean verifyPostorder(int[] postorder) {
+        return verifyPostorderChild(postorder, 0, postorder.length-1);
+    }
+
+    public boolean verifyPostorderChild(int[] postorder, int i, int j) {
+        if(i >= j) {
+            return true;
+        }
+        int p = i;
+        while(postorder[p] < postorder[j]) p++;
+        //p号下标元素大于根节点（右树）
+        int m = p;
+        while(postorder[p] > postorder[j]) p++;
+        return p == j && verifyPostorderChild(postorder,i, m-1) &&
+                verifyPostorderChild(postorder,m, j-1);
+    }
+
 
 
 
