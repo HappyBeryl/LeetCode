@@ -761,6 +761,25 @@ public class JZoffer {
                 verifyPostorderChild(postorder,m, j-1);
     }
 
+    /*
+    数组中出现次数超过一半的数字
+     */
+
+    public int majorityElement(int[] nums) {
+        int tmp = nums[0];
+        int count = 0;
+        for(int i = 1; i < nums.length; i++) {
+            if(tmp == nums[i]) {
+                count++;
+            } else if(count > 0) {
+                count--;
+            } else {
+                tmp = nums[i];
+            }
+        }
+        return tmp;
+    }
+
 
 
 
