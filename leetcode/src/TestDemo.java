@@ -2804,9 +2804,38 @@ public class TestDemo {
             tmp ^= array[i];
             array[i] = tmp;
         }
-
     }
 
+    public int Fibonacci1(int n) {
+        if(n <= 0) {
+            return 0;
+        }
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        arr[1] = 1;
+        for(int i = 2; i <= n; i++) {
+            arr[i] = arr[i-1] + arr[i-2];
+        }
+        return arr[n];
+    }
+
+    public int Fibonacci2(int n) {
+        if(n <= 0) {
+            return 0;
+        }
+        if(n == 1 || n == 2) {
+            return 1;
+        }
+        int f1 = 1;
+        int f2 = 1;
+        int f3 = 0;
+        for(int i = 3; i <= n; i++) {
+            f3 = f2 + f1;
+            f1 = f2;
+            f2 = f3;
+        }
+        return f2;
+    }
 
 
 
