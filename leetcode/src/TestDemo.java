@@ -2791,7 +2791,7 @@ public class TestDemo {
             return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 
-    public static void main(String[] args) {
+    public static void main95(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] array = new int[n];
@@ -3116,6 +3116,18 @@ public class TestDemo {
         int step = arr[st];
         arr[st] = -1;
         return step == 0 || dfs(arr, st + step) || dfs(arr, st - step);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = Integer.parseInt(sc.nextLine());
+            for (int i = 0; i < n; i++) {
+                StringBuilder sb = new StringBuilder(sc.nextLine());
+
+            }
+
+        }
     }
 
 
