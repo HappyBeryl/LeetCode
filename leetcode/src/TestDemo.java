@@ -3165,6 +3165,82 @@ public class TestDemo {
         }
     }
 
+    public String shortestPalindrome(String s) {
+
+        String result = "";
+        // 考虑字符串长度0,1
+        if (s.length() <= 1) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        // 思路找到起始位置为0 和结束位置为len-1 的最长回文的长度
+        // 如果回文在左边，则在左边添加，回文在右边，则在右边添加
+        int maxLen = 1;
+        int leftMaxLen = leftPalindromeLength(chars);
+        if (leftMaxLen >= maxLen) {
+            if (leftMaxLen == s.length()) {
+                // 本身就是回文
+                return s;
+            }
+            maxLen = leftMaxLen;
+            result = invertedOrder(s.substring(leftMaxLen, s.length())) + s;
+        }
+        int rightMaxLen = rightPalindromeLength(chars);
+        if (rightMaxLen >= maxLen && rightMaxLen != leftMaxLen) {
+            result = s + invertedOrder(s.substring(0, s.length() - rightMaxLen));
+        }
+        return result;
+    }
+
+    //倒序
+    private static String invertedOrder(String s){
+        StringBuffer result = new StringBuffer();
+        char[] chars = s.toCharArray();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            result.append(chars[i]);
+        }
+        return result.toString();
+    }
+
+    private static int leftPalindromeLength(char[] chars) {
+        int maxLen = 1;
+        int begin;
+        int temp;
+        for (int i = 1; i < chars.length; i++) {
+            begin = 0;
+            temp = i;
+            while (temp >= 0 && chars[begin] == chars[temp]) {
+                if (temp <= (i + 1) / 2 && i + 1 > maxLen) {
+                    maxLen = i + 1;
+                    break;
+                } else if (temp > (i + 1) / 2) {
+                    begin++;
+                    temp--;
+                }
+            }
+        }
+        return maxLen;
+    }
+    private static int rightPalindromeLength(char[] chars) {
+        int maxLen = 1;
+        int begin;
+        int temp;
+        for (int i = chars.length-2; i >0; i--) {
+            begin = chars.length-1;
+            temp = i;
+            while (temp <= chars.length - 1 && chars[begin] == chars[temp]) {
+                if (begin - temp <= (chars.length - i) / 2 && chars.length - i > maxLen) {
+                    maxLen = chars.length - i;
+                    break;
+                } else if (begin - temp > (chars.length - i) / 2) {
+                    begin--;
+                    temp++;
+                }
+            }
+        }
+        return maxLen;
+    }
+
 
 
 
