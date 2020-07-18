@@ -977,12 +977,12 @@ public class TestDemo {
 
     public static void main39(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int n = sc.nextInt();
             int a = sc.nextInt();
-            for(int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++) {
                 int keep = sc.nextInt();
-                if(a >= keep) {
+                if (a >= keep) {
                     a += keep;
                 } else {
                     a += func(a, keep);
@@ -993,7 +993,7 @@ public class TestDemo {
     }
 
     public static int func(int a, int k) {
-        while(a % k != 0) {
+        while (a % k != 0) {
             int tmp = a % k;
             a = k;
             k = tmp;
@@ -1002,51 +1002,51 @@ public class TestDemo {
     }
 
     public static void main45(String[] args) {
-     //   Scanner sc = new Scanner(System.in);
-    //    while(sc.hasNext()){
-            int count = 0;
-            float GPA = 0.0F;
-     //       int n = sc.nextInt();
-            int n = 5;
-            List<Integer> list = new ArrayList<>();
-            List<Integer> list1 = new ArrayList<>();
+        //   Scanner sc = new Scanner(System.in);
+        //    while(sc.hasNext()){
+        int count = 0;
+        float GPA = 0.0F;
+        //       int n = sc.nextInt();
+        int n = 5;
+        List<Integer> list = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
 //            for(int i = 0; i < n; i++) {
 //                list.add(4);
 //            }
-            list.add(4);
-            list.add(3);
-            list.add(4);
-            list.add(2);
-            list.add(3);
-            list1.add(91);
-            list1.add(88);
-            list1.add(72);
-            list1.add(69);
-            list1.add(56);
+        list.add(4);
+        list.add(3);
+        list.add(4);
+        list.add(2);
+        list.add(3);
+        list1.add(91);
+        list1.add(88);
+        list1.add(72);
+        list1.add(69);
+        list1.add(56);
 //            for(int i = 0; i < n; i++) {
 //                int tmp = sc.nextInt();
 //                list1.add(tmp);
 //                count += tmp;
 //            }
-            count = 91 + 88 + 72 + 69 + 56;
-            for(int i = 0; i < n; i++) {
-                GPA += list.get(i)*list1.get(i);
-            }
-            System.out.printf("%.2f", GPA/count);
+        count = 91 + 88 + 72 + 69 + 56;
+        for (int i = 0; i < n; i++) {
+            GPA += list.get(i) * list1.get(i);
         }
+        System.out.printf("%.2f", GPA / count);
+    }
 
     public static void main46(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int n = sc.nextInt();
-            int m = (int)Math.pow(n, 2);
+            int m = (int) Math.pow(n, 2);
             int a = 0;
             int b = 0;
-            while(n != 0) {
+            while (n != 0) {
                 a += n % 10;
                 n /= 10;
             }
-            while(m != 0) {
+            while (m != 0) {
                 b += m % 10;
                 m /= 10;
             }
@@ -1056,53 +1056,53 @@ public class TestDemo {
 
     public static void main47(String[] arags) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int n = sc.nextInt();
             Map<String, Integer> map = new LinkedHashMap<>();
-            for(int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++) {
                 map.put(sc.next(), 0);
             }
             int vote = sc.nextInt();
             int invalid = 0;
-            for(int i = 0; i < vote; i++) {
+            for (int i = 0; i < vote; i++) {
                 String tmp = sc.next();
-                if(map.get(tmp) != null) {
+                if (map.get(tmp) != null) {
                     map.put(tmp, map.get(tmp) + 1);
                 } else {
                     invalid++;
                 }
             }
 
-            for(Map.Entry entry : map.entrySet()) {
-                System.out.println(entry.getKey()+" : "+entry.getValue());
+            for (Map.Entry entry : map.entrySet()) {
+                System.out.println(entry.getKey() + " : " + entry.getValue());
             }
-            System.out.println("Invalid : "+invalid);
+            System.out.println("Invalid : " + invalid);
         }
     }
 
-        public static void main48(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            int[] array = new int[200];
-            for(int i = 0; i < n; i++) {
-                array[i] = sc.nextInt();
-            }
-            int obj = sc.nextInt();
-            for(int i = 0; i < n; i++) {
-                if(array[i] == obj) {
-                    System.out.println(i);
-                    return;
-                }
-            }
-            System.out.println(-1);
+    public static void main48(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] array = new int[200];
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
         }
+        int obj = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            if (array[i] == obj) {
+                System.out.println(i);
+                return;
+            }
+        }
+        System.out.println(-1);
+    }
 
     public static void main49(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int m = (int)Math.pow(n, 2);
-        String tmp = m+"";
-        tmp = tmp.substring(1,tmp.length());
+        int m = (int) Math.pow(n, 2);
+        String tmp = m + "";
+        tmp = tmp.substring(1, tmp.length());
         int k = Integer.parseInt(tmp);
         if (n == k) {
             System.out.println("Yes");
@@ -1113,27 +1113,26 @@ public class TestDemo {
 
     public static void main50(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             String str = sc.nextLine();
-            if(JudgeLength(str) && JudgeRepeat(str) && JudgeKinds(str)){
+            if (JudgeLength(str) && JudgeRepeat(str) && JudgeKinds(str)) {
                 System.out.println("OK");
-            }
-            else{
+            } else {
                 System.out.println("NG");
             }
         }
     }
 
     private static boolean JudgeLength(String s) {
-        if(s.length() > 8) {
+        if (s.length() > 8) {
             return true;
         }
         return false;
     }
 
     private static boolean JudgeRepeat(String s) {
-        for(int i = 0; i < s.length()-2; i++) {
-            if(s.substring(i+1).contains(s.substring(i,i+3))){
+        for (int i = 0; i < s.length() - 2; i++) {
+            if (s.substring(i + 1).contains(s.substring(i, i + 3))) {
                 return false;
             }
         }
@@ -1143,17 +1142,17 @@ public class TestDemo {
     private static boolean JudgeKinds(String s) {
         char[] array = s.toCharArray();
         int a = 0, b = 0, c = 0, d = 0;
-        for(Character x : array) {
-            if(x >= 'a' && x <= 'z') {
+        for (Character x : array) {
+            if (x >= 'a' && x <= 'z') {
                 a = 1;
-            } else if(x>='A' && x<='Z'){
-                b=1;
-            } else if(x>='0' && x<='9'){
-                c=1;
-            } else{
-                d=1;
+            } else if (x >= 'A' && x <= 'Z') {
+                b = 1;
+            } else if (x >= '0' && x <= '9') {
+                c = 1;
+            } else {
+                d = 1;
             }
-            if((a+b+c+d)>=3){
+            if ((a + b + c + d) >= 3) {
                 return true;
             }
         }
@@ -1162,21 +1161,21 @@ public class TestDemo {
 
     public static void main51(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int n = sc.nextInt();
             int target = sc.nextInt();
             int[] array = new int[n];
-            for(int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++) {
                 array[i] = sc.nextInt();
             }
 
             int count = 0;
-            for(int  i = 0; i < array.length; i++) {
+            for (int i = 0; i < array.length; i++) {
                 int tmp = array[i];
-                for(int j = i+1; j < array.length; i++) {
-                    if(tmp + array[j] == target) {
+                for (int j = i + 1; j < array.length; i++) {
+                    if (tmp + array[j] == target) {
                         count++;
-                    } else if(array[i] + array[i] < target) {
+                    } else if (array[i] + array[i] < target) {
                         tmp = array[i] + array[j];
                     } else {
                         break;
@@ -1187,67 +1186,68 @@ public class TestDemo {
         }
     }
 
-/*
- 给定一个有n个正整数的数组A和一个整数sum,求选择数组A中部分数字和为sum的方案数。
-当两种选取方案有一个数字的下标不一样,我们就认为是不同的组成方案。
-   解：此题使用递归的遍历方法也可以解决，但是会超时
-   dp解决：
-   以每个物品作为横轴，以背包容量作为纵轴
-       0 1 2 3 4 5 6..........
-     0 1 0 0 0 0 0 0..........
-     5 1 0 0 0 0 1 0
+    /*
+     给定一个有n个正整数的数组A和一个整数sum,求选择数组A中部分数字和为sum的方案数。
+    当两种选取方案有一个数字的下标不一样,我们就认为是不同的组成方案。
+       解：此题使用递归的遍历方法也可以解决，但是会超时
+       dp解决：
+       以每个物品作为横轴，以背包容量作为纵轴
+           0 1 2 3 4 5 6..........
+         0 1 0 0 0 0 0 0..........
+         5 1 0 0 0 0 1 0
 
-      其中1表示前n件物品放入容量为M的背包有1种方法，
-      （5，0）表示重量为5的物品放入容量为0的背包的背包有1中方法，
-      即不放入。0表示恰好放满背包的方法为0
-      当M>weight[i]时，dp[M]=dp[M]+dp[M-weight[i]];意义是：放入物品i和不放入物品i的方法总和
- */
-        public static long bag(int []weight,int n,int sum){
-            long dp[]=new long[sum+1];
-            dp[0]=1;
-            int i,j;
-            for(i=0;i<n;i++){
-                for(j=sum;j>=weight[i];j--){
-                    dp[j]=dp[j-weight[i]]+dp[j];
-                }
+          其中1表示前n件物品放入容量为M的背包有1种方法，
+          （5，0）表示重量为5的物品放入容量为0的背包的背包有1中方法，
+          即不放入。0表示恰好放满背包的方法为0
+          当M>weight[i]时，dp[M]=dp[M]+dp[M-weight[i]];意义是：放入物品i和不放入物品i的方法总和
+     */
+    public static long bag(int[] weight, int n, int sum) {
+        long dp[] = new long[sum + 1];
+        dp[0] = 1;
+        int i, j;
+        for (i = 0; i < n; i++) {
+            for (j = sum; j >= weight[i]; j--) {
+                dp[j] = dp[j - weight[i]] + dp[j];
             }
-            return dp[sum];
         }
-        public static void main52(String args[]){
-            Scanner s=new Scanner(System.in);
-            int n=s.nextInt();
-            int sum=s.nextInt();
-            int i,j;
-            int arr[]=new int[n];
-            for(i=0;i<n;i++){
-                arr[i]=s.nextInt();
-            }
-            System.out.println(bag(arr,n,sum));
+        return dp[sum];
+    }
+
+    public static void main52(String args[]) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int sum = s.nextInt();
+        int i, j;
+        int arr[] = new int[n];
+        for (i = 0; i < n; i++) {
+            arr[i] = s.nextInt();
         }
+        System.out.println(bag(arr, n, sum));
+    }
 
     public static void main53(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         BigInteger[] array = new BigInteger[n];
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             array[i] = sc.nextBigInteger();
         }
         Arrays.sort(array);
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.print(array[i]);
         }
     }
 
     public static void main54(String[] args) {
-        Scanner  sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         char[] array = s.toCharArray();
-        for(char ch : array) {
+        for (char ch : array) {
             String s1 = Integer.toBinaryString(ch); //转为二进制数
             String s2 = String.format("%07d", Integer.parseInt(s1)); //把s1（十进制）设置格式为7位二进制数
             int count = 0;
-            for(int i = 0; i < 7; i++) {
-                if(s2.charAt(i) == '1') {
+            for (int i = 0; i < 7; i++) {
+                if (s2.charAt(i) == '1') {
                     count++;
                 }
             }
@@ -1256,21 +1256,21 @@ public class TestDemo {
     }
 
     public static void main55(String[] args) {
-       // Scanner sc = new Scanner(System.in);
-         //   String str = sc.nextLine();
-         //   String[] array = str.split(" ");
-            String str = "Hello World Here I Come";
-            String[] array = str.split(" ");
-            Stack<String> stack = new Stack();
-            for(int i = 0; i < array.length; i++) {
-                stack.push(array[i]);
+        // Scanner sc = new Scanner(System.in);
+        //   String str = sc.nextLine();
+        //   String[] array = str.split(" ");
+        String str = "Hello World Here I Come";
+        String[] array = str.split(" ");
+        Stack<String> stack = new Stack();
+        for (int i = 0; i < array.length; i++) {
+            stack.push(array[i]);
+        }
+        while (!stack.empty()) {
+            System.out.print(stack.pop() + " ");
+            if (stack.peek() != null) {
+                System.out.print(" ");
             }
-            while(!stack.empty()) {
-                System.out.print(stack.pop() + " ");
-                if(stack.peek() != null) {
-                    System.out.print(" ");
-                }
-            }
+        }
     }
 
     public static void main56(String[] args) {
@@ -1280,15 +1280,15 @@ public class TestDemo {
         Map<String, Integer> map = new LinkedHashMap<>();
         Scanner sc = new Scanner(System.in);
         //放入数据
-            str = sc.next();
-            int id = str.lastIndexOf("\\");
-            fileName = id < 0 ? str : str.substring(id + 1);
-            int lineNum = sc.nextInt();
-            key = fileName + " " + lineNum;
-            if (map.containsKey(key)) {
-                map.put(key, map.get(key) + 1);
-            } else {
-                map.put(key, 1);
+        str = sc.next();
+        int id = str.lastIndexOf("\\");
+        fileName = id < 0 ? str : str.substring(id + 1);
+        int lineNum = sc.nextInt();
+        key = fileName + " " + lineNum;
+        if (map.containsKey(key)) {
+            map.put(key, map.get(key) + 1);
+        } else {
+            map.put(key, 1);
         }
         sc.close();
         //进行排序
@@ -1337,7 +1337,8 @@ public class TestDemo {
         return count;
     }
 
-    private static final int[] W = {17*29,29,1};
+    private static final int[] W = {17 * 29, 29, 1};
+
     public static void main57(String[] args) {
         Scanner in = new Scanner(System.in);
         String[] p = in.next().split("\\.");
@@ -1363,10 +1364,10 @@ public class TestDemo {
         array[0] = 1;
         array[1] = 2;
         array[2] = 4;
-        for(int i = 3; i < n; i++) {
-            array[i] = ((array[i-1] + array[i-2]) % 1000000007 + array[i-3] ) % 1000000007;
+        for (int i = 3; i < n; i++) {
+            array[i] = ((array[i - 1] + array[i - 2]) % 1000000007 + array[i - 3]) % 1000000007;
         }
-        return array[n-1];
+        return array[n - 1];
     }
 
     public static void main58(String[] args) {
@@ -1466,9 +1467,9 @@ public class TestDemo {
         String str1 = sc.nextLine().toUpperCase();
         String str2 = sc.nextLine().toUpperCase();
         Set<Character> set = new HashSet<>();
-        for(int i = 0; i < str1.length(); i++) {
+        for (int i = 0; i < str1.length(); i++) {
             char ch = str1.charAt(i);
-            if(!(str2.contains(ch + ""))) {
+            if (!(str2.contains(ch + ""))) {
                 set.add(ch);
             }
         }
@@ -1483,28 +1484,30 @@ public class TestDemo {
         double x1 = sc.nextFloat();
         double y1 = sc.nextFloat();
         double z1 = sc.nextFloat();
-        System.out.printf("%.3f",getRadius(x0,y0,z0,x1,y1,z1));
+        System.out.printf("%.3f", getRadius(x0, y0, z0, x1, y1, z1));
         System.out.print(" ");
-        System.out.printf("%.3f",getVolume(x0,y0,z0,x1,y1,z1));
+        System.out.printf("%.3f", getVolume(x0, y0, z0, x1, y1, z1));
         System.out.println();
     }
 
     public static double getRadius(double x0, double y0, double z0, double x1, double y1, double z1) {
-        return Math.sqrt((x1-x0)*(x1-x0)+(y1-y0)*(y1-y0)+(z1-z0)*(z1-z0));
+        return Math.sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0) + (z1 - z0) * (z1 - z0));
     }
+
     public static double getVolume(double x0, double y0, double z0, double x1, double y1, double z1) {
-        double ret =  4*Math.acos(-1)*Math.pow(getRadius(x0,y0,z0,x1,y1,z1), 3)/3;
+        double ret = 4 * Math.acos(-1) * Math.pow(getRadius(x0, y0, z0, x1, y1, z1), 3) / 3;
         return ret;
     }
 
     public static void main61(String[] args) {
         int a = 10 * 30;
         int b = 0;
-        for(int i = 0; i < 30; i++) {
+        for (int i = 0; i < 30; i++) {
             b += Math.pow(2, i);
         }
         System.out.println(a + " " + b);
     }
+
     public int calculateMax(int[] prices) {
         int firstBuy = Integer.MIN_VALUE, firstSell = 0;
         int secondBuy = Integer.MIN_VALUE, secondSell = 0;
@@ -1512,7 +1515,7 @@ public class TestDemo {
         for (int curPrice : prices) {
             firstBuy = Math.max(firstBuy, -curPrice);
             firstSell = Math.max(firstSell, firstBuy + curPrice);
-            secondBuy = Math.max(secondBuy,firstSell - curPrice);
+            secondBuy = Math.max(secondBuy, firstSell - curPrice);
             secondSell = Math.max(secondSell, secondBuy + curPrice);
         }
         return secondSell;
@@ -1522,37 +1525,37 @@ public class TestDemo {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         Map<Character, Integer> map = new TreeMap<>();
-        for(char i = 'A'; i <= 'Z'; i++) {
+        for (char i = 'A'; i <= 'Z'; i++) {
             map.put(i, 0);
         }
-        for(int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-            if(Character.isUpperCase(ch)) {
-                if(map.containsKey(ch)) {
+            if (Character.isUpperCase(ch)) {
+                if (map.containsKey(ch)) {
                     map.put(ch, map.get(ch) + 1);
                 } else {
                     map.put(ch, 1);
                 }
             }
         }
-        for(Map.Entry<Character, Integer> entry:map.entrySet()){
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
     }
 
     public static void main63(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             StringBuffer sb = new StringBuffer();
             sb.append(sc.next());
-            String str = sb.reverse().substring(0,sb.length()-2);
+            String str = sb.reverse().substring(0, sb.length() - 2);
             char[] ch = str.toCharArray();
             int sum = 0;
-            for(int i = 0; i < ch.length; i++) {
-                if(ch[i]>='A'&&ch[i]<='F'){
-                    sum+=(Integer.valueOf(ch[i])-55)*Math.pow(16,i);
-                }else {
-                    sum+=(Integer.valueOf(ch[i])-48)*Math.pow(16,i);
+            for (int i = 0; i < ch.length; i++) {
+                if (ch[i] >= 'A' && ch[i] <= 'F') {
+                    sum += (Integer.valueOf(ch[i]) - 55) * Math.pow(16, i);
+                } else {
+                    sum += (Integer.valueOf(ch[i]) - 48) * Math.pow(16, i);
                 }
             }
             System.out.println(sum);
@@ -1562,16 +1565,16 @@ public class TestDemo {
     public static void main64(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        List<Long> list  = new ArrayList<>();
-        for(int i = 0; i < n; i++) {
+        List<Long> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
             int type = sc.nextInt();
             Long num = sc.nextLong();
-            if(type == 1) {
+            if (type == 1) {
                 list.add(num);
             } else {
                 list.remove(num);
             }
-            if(func(list)) {
+            if (func(list)) {
                 System.out.println("Yes");
             } else {
                 System.out.println("No");
@@ -1582,13 +1585,13 @@ public class TestDemo {
     public static boolean func(List<Long> list) {
         int size = list.size();
         //判断是否任意len-1条边之和大于剩余一条边
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             Long num = list.remove(i);
             int sum = 0;
-            for(int j = 0; j < size - 1; j++) {
+            for (int j = 0; j < size - 1; j++) {
                 sum += list.get(j);
             }
-            if(sum <= num) {
+            if (sum <= num) {
                 list.add(i, num); //注意在i位置再把num加进去
                 return false;
             }
@@ -1598,8 +1601,8 @@ public class TestDemo {
     }
 
     public int getLCA(int a, int b) {
-        while(a != b) {
-            if(a > b) {
+        while (a != b) {
+            if (a > b) {
                 a /= 2;
             } else {
                 b /= 2;
@@ -1610,9 +1613,9 @@ public class TestDemo {
 
     public String replaceSpace(String iniString, int length) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             char ch = iniString.charAt(i);
-            if(ch == ' ') {
+            if (ch == ' ') {
                 sb.append("%20");
             } else {
                 sb.append(ch + "");
@@ -1623,19 +1626,19 @@ public class TestDemo {
 
     public int[] arrayPrint(int[][] arr, int n) {
         //打印上半部分
-        int[] array = new int[n*n];
+        int[] array = new int[n * n];
         int index = 0;
-        for(int i = n-1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             int k = i;
-            for(int j = 0; j < n - i; j++) {
+            for (int j = 0; j < n - i; j++) {
                 array[index++] = arr[j][k++];
             }
         }
 
         //打印下半部分
-        for(int i = 1; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             int k = i;
-            for(int j = 0; j < n - i; j++) {
+            for (int j = 0; j < n - i; j++) {
                 array[index++] = arr[k++][j];
             }
         }
@@ -1644,21 +1647,21 @@ public class TestDemo {
 
     public static void main65(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             String str = sc.nextLine();
             char[] a = str.toCharArray();
             int i = 0;
-            int j = str.length()-1;
-            boolean flg  = true;
+            int j = str.length() - 1;
+            boolean flg = true;
             boolean move = true;
-            while(i < a.length / 2 && j >= a.length / 2) {
-                if(a[i] == a[j]) {
+            while (i < a.length / 2 && j >= a.length / 2) {
+                if (a[i] == a[j]) {
                     i++;
                     j--;
-                } else if(j -1 >= 0 && a[i] == a[j-1] && move == true){
+                } else if (j - 1 >= 0 && a[i] == a[j - 1] && move == true) {
                     j--;
                     move = false;
-                } else if(i + 1 >= 0 && a[i+1] == a[j] && move == true) {
+                } else if (i + 1 >= 0 && a[i + 1] == a[j] && move == true) {
                     i++;
                     move = false;
                 } else {
@@ -1666,7 +1669,7 @@ public class TestDemo {
                     break;
                 }
             }
-            if(flg == false) {
+            if (flg == false) {
                 System.out.println("NO");
             } else {
                 System.out.println("YES");
@@ -1676,16 +1679,16 @@ public class TestDemo {
 
     public static void main66(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             String str = sc.nextLine();
             String[] array = str.split(" ");
             Stack<String> stack = new Stack();
-            for(int i = 0; i < array.length; i++) {
+            for (int i = 0; i < array.length; i++) {
                 stack.push(array[i]);
             }
-            while(!stack.empty()) {
+            while (!stack.empty()) {
                 System.out.print(stack.pop());
-                if(!stack.empty() && stack.peek() != null) {
+                if (!stack.empty() && stack.peek() != null) {
                     System.out.print(" ");
                 }
             }
@@ -1694,16 +1697,16 @@ public class TestDemo {
 
     public static void main67(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str1= sc.nextLine();
+        String str1 = sc.nextLine();
         String str2 = sc.nextLine();
         List<Character> list = new ArrayList<>();
-        for(int i = 0; i < str1.length(); i++) {
+        for (int i = 0; i < str1.length(); i++) {
             char ch = str1.charAt(i);
-            if(!str2.contains(ch + "")) {
+            if (!str2.contains(ch + "")) {
                 list.add(ch);
             }
         }
-        for(int k = 0; k < list.size(); k++) {
+        for (int k = 0; k < list.size(); k++) {
             System.out.print(list.get(k));
         }
     }
@@ -1730,26 +1733,27 @@ public class TestDemo {
             System.out.println(x + "," + y);
         }
     }
-    private static boolean isNumber(String s){
-        for (int i = 0; i <s.length() ; i++) {
-            if(!Character.isDigit(s.charAt(i))){
+
+    private static boolean isNumber(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
                 return false;
             }
         }
         return true;
     }
 
-    public static void main69(String[] args){
-        Scanner sc=new Scanner(System.in);
+    public static void main69(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int max = Integer.MIN_VALUE;
         int sum = 0;
         int n = sc.nextInt();
-        while(n-- > 0){
-            sum+=sc.nextInt();
-            if(sum>max){
+        while (n-- > 0) {
+            sum += sc.nextInt();
+            if (sum > max) {
                 max = sum;
             }
-            if(sum<0){
+            if (sum < 0) {
                 sum = 0;
             }
         }
@@ -1778,7 +1782,7 @@ public class TestDemo {
 
     public static void main70(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int year = sc.nextInt();
             int month = sc.nextInt();
             int day = sc.nextInt();
@@ -1789,16 +1793,16 @@ public class TestDemo {
     }
 
     public static int getOutDay(int year, int month, int day) {
-        int [] Day = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31} ;
-        if(year <= 0 || month <= 0 || month > 12 || day <= 0 || day > Day[month-1]) {
+        int[] Day = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if (year <= 0 || month <= 0 || month > 12 || day <= 0 || day > Day[month - 1]) {
             return -1;
         }
         //判断闰年
-        if(year % 400 == 0  || year % 4 == 0 && year % 100 != 0) {
+        if (year % 400 == 0 || year % 4 == 0 && year % 100 != 0) {
             Day[1] = 29;
         }
         int sum = 0;
-        for(int i = 0; i < month - 1; i++) {
+        for (int i = 0; i < month - 1; i++) {
             sum += Day[i];
         }
         sum += day;
@@ -1813,43 +1817,44 @@ public class TestDemo {
         unEncrypt(str2);
     }
 
-    public static void encrypt(String s){
+    public static void encrypt(String s) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0;i < s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if(97 <= ch && ch <= 122){ //小写字母
-                sb.append((char)((ch - 97 + 1) % 26 + 65));
-            }else if(65 <= ch  && ch <= 90){ //大写字母
-                sb.append((char)((ch - 65 + 1) % 26 + 97));
-            } else if(48 <= ch && ch <= 57){
-                sb.append((char)((ch - 48 + 1) % 10 + 48));
+            if (97 <= ch && ch <= 122) { //小写字母
+                sb.append((char) ((ch - 97 + 1) % 26 + 65));
+            } else if (65 <= ch && ch <= 90) { //大写字母
+                sb.append((char) ((ch - 65 + 1) % 26 + 97));
+            } else if (48 <= ch && ch <= 57) {
+                sb.append((char) ((ch - 48 + 1) % 10 + 48));
             } else {
                 sb.append(ch);
             }
         }
         System.out.println(sb);
     }
-    public static void unEncrypt(String s){
+
+    public static void unEncrypt(String s) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0;i < s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if(97 <= ch && ch <= 122){
-                if(ch == 'a'){
+            if (97 <= ch && ch <= 122) {
+                if (ch == 'a') {
                     sb.append('Z');
-                }else{
-                    sb.append((char)((ch - 97 - 1) % 26 + 65));
+                } else {
+                    sb.append((char) ((ch - 97 - 1) % 26 + 65));
                 }
-            } else if(65 <= ch && ch <= 90){
-                if(ch == 'A'){
+            } else if (65 <= ch && ch <= 90) {
+                if (ch == 'A') {
                     sb.append('z');
-                }else{
-                    sb.append((char)((ch - 65 - 1) % 26 + 97));
+                } else {
+                    sb.append((char) ((ch - 65 - 1) % 26 + 97));
                 }
-            } else if(48 <= ch && ch <= 57){
-                if(ch == '0'){
+            } else if (48 <= ch && ch <= 57) {
+                if (ch == '0') {
                     sb.append('9');
-                }else{
-                    sb.append((char)((ch - 48 - 1) % 10 + 48));
+                } else {
+                    sb.append((char) ((ch - 48 - 1) % 10 + 48));
                 }
             } else {
                 sb.append(ch);
@@ -1859,22 +1864,22 @@ public class TestDemo {
     }
 
     public static void main72(String[] args) {
-      //  Scanner sc = new Scanner(System.in);
-      //  int n = sc.nextInt();
-      //  int m = sc.nextInt();
+        //  Scanner sc = new Scanner(System.in);
+        //  int n = sc.nextInt();
+        //  int m = sc.nextInt();
         int m = 5;
         int[] array = new int[5];
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             array[i] = i + 1;
         }
         int i = 0;
-        int j = array.length-1;
-        while(i <= j) {
-            if(array[i] + array[j] == m) {
+        int j = array.length - 1;
+        while (i <= j) {
+            if (array[i] + array[j] == m) {
                 System.out.println(array[i] + " " + array[j]);
                 i++;
                 j--;
-            } else if(array[i] + array[j] < m) {
+            } else if (array[i] + array[j] < m) {
                 i++;
             } else {
                 j--;
@@ -1883,26 +1888,26 @@ public class TestDemo {
 
     }
 
-    public static void main73(String[] args){
-        String symbol="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        String number="222333444555666777788899991234567890";
-        Scanner scanner=new Scanner(System.in);
-        while(scanner.hasNext()){
-            int n=scanner.nextInt();
-            ArrayList<String> arrayList=new ArrayList<String>();
-            for(int i=0;i<n;i++){
-                String str=scanner.next();
-                str=str.replace("-","");
-                String result="";
-                for(int j=0;j<7;j++){
-                    result+=number.charAt(symbol.indexOf(str.charAt(j)+""));
+    public static void main73(String[] args) {
+        String symbol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String number = "222333444555666777788899991234567890";
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            int n = scanner.nextInt();
+            ArrayList<String> arrayList = new ArrayList<String>();
+            for (int i = 0; i < n; i++) {
+                String str = scanner.next();
+                str = str.replace("-", "");
+                String result = "";
+                for (int j = 0; j < 7; j++) {
+                    result += number.charAt(symbol.indexOf(str.charAt(j) + ""));
                 }
-                result=result.substring(0,3)+"-"+result.substring(3,7);
-                if(!arrayList.contains(result))
+                result = result.substring(0, 3) + "-" + result.substring(3, 7);
+                if (!arrayList.contains(result))
                     arrayList.add(result);
             }
             Collections.sort(arrayList);
-            for(int j=0;j<arrayList.size();j++){
+            for (int j = 0; j < arrayList.size(); j++) {
                 System.out.println(arrayList.get(j));
             }
             System.out.println();
@@ -1911,38 +1916,37 @@ public class TestDemo {
 
     public static void main74(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             String str = sc.nextLine();
             // 第一步统一分隔符把只要不是字母的都换成空格
-            for(int i = 0; i < str.length();i++){
+            for (int i = 0; i < str.length(); i++) {
                 char ch = str.charAt(i);
-                if(!isAlphaBelta(ch)) {
-                   ch = ' ';
+                if (!isAlphaBelta(ch)) {
+                    ch = ' ';
                 }
             }
             String[] array = str.split(" ");
             Stack<String> stack = new Stack();
-            for(int i = 0; i < array.length; i++) {
+            for (int i = 0; i < array.length; i++) {
                 stack.push(array[i]);
             }
             StringBuilder sb = new StringBuilder();
-            while(!stack.empty()) {
+            while (!stack.empty()) {
                 sb.append(stack.pop() + " ");
             }
             System.out.println(sb.toString().trim());
         }
     }
 
-    public static boolean isAlphaBelta(char c){
+    public static boolean isAlphaBelta(char c) {
 
-        if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
             return true;
         }
         return false;
     }
 
-    public static void main75(String[] args)
-    {
+    public static void main75(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] sp = sc.nextLine().split("[^a-zA-Z]+");
         StringBuilder sb = new StringBuilder();
@@ -1952,15 +1956,15 @@ public class TestDemo {
         sc.close();
     }
 
-    public static void main76(String[] args){
+    public static void main76(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             String str = scanner.nextLine();
             String[] words = str.split("_");
             String result = words[0];
-            for(int i = 1; i < words.length; i++){
-                result += (char)(words[i].charAt(0)-'a'+'A');
-                for(int j = 1; j < words[i].length(); j++){
+            for (int i = 1; i < words.length; i++) {
+                result += (char) (words[i].charAt(0) - 'a' + 'A');
+                for (int j = 1; j < words[i].length(); j++) {
                     result += words[i].charAt(j);
                 }
             }
@@ -1970,25 +1974,25 @@ public class TestDemo {
 
     public static void main77(String[] args) {
         Scanner read = new Scanner(System.in);
-        while(read.hasNextLine()) {
+        while (read.hasNextLine()) {
             String r = read.nextLine();
             String[] boxs = r.split(" ");
             ArrayList<Character> A = new ArrayList<Character>();
             ArrayList<Character> B = new ArrayList<Character>();
-            for(int i = 0; i < boxs[0].length(); i++) {
+            for (int i = 0; i < boxs[0].length(); i++) {
                 A.add(boxs[0].charAt(i));
             }
-            for(int i = 0; i < boxs[1].length(); i++) {
+            for (int i = 0; i < boxs[1].length(); i++) {
                 B.add(boxs[1].charAt(i));
             }
-            for(int i = 0; i < B.size(); i++) {
-                if(A.contains(B.get(i))) {
+            for (int i = 0; i < B.size(); i++) {
+                if (A.contains(B.get(i))) {
                     A.remove(A.get(A.indexOf(B.get(i))));
                     B.remove(i);
                     i--;
                 }
             }
-            if(B.size() == 0) {
+            if (B.size() == 0) {
                 System.out.println("Yes");
             } else {
                 System.out.println("No");
@@ -2031,25 +2035,25 @@ public class TestDemo {
         }
     }
 
-    public int MoreThanHalfNum_Solution(int [] array) {
+    public int MoreThanHalfNum_Solution(int[] array) {
         int tmp = array[0];
         int count = 0;
-        for(int i = 1; i < array.length; i++) {
-            if(tmp == array[i]) {
+        for (int i = 1; i < array.length; i++) {
+            if (tmp == array[i]) {
                 count++;
-            } else if(count > 0) {
+            } else if (count > 0) {
                 count--;
             } else {
                 tmp = array[i];
             }
         }
         int num = 0;
-        for(int i = 0; i < array.length; i++) {
-            if(tmp == array[i]) {
+        for (int i = 0; i < array.length; i++) {
+            if (tmp == array[i]) {
                 num++;
             }
         }
-        if(num > array.length/2) {
+        if (num > array.length / 2) {
             return tmp;
         } else {
             return 0;
@@ -2060,28 +2064,28 @@ public class TestDemo {
         Scanner cin = new Scanner(System.in);
         while (cin.hasNextInt()) {
             int n = cin.nextInt();          // n 个学生
-            int[] arr = new int [n+1];
-            for (int i = 1; i <=n ; i++) {
+            int[] arr = new int[n + 1];
+            for (int i = 1; i <= n; i++) {
                 arr[i] = cin.nextInt();
             }
             int K = cin.nextInt();            // 选出K个
             int d = cin.nextInt();            // 两个学生的位置编号的差不超过 d
-            long[][] fmax = new long[K+1][n+1]; // 记录最大乘积
-            long[][] fmin = new long[K+1][n+1]; // 记录最小乘积
+            long[][] fmax = new long[K + 1][n + 1]; // 记录最大乘积
+            long[][] fmin = new long[K + 1][n + 1]; // 记录最小乘积
             // fmax[k][i]表示 : 当选中了k个学生，并且以第i个学生为结尾，所产生的最大乘积；
             // fmin[k][i]表示 : 当选中了k个学生，并且以第i个学生为结尾，所产生的最小乘积；
             //初始化第一行
-            long  res = Integer.MIN_VALUE; // 记得用Long类型，考虑数值范围
-            for (int i = 1; i <=n; i++) {
+            long res = Integer.MIN_VALUE; // 记得用Long类型，考虑数值范围
+            for (int i = 1; i <= n; i++) {
                 fmax[1][i] = arr[i];
                 fmin[1][i] = arr[i];
-                for (int k = 2; k <=K; k++) {
-                    for (int j = i-1 ; j > 0 &&  i-j<=d ; j--) {
-                        fmax[k][i] = Math.max(fmax[k][i], Math.max(fmax[k-1][j] * arr[i], fmin[k-1][j] * arr[i]));
-                        fmin[k][i] = Math.min(fmin[k][i], Math.min(fmax[k-1][j] * arr[i], fmin[k-1][j] * arr[i]));
+                for (int k = 2; k <= K; k++) {
+                    for (int j = i - 1; j > 0 && i - j <= d; j--) {
+                        fmax[k][i] = Math.max(fmax[k][i], Math.max(fmax[k - 1][j] * arr[i], fmin[k - 1][j] * arr[i]));
+                        fmin[k][i] = Math.min(fmin[k][i], Math.min(fmax[k - 1][j] * arr[i], fmin[k - 1][j] * arr[i]));
                     }
                 }
-                res = Math.max(res ,fmax[K][i]);
+                res = Math.max(res, fmax[K][i]);
             }
             System.out.println(res);
         }
@@ -2135,42 +2139,43 @@ public class TestDemo {
     }
 
     static int index = 0;
+
     public static int[] clockwisePrint(int[][] mat, int n, int m) {
-        int[] arr = new int[n*m];
-        if(m == 0 || n == 0) {
+        int[] arr = new int[n * m];
+        if (m == 0 || n == 0) {
             return arr;
         }
         int top = 0;
-        int down = n-1;
+        int down = n - 1;
         int left = 0;
-        int right = m-1;
-        while(top <= down && left <= right) {
-            for(int i = left; i <= right; i++) {
+        int right = m - 1;
+        while (top <= down && left <= right) {
+            for (int i = left; i <= right; i++) {
                 arr[index++] = mat[top][i];
             }
-            for(int i = top+1; i <= down; i++) {
+            for (int i = top + 1; i <= down; i++) {
                 arr[index++] = mat[i][right];
             }
-            if(top != down) {
-                for(int i = right-1; i >= left; i--) {
+            if (top != down) {
+                for (int i = right - 1; i >= left; i--) {
                     arr[index++] = mat[down][i];
                 }
             }
-            if(left != right) {
-                for(int i = down-1; i > top; i--) {
+            if (left != right) {
+                for (int i = down - 1; i > top; i--) {
                     arr[index++] = mat[i][left];
                 }
             }
-                left++;
-                top++;
-                right--;
-                down--;
+            left++;
+            top++;
+            right--;
+            down--;
         }
         return arr;
     }
 
     public static void main81(String[] args) {
-        int[][] array = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
+        int[][] array = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         int[] ret = clockwisePrint(array, 3, 3);
         System.out.println(Arrays.toString(ret));
     }
@@ -2178,27 +2183,30 @@ public class TestDemo {
     public int findMaxGap(int[] A, int n) {
         // write code here
         int max = 0;
-        for(int i = 0;i<n;i++){
-            if(max<A[i]){
+        for (int i = 0; i < n; i++) {
+            if (max < A[i]) {
                 max = A[i];
             }
         }
         int ans1 = max - A[0];
         int ans2 = max - A[n - 1];
-        if(ans1 > ans2){
+        if (ans1 > ans2) {
             return ans1;
-        }else{
+        } else {
             return ans2;
         }
     }
 
-    public String Typing (String s) {
+    public String Typing(String s) {
         StringBuilder str = new StringBuilder();
-        for (int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char tmp = s.charAt(i);
-            if(tmp!='<'){str.append(tmp);}
-            else{
-                if(str.length()>=1){str.deleteCharAt(str.length()-1);}
+            if (tmp != '<') {
+                str.append(tmp);
+            } else {
+                if (str.length() >= 1) {
+                    str.deleteCharAt(str.length() - 1);
+                }
             }
         }
         return str.toString();
@@ -2209,8 +2217,10 @@ public class TestDemo {
         TreeNode left;
         TreeNode right;
     }
+
     TreeNode root = null;
-    public boolean isBalance (TreeNode root) {
+
+    public boolean isBalance(TreeNode root) {
         if (root == null) {
             return true;
         }
@@ -2218,7 +2228,7 @@ public class TestDemo {
         int leftHight = maxDepth(root.left);
         int rightHight = maxDepth(root.right);
 
-        return Math.abs(leftHight-rightHight) <= 1 && isBalance(root.left)
+        return Math.abs(leftHight - rightHight) <= 1 && isBalance(root.left)
                 && isBalance(root.right);
     }
 
@@ -2228,12 +2238,12 @@ public class TestDemo {
         }
         int leftHight = maxDepth(root.left);
         int rightHight = maxDepth(root.right);
-        return leftHight > rightHight ? leftHight+1 : rightHight+1;
+        return leftHight > rightHight ? leftHight + 1 : rightHight + 1;
     }
 
     public static void main82(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             String str1 = sc.nextLine();
             String str2 = sc.nextLine();
             encrypty(str1);
@@ -2241,43 +2251,44 @@ public class TestDemo {
         }
     }
 
-    public static void encrypty(String s){
+    public static void encrypty(String s) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0;i < s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if(97 <= ch && ch <= 122){ //小写字母
-                sb.append((char)((ch - 97 + 1) % 26 + 65));
-            }else if(65 <= ch  && ch <= 90){ //大写字母
-                sb.append((char)((ch - 65 + 1) % 26 + 97));
-            } else if(48 <= ch && ch <= 57){
-                sb.append((char)((ch - 48 + 1) % 10 + 48));
+            if (97 <= ch && ch <= 122) { //小写字母
+                sb.append((char) ((ch - 97 + 1) % 26 + 65));
+            } else if (65 <= ch && ch <= 90) { //大写字母
+                sb.append((char) ((ch - 65 + 1) % 26 + 97));
+            } else if (48 <= ch && ch <= 57) {
+                sb.append((char) ((ch - 48 + 1) % 10 + 48));
             } else {
                 sb.append(ch);
             }
         }
         System.out.println(sb);
     }
-    public static void unEncrypty(String s){
+
+    public static void unEncrypty(String s) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0;i < s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if(97 <= ch && ch <= 122){
-                if(ch == 'a'){
+            if (97 <= ch && ch <= 122) {
+                if (ch == 'a') {
                     sb.append('Z');
-                }else{
-                    sb.append((char)((ch - 97 - 1) % 26 + 65));
+                } else {
+                    sb.append((char) ((ch - 97 - 1) % 26 + 65));
                 }
-            } else if(65 <= ch && ch <= 90){
-                if(ch == 'A'){
+            } else if (65 <= ch && ch <= 90) {
+                if (ch == 'A') {
                     sb.append('z');
-                }else{
-                    sb.append((char)((ch - 65 - 1) % 26 + 97));
+                } else {
+                    sb.append((char) ((ch - 65 - 1) % 26 + 97));
                 }
-            } else if(48 <= ch && ch <= 57){
-                if(ch == '0'){
+            } else if (48 <= ch && ch <= 57) {
+                if (ch == '0') {
                     sb.append('9');
-                }else{
-                    sb.append((char)((ch - 48 - 1) % 10 + 48));
+                } else {
+                    sb.append((char) ((ch - 48 - 1) % 10 + 48));
                 }
             } else {
                 sb.append(ch);
@@ -2298,7 +2309,7 @@ public class TestDemo {
         for (int i = 0; i < str.length(); i++) {
             for (int j = i; j < str.length(); j++) {
                 len = j - i;
-                if (func(str.substring(i, j+1))) {
+                if (func(str.substring(i, j + 1))) {
                     if (max < len) {
                         max = len;
                         ret = str.substring(i, j + 1);
@@ -2314,7 +2325,7 @@ public class TestDemo {
 
     private static boolean func(String str) {
         int i = 0;
-        int j = str.length()-1;
+        int j = str.length() - 1;
         while (i < j) {
             if (str.charAt(i) == str.charAt(j)) {
                 i++;
@@ -2355,28 +2366,28 @@ public class TestDemo {
         Scanner cin = new Scanner(System.in);
         while (cin.hasNextInt()) {
             int n = cin.nextInt();          // n 个学生
-            int[] arr = new int [n+1];
-            for (int i = 1; i <=n ; i++) {
+            int[] arr = new int[n + 1];
+            for (int i = 1; i <= n; i++) {
                 arr[i] = cin.nextInt();
             }
             int K = cin.nextInt();            // 选出K个
             int d = cin.nextInt();            // 两个学生的位置编号的差不超过 d
-            long[][] fmax = new long[K+1][n+1]; // 记录最大乘积
-            long[][] fmin = new long[K+1][n+1]; // 记录最小乘积
+            long[][] fmax = new long[K + 1][n + 1]; // 记录最大乘积
+            long[][] fmin = new long[K + 1][n + 1]; // 记录最小乘积
             // fmax[k][i]表示 : 当选中了k个学生，并且以第i个学生为结尾，所产生的最大乘积；
             // fmin[k][i]表示 : 当选中了k个学生，并且以第i个学生为结尾，所产生的最小乘积；
             //初始化第一行
-            long  res = Integer.MIN_VALUE; // 记得用Long类型，考虑数值范围
-            for (int i = 1; i <=n; i++) {
+            long res = Integer.MIN_VALUE; // 记得用Long类型，考虑数值范围
+            for (int i = 1; i <= n; i++) {
                 fmax[1][i] = arr[i];
                 fmin[1][i] = arr[i];
-                for (int k = 2; k <=K; k++) {
-                    for (int j = i-1 ; j > 0 &&  i-j<=d ; j--) {
-                        fmax[k][i] = Math.max(fmax[k][i], Math.max(fmax[k-1][j] * arr[i], fmin[k-1][j] * arr[i]));
-                        fmin[k][i] = Math.min(fmin[k][i], Math.min(fmax[k-1][j] * arr[i], fmin[k-1][j] * arr[i]));
+                for (int k = 2; k <= K; k++) {
+                    for (int j = i - 1; j > 0 && i - j <= d; j--) {
+                        fmax[k][i] = Math.max(fmax[k][i], Math.max(fmax[k - 1][j] * arr[i], fmin[k - 1][j] * arr[i]));
+                        fmin[k][i] = Math.min(fmin[k][i], Math.min(fmax[k - 1][j] * arr[i], fmin[k - 1][j] * arr[i]));
                     }
                 }
-                res = Math.max(res ,fmax[K][i]);
+                res = Math.max(res, fmax[K][i]);
             }
             System.out.println(res);
         }
@@ -2493,21 +2504,21 @@ public class TestDemo {
         }
     }
 
-    public static void main89(String[] args){
+    public static void main89(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()){
-            Map<Integer,Integer> map = new TreeMap<>();
+        while (sc.hasNext()) {
+            Map<Integer, Integer> map = new TreeMap<>();
             String[] strs = sc.nextLine().split(" ");
-            for(int i=0;i<strs.length;i++){
+            for (int i = 0; i < strs.length; i++) {
                 int s = Integer.valueOf(strs[i]);
-                if(map.containsKey(s)){
-                    map.put(s,map.get(s)+1);
-                }else{
-                    map.put(s,1);
+                if (map.containsKey(s)) {
+                    map.put(s, map.get(s) + 1);
+                } else {
+                    map.put(s, 1);
                 }
             }
-            for(Map.Entry<Integer,Integer> entry : map.entrySet()){
-                if(entry.getValue() >= strs.length/2){
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                if (entry.getValue() >= strs.length / 2) {
                     System.out.println(entry.getKey());
                 }
             }
@@ -2516,7 +2527,7 @@ public class TestDemo {
 
     public static void main90(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int n = sc.nextInt();
             float result = (func1(n) / func2(n)) * 100;
             System.out.println(String.format("%.2f", result) + "%");
@@ -2524,34 +2535,34 @@ public class TestDemo {
     }
 
     public static float func1(int n) {
-        if(n == 1) {
+        if (n == 1) {
             return 0;
         }
-        if(n == 2) {
+        if (n == 2) {
             return 1;
         }
-        return (n-1) * (func1(n-2) + func1(n-1));
+        return (n - 1) * (func1(n - 2) + func1(n - 1));
     }
 
     public static float func2(int n) {
-        if(n == 0) {
+        if (n == 0) {
             return 1;
         }
-        return n * func2(n-1);
+        return n * func2(n - 1);
     }
 
     public static void main91(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] array = new int[1000];
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int N = sc.nextInt();
-            for(int i = 0; i < N; i++) {
+            for (int i = 0; i < N; i++) {
                 array[i] = sc.nextInt();
             }
             int score = sc.nextInt();
             int count = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] == score) {
+            for (int i = 0; i < N; i++) {
+                if (array[i] == score) {
                     count++;
                 }
             }
@@ -2560,16 +2571,16 @@ public class TestDemo {
     }
 
     public static void main92(String[] args) {
-        Scanner  sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         char[] array = s.toCharArray();
-        for(char ch : array) {
+        for (char ch : array) {
             String s1 = Integer.toBinaryString(ch); //转为二进制数
             //把s1（十进制）设置格式为7位二进制数
             String s2 = String.format("%07d", Integer.parseInt(s1));
             int count = 0;
-            for(int i = 0; i < 7; i++) {
-                if(s2.charAt(i) == '1') {
+            for (int i = 0; i < 7; i++) {
+                if (s2.charAt(i) == '1') {
                     count++;
                 }
             }
@@ -2580,12 +2591,12 @@ public class TestDemo {
 
     public static void main93(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()) {
+        while (sc.hasNext()) {
             int n = sc.nextInt();
-            int m = (int)Math.pow(n, 2);
-            String s1 = m+"";
+            int m = (int) Math.pow(n, 2);
+            String s1 = m + "";
             String s2 = s1.substring(1);
-            if(s2.length() > 0) { //防止n是个位数，不能截断
+            if (s2.length() > 0) { //防止n是个位数，不能截断
                 int k = Integer.parseInt(s2);
                 if (n == k) {
                     System.out.println("Yes!");
@@ -2597,6 +2608,7 @@ public class TestDemo {
             }
         }
     }
+
     public static void main94(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
@@ -2619,7 +2631,7 @@ public class TestDemo {
 
     public int lengthOfLongestSubstring(String s) {
         //如果s为空，length不大于0，是一个空串，就没有向下执行的必要了
-        if(s != null && s.length() > 0 && s != ""){
+        if (s != null && s.length() > 0 && s != "") {
             //String -> char[]
             char[] strChar = s.toCharArray();
             // 存储最长字串 key:char值，value:index下标
@@ -2627,19 +2639,19 @@ public class TestDemo {
             //临时的字串存储空间
             ArrayList<String> tempStr = new ArrayList<>();
             //循环
-            for(int i=0; i<strChar.length; i++){
+            for (int i = 0; i < strChar.length; i++) {
                 //char -> String
                 String str = new String(new char[]{strChar[i]});
                 //判断str是否存在于tempStr中
-                if(tempStr.contains(str)){
+                if (tempStr.contains(str)) {
                     //先判断tempStr的长度是否大于等于maxStr的长度,大于，才能将最长字串覆盖
-                    if(tempStr.size() > maxStr.size()){
+                    if (tempStr.size() > maxStr.size()) {
                         maxStr = new ArrayList<>(tempStr);
                     }
                     //存储重复字符
                     int reIndex = tempStr.indexOf(str);
                     // 删除tempStr中的重复字节及其之前的字符
-                    for(int j=0;j<=reIndex;j++){
+                    for (int j = 0; j <= reIndex; j++) {
                         tempStr.remove(0);
                     }
                 }
@@ -2647,7 +2659,7 @@ public class TestDemo {
                 tempStr.add(str);
             }
             //最终判断
-            if(tempStr.size() > maxStr.size()){
+            if (tempStr.size() > maxStr.size()) {
                 maxStr = tempStr;
             }
             //返回最长字串的长度
@@ -2696,30 +2708,31 @@ public class TestDemo {
     }
 
     static int index1 = 0;
+
     public int[] spiralOrder(int[][] matrix) {
-        int size = matrix.length*matrix[0].length;
+        int size = matrix.length * matrix[0].length;
         int[] arr = new int[size];
-        if(matrix == null) {
+        if (matrix == null) {
             return null;
         }
         int left = 0;
-        int right = matrix[0].length-1;
+        int right = matrix[0].length - 1;
         int top = 0;
-        int down = matrix.length-1;
-        while(left <= right && top <= down) {
-            for(int i = left; i <= right; i++) {
+        int down = matrix.length - 1;
+        while (left <= right && top <= down) {
+            for (int i = left; i <= right; i++) {
                 arr[index1++] = matrix[top][i];
             }
-            for(int i = top+1; i <= down; i++) {
+            for (int i = top + 1; i <= down; i++) {
                 arr[index1++] = matrix[i][right];
             }
-            if(top != down) {
-                for(int i = right-1; i >= left; i--) {
+            if (top != down) {
+                for (int i = right - 1; i >= left; i--) {
                     arr[index1++] = matrix[down][i];
                 }
             }
-            if(left != right) {
-                for(int i = down-1; i > top; i--) {
+            if (left != right) {
+                for (int i = down - 1; i > top; i--) {
                     arr[index1++] = matrix[i][left];
                 }
             }
@@ -2730,36 +2743,37 @@ public class TestDemo {
         }
         return arr;
     }
+
     public double new21Game(int N, int K, int W) {
-        double[]dp=new double[N+1];
-        double sum=0;
-        dp[0]=1;
-        if(K>0) sum+=1;
-        for(int i=1;i<=N;i++){
-            dp[i]=sum/W;
-            if(i<K) sum+=dp[i];
-            if(i>=W) sum-=dp[i-W];
+        double[] dp = new double[N + 1];
+        double sum = 0;
+        dp[0] = 1;
+        if (K > 0) sum += 1;
+        for (int i = 1; i <= N; i++) {
+            dp[i] = sum / W;
+            if (i < K) sum += dp[i];
+            if (i >= W) sum -= dp[i - W];
         }
-        double ans=0;
-        for(int i=K;i<=N;i++) ans+=dp[i];
+        double ans = 0;
+        for (int i = K; i <= N; i++) ans += dp[i];
         return ans;
     }
 
     public boolean verifyPostorder(int[] postorder) {
-        return verifyPostorderChild(postorder, 0, postorder.length-1);
+        return verifyPostorderChild(postorder, 0, postorder.length - 1);
     }
 
     public boolean verifyPostorderChild(int[] postorder, int i, int j) {
-        if(i >= j) {
+        if (i >= j) {
             return true;
         }
         int p = i;
-        while(postorder[p] < postorder[j]) p++;
+        while (postorder[p] < postorder[j]) p++;
         //p号下标元素大于根节点（右树）
         int m = p;
-        while(postorder[p] > postorder[j]) p++;
-        return p == j && verifyPostorderChild(postorder,i, m-1) &&
-                verifyPostorderChild(postorder,m, j-1);
+        while (postorder[p] > postorder[j]) p++;
+        return p == j && verifyPostorderChild(postorder, i, m - 1) &&
+                verifyPostorderChild(postorder, m, j - 1);
     }
 
      /*
@@ -2769,10 +2783,10 @@ public class TestDemo {
     public int majorityElement(int[] nums) {
         int tmp = nums[0];
         int count = 0;
-        for(int i = 1; i < nums.length; i++) {
-            if(tmp == nums[i]) {
+        for (int i = 1; i < nums.length; i++) {
+            if (tmp == nums[i]) {
                 count++;
-            } else if(count > 0) {
+            } else if (count > 0) {
                 count--;
             } else {
                 tmp = nums[i];
@@ -2781,14 +2795,14 @@ public class TestDemo {
         return tmp;
     }
 
-       public int Fibonacci(int n) {
-      // 初始值
-        if(n <= 0)
+    public int Fibonacci(int n) {
+        // 初始值
+        if (n <= 0)
             return 0;
-            if(n == 1 || n == 2)
+        if (n == 1 || n == 2)
             return 1;
-            // F(n)=F(n-1)+F(n-2)
-            return Fibonacci(n - 1) + Fibonacci(n - 2);
+        // F(n)=F(n-1)+F(n-2)
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 
     public static void main95(String[] args) {
@@ -2800,36 +2814,36 @@ public class TestDemo {
         }
         Arrays.sort(array);
         int tmp = 0;
-        for(int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             tmp ^= array[i];
             array[i] = tmp;
         }
     }
 
     public int Fibonacci1(int n) {
-        if(n <= 0) {
+        if (n <= 0) {
             return 0;
         }
-        int[] arr = new int[n+1];
+        int[] arr = new int[n + 1];
         arr[0] = 0;
         arr[1] = 1;
-        for(int i = 2; i <= n; i++) {
-            arr[i] = arr[i-1] + arr[i-2];
+        for (int i = 2; i <= n; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
         }
         return arr[n];
     }
 
     public int Fibonacci2(int target) {
-        if(target <= 0) {
+        if (target <= 0) {
             return 0;
         }
-        if(target == 1 || target == 2) {
+        if (target == 1 || target == 2) {
             return 1;
         }
         int f1 = 1;
         int f2 = 1;
         int f3 = 0;
-        for(int i = 3; i <= target; i++) {
+        for (int i = 3; i <= target; i++) {
             f3 = f2 + f1;
             f1 = f2;
             f2 = f3;
@@ -2838,11 +2852,11 @@ public class TestDemo {
     }
 
     public int JumpFloorII(int target) {
-        if(target <= 0) {
+        if (target <= 0) {
             return 0;
         }
         //       return 1 << (target-1);
-        return (int) Math.pow(2, target-1);
+        return (int) Math.pow(2, target - 1);
     }
 
     public String longestPalindrome(String s) {
@@ -2885,25 +2899,26 @@ public class TestDemo {
         List<String> res = new ArrayList<>();
         StringBuilder solution = new StringBuilder();
         boolean[] visited = new boolean[n];
-        backtrack(res,solution,n,k,visited);
-        return res.get(k-1);
+        backtrack(res, solution, n, k, visited);
+        return res.get(k - 1);
     }
 
-    void backtrack(List<String> res, StringBuilder solution,int n,int k,boolean[] visited){
-        if( res.size() == k) return;
-        if( solution.length() == n){
+    void backtrack(List<String> res, StringBuilder solution, int n, int k, boolean[] visited) {
+        if (res.size() == k) return;
+        if (solution.length() == n) {
             res.add(solution.toString());
             return;
         }
-        for(int i = 1; i <= n; i++){
-            if(visited[i-1]) continue;
-            visited[i-1] = true;
+        for (int i = 1; i <= n; i++) {
+            if (visited[i - 1]) continue;
+            visited[i - 1] = true;
             solution.append(i);
-            backtrack(res,solution,n,k,visited);
-            visited[i-1]=false;
-            solution.deleteCharAt(solution.length() -1);
+            backtrack(res, solution, n, k, visited);
+            visited[i - 1] = false;
+            solution.deleteCharAt(solution.length() - 1);
         }
     }
+
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
@@ -2957,38 +2972,54 @@ public class TestDemo {
 
     public List<String> letterCombinations(String digits) {
 
-        List<String>list=new ArrayList<>();
-        String []s=new String[digits.length()];
-        int M=digits.length();
-        if(s.length==0){
+        List<String> list = new ArrayList<>();
+        String[] s = new String[digits.length()];
+        int M = digits.length();
+        if (s.length == 0) {
             return list;
         }
-        for(int i=0;i<digits.length();i++){
-            switch (digits.charAt(i)){
-                case '2':s[i]="abc";break;
-                case '3':s[i]="def";break;
-                case '4':s[i]="ghi";break;
-                case '5':s[i]="jkl";break;
-                case '6':s[i]="mno";break;
-                case '7':s[i]="pqrs";break;
-                case '8':s[i]="tuv";break;
-                case '9':s[i]="wxyz";break;
+        for (int i = 0; i < digits.length(); i++) {
+            switch (digits.charAt(i)) {
+                case '2':
+                    s[i] = "abc";
+                    break;
+                case '3':
+                    s[i] = "def";
+                    break;
+                case '4':
+                    s[i] = "ghi";
+                    break;
+                case '5':
+                    s[i] = "jkl";
+                    break;
+                case '6':
+                    s[i] = "mno";
+                    break;
+                case '7':
+                    s[i] = "pqrs";
+                    break;
+                case '8':
+                    s[i] = "tuv";
+                    break;
+                case '9':
+                    s[i] = "wxyz";
+                    break;
             }
         }
-        list=getStringWithFor(s,0,list,"");
+        list = getStringWithFor(s, 0, list, "");
         return list;
     }
 
-    private static List<String> getStringWithFor(String []s,int i,List<String> list,String stemp) {
+    private static List<String> getStringWithFor(String[] s, int i, List<String> list, String stemp) {
 
-        if(i<s.length-1){
-            for(int j=0;j<s[i].length();j++){
-                list=getStringWithFor(s,i+1,list,stemp+s[i].charAt(j));
+        if (i < s.length - 1) {
+            for (int j = 0; j < s[i].length(); j++) {
+                list = getStringWithFor(s, i + 1, list, stemp + s[i].charAt(j));
             }
             i++;
         } else {
-            for(int j=0;j<s[i].length();j++){
-                list.add(stemp+s[i].charAt(j));
+            for (int j = 0; j < s[i].length(); j++) {
+                list.add(stemp + s[i].charAt(j));
             }
         }
         return list;
@@ -2996,26 +3027,26 @@ public class TestDemo {
 
     public String countAndSay(int n) {
         String s = "1";
-        for(int i=2;i<=n;i++){
+        for (int i = 2; i <= n; i++) {
             s = toConver(s);
         }
         return s;
     }
 
-    String toConver(String s){
+    String toConver(String s) {
         int len = s.length();
-        int n=0;
+        int n = 0;
         StringBuilder sb = new StringBuilder();
         char c = s.charAt(0);
-        int i=0;
-        while(i<len){
-            if(c == s.charAt(i)){
+        int i = 0;
+        while (i < len) {
+            if (c == s.charAt(i)) {
                 n++;
                 i++;
-            }else{
+            } else {
                 sb.append(n).append(c);
-                n=1;
-                c=s.charAt(i);
+                n = 1;
+                c = s.charAt(i);
                 i++;
             }
         }
@@ -3024,20 +3055,20 @@ public class TestDemo {
     }
 
     public boolean isScramble(String s1, String s2) {
-        if(s1==null&&s2!=null||s2==null&&s1!=null||s1.length()!=s2.length()) return false;
-        boolean[][][] dp=new boolean[s1.length()][s2.length()][s1.length()+1];
+        if (s1 == null && s2 != null || s2 == null && s1 != null || s1.length() != s2.length()) return false;
+        boolean[][][] dp = new boolean[s1.length()][s2.length()][s1.length() + 1];
         //初始化len=1
         for (int i = 0; i < s1.length(); i++) {//第一个字符串的起点
             for (int j = 0; j < s2.length(); j++) {//第二个字符串的起点
-                if(s1.charAt(i)==s2.charAt(j)) dp[i][j][1]=true;
+                if (s1.charAt(i) == s2.charAt(j)) dp[i][j][1] = true;
             }
         }
-        for (int len = 2; len <=s1.length(); len++) {//区间长度
+        for (int len = 2; len <= s1.length(); len++) {//区间长度
             for (int i = 0; i < s1.length(); i++) {//第一个字符串的起点,终点i+len-1
                 for (int j = 0; j < s2.length(); j++) {//第二个字符串的起点,终点j+len-1
-                    for (int k = 1; k <len; k++) {//左边区间的长度，因为要划分成两个区间，所以左边那个区间的长度是1...len-1（至少为一，至多也得给第二个区间留一个）
-                        if(i+k<s1.length()&&j+k<s1.length()&&j+len-k<s1.length()&&((dp[i][j][k]&&dp[i+k][j+k][len-k])||(dp[i][j+len-k][k]&&dp[i+k][j][len-k]))){
-                            dp[i][j][len]=true;
+                    for (int k = 1; k < len; k++) {//左边区间的长度，因为要划分成两个区间，所以左边那个区间的长度是1...len-1（至少为一，至多也得给第二个区间留一个）
+                        if (i + k < s1.length() && j + k < s1.length() && j + len - k < s1.length() && ((dp[i][j][k] && dp[i + k][j + k][len - k]) || (dp[i][j + len - k][k] && dp[i + k][j][len - k]))) {
+                            dp[i][j][len] = true;
                             break;
                         }
                     }
@@ -3049,7 +3080,7 @@ public class TestDemo {
 
     public List<List<String>> partition(String s) {
         List<List<String>> list = new ArrayList<>();
-        dfs(s,0, new ArrayList<String>(), list);
+        dfs(s, 0, new ArrayList<String>(), list);
         return list;
     }
 
@@ -3064,7 +3095,7 @@ public class TestDemo {
                 continue;
             }
             path.add(s1);
-            dfs(s,i + 1, path, list);
+            dfs(s, i + 1, path, list);
             path.remove(path.size() - 1);
         }
     }
@@ -3084,6 +3115,7 @@ public class TestDemo {
         }
         return true;
     }
+
     public int trap(int[] height) {
         if (height == null) {
             return 0;
@@ -3091,7 +3123,7 @@ public class TestDemo {
         Stack<Integer> stack = new Stack<>();
         int ans = 0;
         for (int i = 0; i < height.length; i++) {
-            while(!stack.isEmpty() && height[stack.peek()] < height[i]) {
+            while (!stack.isEmpty() && height[stack.peek()] < height[i]) {
                 int curIdx = stack.pop();
                 while (!stack.isEmpty() && height[stack.peek()] == height[curIdx]) {
                     stack.pop();
@@ -3118,144 +3150,41 @@ public class TestDemo {
         return step == 0 || dfs(arr, st + step) || dfs(arr, st - step);
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
-            int n = Integer.parseInt(sc.nextLine());
-            for (int i = 0; i < n; i++) {
-                StringBuilder sb = new StringBuilder(sc.nextLine());
+    public int res = 0;
+    int kk = 0;
+    public int kthSmallest(TreeNode root, int k) {
+        //左跟右遍历 找第k个数即可。
+        kk = k;
+        process(root);
+        return res;
 
-            }
-
-        }
     }
-
-    public int maxProduct(int[] nums) {
-        int max = Integer.MIN_VALUE, imax = 1, imin = 1; //一个保存最大的，一个保存最小的。
-        for(int i=0; i<nums.length; i++){
-            if(nums[i] < 0){ int tmp = imax; imax = imin; imin = tmp;} //如果数组的数是负数，那么会导致最大的变最小的，最小的变最大的。因此交换两个的值。
-            imax = Math.max(imax*nums[i], nums[i]);
-            imin = Math.min(imin*nums[i], nums[i]);
-
-            max = Math.max(max, imax);
+    public void process(TreeNode root){
+        if(root == null || kk < 0){
+            return;
         }
-        return max;
+        process(root.left);
+        kk--;
+        if(kk == 0){
+            res = root.val;
+        }
+        process(root.right);
+
     }
-
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int left = (m + n + 1) / 2;
-        int right = (m + n + 2) / 2;
-        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
-    }
-    //i: nums1的起始位置 j: nums2的起始位置
-    public int findKth(int[] nums1, int i, int[] nums2, int j, int k){
-        if( i >= nums1.length) return nums2[j + k - 1];//nums1为空数组
-        if( j >= nums2.length) return nums1[i + k - 1];//nums2为空数组
-        if(k == 1){
-            return Math.min(nums1[i], nums2[j]);
-        }
-        int midVal1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
-        int midVal2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
-        if(midVal1 < midVal2){
-            return findKth(nums1, i + k / 2, nums2, j , k - k / 2);
-        }else{
-            return findKth(nums1, i, nums2, j + k / 2 , k - k / 2);
-        }
-    }
-
-    public String shortestPalindrome(String s) {
-
-        String result = "";
-        // 考虑字符串长度0,1
-        if (s.length() <= 1) {
-            return s;
-        }
-        char[] chars = s.toCharArray();
-        // 思路找到起始位置为0 和结束位置为len-1 的最长回文的长度
-        // 如果回文在左边，则在左边添加，回文在右边，则在右边添加
-        int maxLen = 1;
-        int leftMaxLen = leftPalindromeLength(chars);
-        if (leftMaxLen >= maxLen) {
-            if (leftMaxLen == s.length()) {
-                // 本身就是回文
-                return s;
-            }
-            maxLen = leftMaxLen;
-            result = invertedOrder(s.substring(leftMaxLen, s.length())) + s;
-        }
-        int rightMaxLen = rightPalindromeLength(chars);
-        if (rightMaxLen >= maxLen && rightMaxLen != leftMaxLen) {
-            result = s + invertedOrder(s.substring(0, s.length() - rightMaxLen));
-        }
-        return result;
-    }
-
-    //倒序
-    private static String invertedOrder(String s){
-        StringBuffer result = new StringBuffer();
-        char[] chars = s.toCharArray();
-        for (int i = s.length() - 1; i >= 0; i--) {
-            result.append(chars[i]);
-        }
-        return result.toString();
-    }
-
-    private static int leftPalindromeLength(char[] chars) {
-        int maxLen = 1;
-        int begin;
-        int temp;
-        for (int i = 1; i < chars.length; i++) {
-            begin = 0;
-            temp = i;
-            while (temp >= 0 && chars[begin] == chars[temp]) {
-                if (temp <= (i + 1) / 2 && i + 1 > maxLen) {
-                    maxLen = i + 1;
-                    break;
-                } else if (temp > (i + 1) / 2) {
-                    begin++;
-                    temp--;
-                }
-            }
-        }
-        return maxLen;
-    }
-    private static int rightPalindromeLength(char[] chars) {
-        int maxLen = 1;
-        int begin;
-        int temp;
-        for (int i = chars.length-2; i >0; i--) {
-            begin = chars.length-1;
-            temp = i;
-            while (temp <= chars.length - 1 && chars[begin] == chars[temp]) {
-                if (begin - temp <= (chars.length - i) / 2 && chars.length - i > maxLen) {
-                    maxLen = chars.length - i;
-                    break;
-                } else if (begin - temp > (chars.length - i) / 2) {
-                    begin--;
-                    temp++;
-                }
-            }
-        }public int hammingWeight(int n) {
-            String str = Integer.toBinaryString(n);
-            int count=0;
-            for(int i=0;i<str.length();i++){
-                if(str.charAt(i)=='1')
-                    count++;
-            }
-            return count;
-        }
-        return maxLen;
-    }
-
-
-
-
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
