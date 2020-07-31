@@ -1,63 +1,63 @@
-import java.util.*;
-
+import java.util.Scanner;
+/*
+科大讯飞
+ */
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); //积木的数量
-        int m = sc.nextInt(); //对应的二进制有多少位
-        int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
-            array[i] = sc.nextInt();
-        }
-        System.out.println(1);
-
-    }
-    public static void main2(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             array[i] = sc.nextInt();
         }
-        Set<Integer> set = new HashSet<>();
-        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
+        int target = sc.nextInt();
+        int start = 0;
+        int end = array.length-1;
+        int ret = func(array, target, start, end);
+        System.out.println(ret);
+    }
 
-        for (int i = 0; i < array.length; i++) {
-            if (set.contains(array[i])) {
-                int tmp = array[i];
-                while (set.contains(tmp)) {
-                    set.remove(tmp);
-                    map.remove(tmp);
-                    tmp *= 2;
-                }
-                set.add(tmp);
-                map.put(tmp,i);
-            } else {
-                set.add(array[i]);
-                map.put(array[i],i);
-            }
+    private static int func(int[] array, int target, int start, int end) {
+        if (start > end) {
+            return -1;
         }
-        for (int num:map.keySet()) {
-            System.out.print(num+" ");
+        int mid = start + (end-start)/2;
+        if (target < array[mid]) {
+            return func(array, target, start, end-1);
+        } else if (target > array[mid]) {
+            return func(array, target, mid+1, end);
+        } else {
+            return mid;
         }
     }
+
     public static void main1(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int m = sc.nextInt();
-        int x = sc.nextInt();
-        Queue<Integer> queue = new PriorityQueue<>();
-        for (int i = 0; i < n; i++) {
-            queue.offer(sc.nextInt());
+        if (n <= 1) {
+            System.out.println("0");
         }
-        for (int i = 0; i < m; i++) {
-            int tmp = queue.poll()+x;
-            queue.offer(tmp);
+        if (n == 2) {
+            System.out.println("1");
         }
-        System.out.println(queue.poll());
-
+        if (n == 3) {
+            System.out.println(2);
+        }
+        int[] array = new int[n+1];
+        array[0] = 0;
+        array[1] = 1;
+        array[2] = 2;
+        array[3] = 3;
+        int max = 0; //储存当前最大的f(n)
+        for (int i = 4; i <= n; i++) {
+            for (int j = 1; j <= i/2; j++) { //绳子只需要剪前一段，剪i和剪n-i是相同的效果
+                if (array[j] * array[i-j] > max) {
+                    max = array[j] * array[i-j];
+                }
+                array[i] = max;
+            }
+        }
+        System.out.println(array[n]);
     }
-
-
 }
