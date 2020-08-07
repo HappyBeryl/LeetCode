@@ -1,65 +1,24 @@
-import java.util.*;
-/*
-广联达
- */
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class Main1 {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); //积木的数量
-        int m = sc.nextInt(); //对应的二进制有多少位
-        int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
-            array[i] = sc.nextInt();
-        }
-        System.out.println(1);
-
-    }
-    public static void main2(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
-            array[i] = sc.nextInt();
-        }
-        Set<Integer> set = new HashSet<>();
-        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
-
+    public static void func(String str) {
+        String[] array = str.split(" ");
+        Map<String, Integer> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
         for (int i = 0; i < array.length; i++) {
-            if (set.contains(array[i])) {
-                int tmp = array[i];
-                while (set.contains(tmp)) {
-                    set.remove(tmp);
-                    map.remove(tmp);
-                    tmp *= 2;
-                }
-                set.add(tmp);
-                map.put(tmp,i);
+            if (set.add(array[i])) {
+                map.put(array[i], 1);
             } else {
-                set.add(array[i]);
-                map.put(array[i],i);
+                map.put(array[i], map.get(array[i])+1);
             }
         }
-        for (int num:map.keySet()) {
-            System.out.print(num+" ");
+        System.out.println(array.length); //单词总数
+        System.out.println(map.keySet()); //单词种类
+        for(Map.Entry<String,Integer> entry:map.entrySet()){ //出现次数
+            System.out.println(entry.getKey()+"->"+entry.getValue());
         }
     }
-    public static void main1(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int x = sc.nextInt();
-        Queue<Integer> queue = new PriorityQueue<>();
-        for (int i = 0; i < n; i++) {
-            queue.offer(sc.nextInt());
-        }
-        for (int i = 0; i < m; i++) {
-            int tmp = queue.poll()+x;
-            queue.offer(tmp);
-        }
-        System.out.println(queue.poll());
-
-    }
-
-
 }
