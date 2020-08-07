@@ -1,22 +1,23 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int money = sc.nextInt();
-        int n = sc.nextInt();
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            map.put(sc.nextInt(),sc.nextInt());
+
+    public static void func(String str) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < str.length() - 3; i++) {
+            if (str.charAt(i) == str.charAt(i + 2) && str.charAt(i) != str.charAt(i + 1)) {
+                i += 2;
+            } else {
+                sb.append(str.charAt(i));
+            }
         }
-
-
+        System.out.println(sb);
     }
 
-    public int reletive_7 (int[] digit) {
-        
+    public static void main(String[] args) {
+        func("ABCBACAGFGFUNU");
     }
+
+
+
 
 }
