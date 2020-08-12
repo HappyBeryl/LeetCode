@@ -1,24 +1,28 @@
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.Scanner;
 
 public class Main1 {
-    public static void func(String str) {
+    public static void func(int num) {
+        int tmp = 0;
+        Map<Integer, Integer> map = new LinkedHashMap<>();
+        while (num != 0) {
+            tmp = num % 10;
+            map.put(tmp,tmp);
+            num /= 10;
+        }
+        System.out.println(map.keySet());
+    }
+
+    public static void main1(String[] args) {
+        func(12334);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
         String[] array = str.split(" ");
-        Map<String, Integer> map = new HashMap<>();
-        Set<String> set = new HashSet<>();
-        for (int i = 0; i < array.length; i++) {
-            if (set.add(array[i])) {
-                map.put(array[i], 1);
-            } else {
-                map.put(array[i], map.get(array[i])+1);
-            }
-        }
-        System.out.println(array.length); //单词总数
-        System.out.println(map.keySet()); //单词种类
-        for(Map.Entry<String,Integer> entry:map.entrySet()){ //出现次数
-            System.out.println(entry.getKey()+"->"+entry.getValue());
-        }
+
     }
 }
