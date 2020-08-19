@@ -3171,13 +3171,7 @@ public class TestDemo {
         process(root.right);
     }
 
-    /*
-      //第四种:直接通过Map.entrySet遍历key和value
-    for(Map.Entry<Integer,String> entry:map.entrySet()){
-        System.out.println(entry.getKey()+"->"+entry.getValue());
-    }
-    */
-
+   
 
 
 }
