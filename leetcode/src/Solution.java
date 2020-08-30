@@ -1,6 +1,162 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.*;
 
 public class Solution {
+
+    public String PrintMinNumber2(int [] numbers) {
+        if (numbers == null) {
+            return new String();
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int e: numbers) {
+            list.add(e);
+        }
+        Collections.sort(list, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer x, Integer y) {
+                String xs = x+y+"";
+                String ys = y+x+"";
+                return xs.compareTo(ys);
+            }
+        });
+        String result = new String();
+        for(Integer e : list){
+            result += e;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        while (num > 0) {
+            StringBuffer sb =new StringBuffer(sc.next());
+            int[] start = new int[1];
+            int[] end = new int[1];
+            if (isPar(sb, start, end)) {
+                System.out.println(-1);
+            } else {
+                sb.deleteCharAt(start[0]);
+                if (isPar(sb, null, null)) {
+                    System.out.println(start[0]);
+                } else {
+                    System.out.println(end[0]);
+                }
+            }
+            num--;
+        }
+    }
+
+    private static boolean isPar(StringBuffer sb, int[] start, int[] end) {
+        int i = 0;
+        int j = sb.length()-1;
+        boolean result = true;
+        while (i <= j) {
+            if (sb.charAt(i) != sb.charAt(j)) {
+                result = false;
+                break;
+            }
+            i++;
+            j--;
+        }
+        if (start != null) start[0] = i;
+        if (end != null) end[0] = j;
+        return result;
+    }
+
+    public int FindGreatestSumOfSubArray(int[] array) {
+        int[] dp = new int[array.length];
+        dp[0] = array[0];
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            dp[i] = Math.max(dp[i]+array[i], array[i]);
+            if (dp[i] > max) {
+                max = dp[i];
+            }
+        }
+        return max;
+    }
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        if (input == null || input.length == 0 || k <= 0 || k > input.length) {
+            return null;
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k, Collections.reverseOrder());
+        for (int i = 0; i < input.length; i++) {
+            if (i < k) {
+                queue.add(input[i]);
+            } else {
+                if (queue.peek() > input[i]) {
+                    queue.poll();
+                    queue.add(input[i]);
+                }
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            list.add(queue.poll());
+        }
+        return list;
+    }
+
+
+    public int MoreThanHalfNum_Solution(int [] array) {
+        if (array == null) {
+            return 0;
+        }
+        int target = array[0];
+        int times = 1;
+        for (int i = 1; i < array.length; i++) {
+            if (times == 0) {
+                target = array[i];
+                times = 1;
+            } else if (array[i] == target) {
+                times++;
+            } else {
+                times--;
+            }
+        }
+        times = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == target) {
+                times++;
+            }
+        }
+        return times > array.length/2 ? target : 0;
+    }
+    public ArrayList<String> Permutation(String str) {
+        ArrayList<String> list = new ArrayList<>();
+        if (str.length() > 0 && str != null) {
+            PermutationChild(str.toCharArray(), 0, list);
+        }
+        Collections.sort(list);
+        return list;
+    }
+
+    private void PermutationChild(char[] str, int start, ArrayList<String> list) {
+        if (start == str.length-1) {
+            if (!isExist(list, str)) {
+                list.add(new String(str));
+            }
+            return;
+        }
+        for (int i = start; i < str.length; i++) {
+            Swap(str, start, i);
+            PermutationChild(str, start+1, list);
+            Swap(str, start, i);
+        }
+    }
+
+    private boolean isExist(ArrayList<String> list, char[] str) {
+        return list.contains(String.valueOf(str));
+    }
+
+    private void Swap(char[] str, int i, int j) {
+        char temp = str[i]; str[i] = str[j]; str[j] = temp;
+    }
+
+
     public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         ArrayList<Integer> list = new ArrayList<>();
