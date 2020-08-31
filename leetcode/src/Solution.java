@@ -2,8 +2,155 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.*;
-
 public class Solution {
+    public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
+        num1[0] = 0;
+        num2[0] = 0;
+        int result= array[0];
+        for (int i = 1; i < array.length; i++) {
+            result ^= array[i];
+        }
+
+        int len = Integer.SIZE;
+        int flg = 1;
+        while (len >= 0) {
+            len--;
+            if (((flg << len) & result) != 0) {
+                flg <<= len;
+                break;
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            if ((flg & array[i]) == 0) {
+                num1[0] ^= array[i];
+            } else {
+                num2[0] ^= array[i];
+            }
+        }
+    }
+
+    public ArrayList<ArrayList<Integer> > FindContinuousSequence(int sum) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int low = 1;
+        int high = 2;
+        while (low < high) {
+            int total = (low+high)*(high-low+1)/2;
+            if (total == sum) {
+                ArrayList<Integer> list = new ArrayList<>();
+                for (int i = low; i <= high; i++) {
+                    list.add(i);
+                }
+                result.add(new ArrayList<>(list));
+                low++;
+            } else if (total > sum) {
+                low++;
+            }else {
+                high++;
+            }
+        }
+        return result;
+    }
+    public String LeftRotateString(String str,int n) {
+            if (str == null || str.length() == 0) {
+                return str;
+            }
+            char[] list = str.toCharArray();
+            n %= list.length;
+            while (n > 0) {
+                n--;
+                leftMove(list);
+            }
+            return new String(list);
+        }
+
+        private void leftMove(char[] list) {
+            char tmp = list[0];
+            int i = 0;
+            for (;i < list.length-1;i++) {
+                list[i] = list[i+1];
+            }
+            list[i] = tmp;
+        }
+
+        public String ReverseSentence(String str) {
+            if (str.length() == 0 || str == null) {
+                return str;
+            }
+            int i = 0;
+            int j = i;
+            int size = str.length();
+            char[] list = str.toCharArray();
+            while (i < size) {
+                while (i < size && !Character.isSpaceChar(list[i])) i++;
+                Reverse(list, j, i-1);
+                while (i < size && Character.isSpaceChar(list[i])) i++;
+                j = i;
+            }
+            Reverse(list, j, i-1);
+            Reverse(list, 0, i-1);
+            return new String(list);
+        }
+
+        private void Reverse(char[] list, int j, int i) {
+            while (j < i) {
+                char tmp = list[j];
+                list[j] = list[i];
+                list[i] = tmp;
+                j++;
+                i--;
+            }
+        }
+
+
+    public ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        if (pRoot == null) {
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        stack.push(pRoot);
+        int dir = 1;
+        ArrayList<Integer> list = new ArrayList<>();
+        while (!stack.empty()) {
+            int size = stack.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = stack.pop();
+                list.add(cur.val);
+                TreeNode first = (dir == 1)? cur.left : cur.right;
+                TreeNode second = (dir == 1)? cur.right : cur.left;
+                if (first != null) queue.offer(first);
+                if (second != null) queue.offer(second);
+            }
+            result.add(new ArrayList<>(list));
+            list.clear();
+            while (!queue.isEmpty()) {
+                stack.push(queue.poll());
+            }
+            dir = (dir == 1) ? 2 :1;
+        }
+        return result;
+    }
+    TreeNode KthNode(TreeNode pRoot, int k) {
+        if (k <= 0 || pRoot == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = pRoot;
+        while (node != null && !stack.empty()) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            k--;
+            if (k == 0) {
+               return node;
+            }
+            node = node.right;
+        }
+        return null;
+    }
 
     public String PrintMinNumber2(int [] numbers) {
         if (numbers == null) {
