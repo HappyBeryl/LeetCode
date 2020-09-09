@@ -3,6 +3,58 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.*;
 public class Solution {
+
+    public static void main(String[] args) {
+        int[] a = new int[]{1,2,3,4,5,6,7,8,9,10,0};
+        ArrayList<Integer> list = GetLeastNumbers_Solution1(a, 5);
+        System.out.println(list);
+    }
+
+    public static ArrayList<Integer> GetLeastNumbers_Solution1(int [] input, int k) {
+        ArrayList<Integer> list = new ArrayList<>();
+        if(input == null || k <= 0 || k > input.length){
+            return list;
+        }
+        //按照数值从大到小
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k);
+        for(int i = 0; i < input.length ; i++){
+            if(i < k){
+                queue.offer(input[i]);
+            }else{
+                //每次淘汰最大的，剩下就是最小的
+                if(input[i] < queue.peek()){
+                    queue.poll();
+                    queue.offer(input[i]);
+                }
+            }
+        }
+        //返回对应的结果
+        for(int i = 0 ; i < k; i++){
+            list.add(queue.poll());
+        }
+        return list;
+    }
+
+
+    public int TreeDepth(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root); //将root入队列
+        int depth = 0;
+        while(!q.isEmpty()){
+            int size = q.size(); //获取队列中的元素个数
+            depth++;
+            for(int i = 0; i < size; i++){
+                TreeNode curr = q.poll(); //获取队列头部元素,并在队列中删除
+                if(curr.left != null) q.offer(curr.left);
+                if(curr.right != null) q.offer(curr.right);
+            }
+        }
+        return depth;
+    }
+
     public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
         num1[0] = 0;
         num2[0] = 0;
@@ -131,6 +183,7 @@ public class Solution {
         }
         return result;
     }
+
     TreeNode KthNode(TreeNode pRoot, int k) {
         if (k <= 0 || pRoot == null) {
             return null;
@@ -175,7 +228,7 @@ public class Solution {
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         while (num > 0) {
