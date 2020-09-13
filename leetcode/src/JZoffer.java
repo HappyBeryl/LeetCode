@@ -1190,4 +1190,89 @@ public class JZoffer {
         }
 
 
+    //打印1到最大的n位数
+    public static void printToMaxOfDigits(int n){
+        if(n <= 0){
+            System.out.println("输入的n没有意义");
+            return;
+        }
+        //声明字符数组,用来存放一个大数
+        char number[] = new char[n];
+        for (int i = 0; i < number.length; ++i) { //放字符0进行初始化
+            number[i] = '0';
+        }
+        while(!incrementNumber(number)){ //如果大数自加，直到自溢退出
+            printNumber(number); //打印大数
+        }
+    }
+    //自加
+    private static boolean incrementNumber(char[] number) {
+        boolean isOverflow = false; //判断是否溢出
+        int isOver = 0; //判断是否进位
+        int nLength = number.length;
+        for (int i = nLength - 1; i >= 0 ; --i) {
+            int nSum = number[i] - '0' + isOver; //取到第i位的字符转换为数字 +进位符
+            if(i == nLength - 1){ //末尾自加1
+                ++nSum;
+            }
+            if(nSum >= 10){
+                if(i == 0){
+                    isOverflow = true;
+                }else{
+                    nSum -= 10;
+                    isOver = 1;
+                    number[i] = (char) ('0' + nSum);
+                }
+            }else{
+                number[i] = (char) (nSum + '0');
+                break;
+            }
+        }
+        return isOverflow;
+    }
+    //打印数字
+    private static void printNumber(char[] number) {
+        boolean isBeginning0 = true;
+        int nLength = number.length;
+        for (int i = 0; i < nLength; ++i) {
+            if(isBeginning0 && number[i]!='0'){
+                isBeginning0 = false;
+            }
+            if(!isBeginning0){
+                System.out.print(number[i]);
+            }
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+       // printToMaxOfDigits(3);
+        int[][] arr = new int[3][3];
+        int num = 1;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                arr[i][j] = num++;
+            }
+        }
+        //System.out.println(Arrays.toString(arr));
+        int[] ret = spiralOrder2(arr);
+        System.out.println(Arrays.toString(ret));
+    }
+
+    public static int[] spiralOrder2(int[][] matrix) {
+        if (matrix.length == 0) return new int[0];
+        int l = 0, r = matrix[0].length - 1, t = 0, b = matrix.length - 1, x = 0;
+        int[] res = new int[(r + 1) * (b + 1)];
+        while (true) {
+            for (int i = l; i <= r; i++) res[x++] = matrix[t][i]; // left to right.
+            if ((t++) > b) break;
+            for (int i = t; i <= b; i++) res[x++] = matrix[i][r]; // top to bottom.
+            if (l > (r--)) break;
+            for (int i = r; i >= l; i--) res[x++] = matrix[b][i]; // right to left.
+            if (t > (b--)) break;
+            for (int i = b; i >= t; i--) res[x++] = matrix[i][l]; // bottom to top.
+            if ((l++) > r) break;
+        }
+        return res;
+    }
+
 }
