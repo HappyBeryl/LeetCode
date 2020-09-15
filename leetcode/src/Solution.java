@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.*;
 public class Solution {
 
-    public static void main(String[] args) {
+    public static void main11(String[] args) {
         int[] a = new int[]{1,2,3,4,5,6,7,8,9,10,0};
         ArrayList<Integer> list = GetLeastNumbers_Solution1(a, 5);
         System.out.println(list);
@@ -710,5 +710,24 @@ public class Solution {
             }
         }
         return false;
+    }
+
+    public static void main12(String[] args) {
+        System.out.println(func(new int[]{1, 2, 3, 4, 4, 4, 4, 5,5,5,6,6,6,7,7}, 6));
+    }
+    public static int func(int[] arr, int num) {
+        int count = 1;
+        for (int i = 0; i < arr.length-1; i++) {
+            int j = i+1;
+            while (arr[i] == arr[j] && arr[i] == num) {
+                count++;
+                i++;
+                j++;
+                if (j == arr.length) {
+                    break;
+                }
+            }
+        }
+        return count;
     }
 }
