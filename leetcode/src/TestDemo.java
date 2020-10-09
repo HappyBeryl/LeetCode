@@ -3155,14 +3155,12 @@ public class TestDemo {
     public int kthSmallest(TreeNode root, int k) {
         //左跟右遍历 找第k个数即可。
         kk = k;
-        
         process(root);
         return res;
 
     }
 
     public void process(TreeNode root){
-        
         if(root == null || kk < 0){
             return;
         }
